@@ -18,13 +18,7 @@ export const Register = () => {
 	const [showCp, setShowCp] = useState(false);
 
 	return (
-		<Box
-			w={"100vw"}
-			minH={"100vh"}
-			display={"flex"}
-			justifyContent={"center"}
-			alignItems={"center"}
-		>
+		<Box w={"100vw"} minH={"100vh"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
 			<Box
 				w="60%"
 				display={"flex"}

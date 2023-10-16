@@ -14,7 +14,8 @@ import { useState } from "react";
 import googleImg from "../../assets/google.png";
 
 export const Register = () => {
-	const [show, setShow] = useState(false);
+	const [showP, setShowp] = useState(false);
+	const [showCp, setShowCp] = useState(false);
 
 	return (
 		<Box
@@ -83,7 +84,7 @@ export const Register = () => {
 						<Box display={"flex"}>
 							<InputGroup mb={"20px"} mr={"10px"} w={"50%"}>
 								<Input
-									type={show ? "text" : "password"}
+									type={showP ? "text" : "password"}
 									placeholder="Password"
 									bgColor={"white"}
 									fontSize={"12px"}
@@ -91,24 +92,38 @@ export const Register = () => {
 								<InputRightElement>
 									<Box
 										onClick={() => {
-											setShow(!show);
+											setShowp(!showP);
 										}}
 										size={"xm"}
 										display={"flex"}
 										alignItems={"center"}
 										cursor={"pointer"}
 									>
-										{show ? <ViewOffIcon /> : <ViewIcon />}
+										{showP ? <ViewOffIcon /> : <ViewIcon />}
 									</Box>
 								</InputRightElement>
 							</InputGroup>
-							<Input
-								type="password"
-								placeholder="Confirm Password"
-								bgColor={"white"}
-								fontSize={"12px"}
-                                w={"50%"}
-							/>
+							<InputGroup mb={"20px"} mr={"10px"} w={"50%"}>
+								<Input
+									type={showCp ? "text" : "password"}
+									placeholder="Confirm Password"
+									bgColor={"white"}
+									fontSize={"12px"}
+								/>
+								<InputRightElement>
+									<Box
+										onClick={() => {
+											setShowCp(!showCp);
+										}}
+										size={"xm"}
+										display={"flex"}
+										alignItems={"center"}
+										cursor={"pointer"}
+									>
+										{showCp ? <ViewOffIcon /> : <ViewIcon />}
+									</Box>
+								</InputRightElement>
+							</InputGroup>
 						</Box>
 
 						<Button w={"full"} bgColor={"#6656ff"} color={"white"}>

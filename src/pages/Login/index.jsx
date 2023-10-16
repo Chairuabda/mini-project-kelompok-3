@@ -17,13 +17,7 @@ export const Login = () => {
 	const [show, setShow] = useState(false);
 
 	return (
-		<Box
-			w={"100vw"}
-			minH={"100vh"}
-			display={"flex"}
-			justifyContent={"center"}
-			alignItems={"center"}
-		>
+		<Box w={"100vw"} minH={"100vh"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
 			<Box
 				w="60%"
 				display={"flex"}
@@ -32,7 +26,6 @@ export const Login = () => {
 				borderRadius={"10px"}
 				h={"450px"}
 			>
-				{/* <Box h={"400px"} w={"25%"}  bgColor={"black"} position={"absolute"} zIndex={"10"} opacity={"80%"} borderRadius={"10px"} left={"385px"}></Box> */}
 				<form
 					style={{
 						width: "50%",

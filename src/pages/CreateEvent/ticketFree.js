@@ -16,8 +16,6 @@ import {
   NumberInputStepper,
   NumberIncrementStepper,
   NumberDecrementStepper,
-  InputGroup,
-  InputLeftElement,
   Textarea
   } from '@chakra-ui/react'
   import { useDisclosure } from "@chakra-ui/react";
@@ -59,7 +57,7 @@ import {
 {/* DESKRIPSI TICKET */}
                             <div className="descriptForm">
                                 <FormLabel>Descriptions</FormLabel>
-                                <Textarea placeholder='Here is a sample placeholder' />
+                                <Textarea placeholder='Enter a description of your ticket' />
                             </div>
             </ModalBody>
 

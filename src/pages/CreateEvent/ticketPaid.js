@@ -73,7 +73,7 @@ import {
 {/* DESKRIPSI TIKET */}
                             <div className="descriptForm">
                                 <FormLabel>Descriptions</FormLabel>
-                                <Textarea placeholder='Here is a sample placeholder' />
+                                <Textarea placeholder='Enter a description of your ticket' />
                             </div>
             </ModalBody>
 

@@ -103,7 +103,7 @@ export const Register = () => {
 									</Box>
 								</InputRightElement>
 							</InputGroup>
-							<InputGroup mb={"20px"} mr={"10px"} w={"50%"}>
+							<InputGroup mb={"20px"} w={"50%"}>
 								<Input
 									type={showCp ? "text" : "password"}
 									placeholder="Confirm Password"

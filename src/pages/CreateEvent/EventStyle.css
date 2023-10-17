@@ -1,0 +1,151 @@
+
+  /* STYLING NAVBAR */
+.navbar {
+    background-color: #2b6cb0;
+    font-size: 20px;
+  }
+
+
+
+  /* STYLING CARD */
+  .cardCard {
+      width: 1000px;
+      height: 700px;
+      display: flex;
+      text-align: center;
+      align-items: center;
+      margin-left: 430px;
+      margin-top: 100px
+  }
+  
+  .cardBody {
+      width: 300px;
+      position: absolute;
+      top: 150px;
+      left: 30px
+  }
+
+
+
+
+  /* STYLING FORM KATEGORI */
+  .Categories {
+    position: absolute;
+    top: 120px;
+    left: 4px;
+  
+  }
+  
+  .categoriesInti {
+    width: 255px;
+    position: absolute;
+    top: 100px;
+  }
+
+
+
+
+  /* STYLING FORM TOPIC */
+  .selectTopic {
+    margin-top: 10px;
+    margin-left: -px
+  }
+  
+  .selectTopic2 {
+    margin-top: 10px;
+  }
+
+
+
+  /* STYLING FORM DATE AND TIME */
+  .dateTime {
+    margin-top: 188px;
+  }
+  
+  .dateAndTimeInti {
+    position: absolute;
+    top: 10px;
+  }
+  
+  .dateAndTimeInti2 {
+    position: absolute;
+    top: 15px;
+  }
+  
+  .teksDateTime {
+    margin-left: -190px;
+  }
+  
+  .teksDateTime2 {
+    margin-left: -197px;
+    margin-top: 20px;
+  }
+
+
+
+  /* STYILING FORM COUNTRY */
+  .thisCountry {
+    width: 270px;
+    margin-top: -439px;
+    margin-left: 635px;
+  }
+
+
+
+  /* STYLING FORM ADDRESS */
+  .Address {
+    margin-top: 20px;
+  }
+
+
+
+  /* STYLING FORM CITY */
+  .City {
+    margin-top: 20px;
+  }
+  
+
+
+  
+/* BUTTON PAID TIKET */
+  .ticketButton {
+    width: 500px;
+    height: 300px;
+    margin-left: 400px;
+    margin-top: 20px;
+  }
+  
+
+
+
+/* BUTTON FREE TIKET */
+  .ticketButton2 {
+    width: 505px;
+    height: 300px;
+    margin-left: 60px;
+    margin-top: 20px;
+  }
+  
+
+
+
+/* STYLING FORM JUMLAH TIKET */
+  .numbTicket {
+    margin-top: 20px;
+  }
+  
+
+
+
+/* STYLING FORM HARGA TIKET */
+  .ticketPrice {
+    margin-top: 20px;
+  }
+  
+
+
+
+/* STYILING FORM DESKRIPSI TIKET */
+  .descriptForm {
+    margin-top: 20px;
+  }

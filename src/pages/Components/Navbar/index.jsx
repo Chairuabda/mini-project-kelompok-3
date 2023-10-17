@@ -1,7 +1,13 @@
 import { Box, Input, Text } from "@chakra-ui/react";
+// import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Avatar } from "@chakra-ui/react";
 
 export const Navbar = () => {
+	// eslint-disable-next-line no-unused-vars
+	const [ isLogin, setIsLogin ] = useState(true);
+
 	return (
 		<Box
 			w={"full"}
@@ -39,14 +45,23 @@ export const Navbar = () => {
 						<Text>Discovery</Text>
 					</Link>
 				</Box>
-				<Box display={"flex"} gap={"5"}>
-					<Link to="/login">
-						<Text>Login</Text>
-					</Link>
-					<Link to="/register">
-						<Text>Register</Text>
-					</Link>
-				</Box>
+
+				{isLogin ? (
+					<Box>
+						<Link>
+							<Avatar src="https://bit.ly/broken-link" size={"md"} />
+						</Link>
+					</Box>
+				) : (
+					<Box display={"flex"} gap={"5"}>
+						<Link to="/login">
+							<Text>Login</Text>
+						</Link>
+						<Link to="/register">
+							<Text>Register</Text>
+						</Link>
+					</Box>
+				)}
 			</Box>
 		</Box>
 	);

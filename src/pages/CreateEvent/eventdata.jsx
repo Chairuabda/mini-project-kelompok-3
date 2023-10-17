@@ -1,8 +1,6 @@
-import React from 'react';
 import { Card, CardBody, CardHeader, CardFooter, Heading, FormControl, FormLabel, Input, Select } from '@chakra-ui/react'
 
 const Flyer = () => {
-
 
   return (
     <div>

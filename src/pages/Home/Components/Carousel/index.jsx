@@ -9,14 +9,14 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 // import required modules
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 
-export default function Carousel() {
+export const Carousel = () => {
 	return (
 		<>
 			<Swiper
 				slidesPerView={1}
-				style={{ height: "350px" }}
+				style={{ height: "500px" }}
 				spaceBetween={30}
 				loop={true}
 				autoplay={{
@@ -26,8 +26,7 @@ export default function Carousel() {
 				pagination={{
 					clickable: true,
 				}}
-				navigation={true}
-				modules={[Autoplay, Pagination, Navigation]}
+				modules={[Autoplay, Pagination]}
 				className="mySwiper"
 			>
 				<SwiperSlide>
@@ -99,4 +98,4 @@ export default function Carousel() {
 			</Swiper>
 		</>
 	);
-}
+};

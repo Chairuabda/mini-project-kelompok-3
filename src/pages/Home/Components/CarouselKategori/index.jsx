@@ -10,7 +10,7 @@ import "../../../../../node_modules/swiper/modules/navigation.css";
 // import required modules
 import { Navigation } from "swiper/modules";
 import { Box, Button, Center, Link, Text } from "@chakra-ui/react";
-import { ChevronRightIcon, ChevronLeftIcon } from "@chakra-ui/icons"
+import { ChevronRightIcon, ChevronLeftIcon } from "@chakra-ui/icons";
 import KonserMusik from "../../../../assets/KonserMusik.png";
 import Pendidikan from "../../../../assets/pendidikan.png";
 import Olahraga from "../../../../assets/olahraga.png";
@@ -21,7 +21,7 @@ export const CarouselKategori = () => {
 		<Box
 			mb={"100px"}
 			ml={"80px"}
-			m={{sm: "-40px 10px 100px 50px",md: "0 10px 100px 80px"}}
+			m={{ sm: "-40px 10px 100px 50px", md: "0 10px 100px 80px" }}
 			display={"flex"}
 			flexDirection={"column"}
 		>
@@ -32,11 +32,39 @@ export const CarouselKategori = () => {
 			>
 				Featured Categories
 			</Text>
-			<Box mb={"20px"} display={"flex"} justifyContent={"center"} alignItems={"center"} h={{sm: "90px",md: "150px"}}>
-				<Button className="prev" position={"absolute"} zIndex={10} left={"95px"} size={"xm"} borderRadius={"50%"} fontSize={"28px"} bgColor={"white"}>
+			<Box
+				mb={"20px"}
+				display={"flex"}
+				justifyContent={"center"}
+				alignItems={"center"}
+				h={{ sm: "90px", md: "150px" }}
+			>
+				<Button
+					className="prev"
+					position={"absolute"}
+					zIndex={10}
+					left={"95px"}
+					size={"xm"}
+					borderRadius={"50%"}
+					fontSize={"28px"}
+					bgColor={"white"}
+					_focus={{outline: "none"}}
+					_hover={{border: "none"}}
+				>
 					<ChevronLeftIcon />
-					</Button>
-				<Button className="next" position={"absolute"} zIndex={10} right={4} size={"xm"} borderRadius={"50%"} fontSize={"28px"} bgColor={"white"}>
+				</Button>
+				<Button
+					className="next"
+					position={"absolute"}
+					zIndex={10}
+					right={4}
+					size={"xm"}
+					borderRadius={"50%"}
+					fontSize={"28px"}
+					bgColor={"white"}
+					_focus={{outline: "none"}}
+					_hover={{border: "none"}}
+				>
 					<ChevronRightIcon />
 				</Button>
 				<Swiper
@@ -53,7 +81,7 @@ export const CarouselKategori = () => {
 					navigation={{
 						nextEl: ".next",
 						prevEl: ".prev",
-						clickable: true
+						clickable: true,
 					}}
 					modules={[Navigation]}
 				>
@@ -68,7 +96,6 @@ export const CarouselKategori = () => {
 							display={"flex"}
 							justifyContent={"center"}
 							alignItems={"center"}
-							border={"1px solid black"}
 							color={"white"}
 							h={"100%"}
 							w={"95%"}
@@ -92,7 +119,6 @@ export const CarouselKategori = () => {
 							display={"flex"}
 							justifyContent={"center"}
 							alignItems={"center"}
-							border={"1px solid black"}
 							color={"white"}
 							h={"100%"}
 							w={"95%"}
@@ -116,7 +142,6 @@ export const CarouselKategori = () => {
 							display={"flex"}
 							justifyContent={"center"}
 							alignItems={"center"}
-							border={"1px solid black"}
 							color={"white"}
 							h={"100%"}
 							w={"95%"}
@@ -140,7 +165,6 @@ export const CarouselKategori = () => {
 							display={"flex"}
 							justifyContent={"center"}
 							alignItems={"center"}
-							border={"1px solid black"}
 							color={"white"}
 							h={"100%"}
 							w={"95%"}
@@ -164,7 +188,6 @@ export const CarouselKategori = () => {
 							display={"flex"}
 							justifyContent={"center"}
 							alignItems={"center"}
-							border={"1px solid black"}
 							color={"white"}
 							h={"100%"}
 							w={"95%"}
@@ -188,7 +211,6 @@ export const CarouselKategori = () => {
 							display={"flex"}
 							justifyContent={"center"}
 							alignItems={"center"}
-							border={"1px solid black"}
 							color={"white"}
 							h={"100%"}
 							w={"95%"}
@@ -212,7 +234,6 @@ export const CarouselKategori = () => {
 							display={"flex"}
 							justifyContent={"center"}
 							alignItems={"center"}
-							border={"1px solid black"}
 							color={"white"}
 							h={"100%"}
 							w={"95%"}
@@ -236,7 +257,6 @@ export const CarouselKategori = () => {
 							display={"flex"}
 							justifyContent={"center"}
 							alignItems={"center"}
-							border={"1px solid black"}
 							color={"white"}
 							h={"100%"}
 							w={"95%"}
@@ -260,7 +280,6 @@ export const CarouselKategori = () => {
 							display={"flex"}
 							justifyContent={"center"}
 							alignItems={"center"}
-							border={"1px solid black"}
 							color={"white"}
 							h={"100%"}
 							w={"95%"}
@@ -284,7 +303,6 @@ export const CarouselKategori = () => {
 							display={"flex"}
 							justifyContent={"center"}
 							alignItems={"center"}
-							border={"1px solid black"}
 							color={"white"}
 							h={"100%"}
 							w={"95%"}

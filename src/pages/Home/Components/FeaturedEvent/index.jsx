@@ -1,4 +1,11 @@
-import { Box, Card, Flex, Grid, Image, Spacer } from "@chakra-ui/react";
+import {
+	Box,
+	Card,
+	Flex,
+	Grid,
+	Image,
+	Spacer,
+} from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -30,30 +37,37 @@ export const FeaturedEventHome = () => {
 							<Card
 								key={index}
 								bgColor={"whiteAlpha.600"}
-								p={"10px 10px 20px 10px"}
-								gap={5}
+								p={"0px 0px 20px 0px"}
+								gap={2}
 								fontSize={"14px"}
-                                h={"325px"}
+								h={"350px"}
+								overflow={"hidden"}
+								cursor={"pointer"}
+								outline={"1px solid rgba(0, 0, 0, 0.1)"}
+								_hover={{boxShadow: '0px 0px 13px 10px rgba(0, 0, 0, 0.1)', transform: "scale(1.01)"}}
 							>
-								<Flex direction={"column"} h={"full"}>
-									<Box display={"flex"} flexDirection={"column"} gap={3}>
-										<Image
-											src={data.image}
-											alt=""
-											overflow={"hidden"}
-										/>
+								<Box backgroundImage={data.image} backgroundPosition={"center"} backgroundSize={"contain"} h={"250px"}></Box>
+								<Flex direction={"column"} h={"full"} p={"0px 15px 10px 15px"}>
+									<Box
+										display={"flex"}
+										flexDirection={"column"}
+										gap={3}
+									>
 										<Box>{data.title}</Box>
 										<Box>
 											{data.start_date} - {data.end_date}
 										</Box>
-										<Box fontWeight={700}>
-											{data.price}
-										</Box>
+										<Box fontWeight={700}>{data.price}</Box>
 									</Box>
 
-                                    <Spacer/>
-                                    <hr/>
-									<Box display={"flex"} alignItems={"center"} gap={3} mt={"15px"}>
+									<Spacer />
+									<hr />
+									<Box
+										display={"flex"}
+										alignItems={"center"}
+										gap={3}
+										mt={"15px"}
+									>
 										<Image
 											src={data.image_eo}
 											w={"40px"}

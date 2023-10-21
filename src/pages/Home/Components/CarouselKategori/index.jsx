@@ -18,7 +18,7 @@ import Olahraga from "../../../../assets/olahraga.png";
 
 export const CarouselKategori = () => {
 	return (
-		<Box>
+		<Box display={"flex"} justifyContent={"center"} w={"full"}>
 			<Box
 				display={"flex"}
 				flexDirection={"column"}
@@ -43,7 +43,7 @@ export const CarouselKategori = () => {
 						className="prev"
 						position={"absolute"}
 						zIndex={10}
-						left={"95px"}
+						left={"210px"}
 						size={"xm"}
 						borderRadius={"50%"}
 						fontSize={"28px"}
@@ -57,7 +57,7 @@ export const CarouselKategori = () => {
 						className="next"
 						position={"absolute"}
 						zIndex={10}
-						right={4}
+						right={"185px"}
 						size={"xm"}
 						borderRadius={"50%"}
 						fontSize={"28px"}

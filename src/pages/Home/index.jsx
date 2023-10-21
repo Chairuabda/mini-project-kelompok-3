@@ -2,6 +2,7 @@ import { Box } from "@chakra-ui/react";
 import { Navbar } from "../Components/Navbar";
 import { Carousel } from "./Components/Carousel";
 import { CarouselKategori } from "./Components/CarouselKategori";
+import { FeaturedEventHome } from "./Components/FeaturedEvent";
 
 export const Home = () => {
 	return (
@@ -9,7 +10,7 @@ export const Home = () => {
 			<Navbar />
 			<Carousel />
 			<CarouselKategori />
-			
+			<FeaturedEventHome />
 		</Box>
 	);
 };

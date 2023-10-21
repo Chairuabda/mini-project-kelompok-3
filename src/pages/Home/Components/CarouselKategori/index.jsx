@@ -8,21 +8,37 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Navigation } from "swiper/modules";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Center, Link, Text } from "@chakra-ui/react";
+import KonserMusik from "../../../../assets/KonserMusik.png";
+import Pendidikan from "../../../../assets/pendidikan.png";
+import Olahraga from "../../../../assets/olahraga.png";
+// import { Link } from "react-router-dom";
 
 export const CarouselKategori = () => {
 	return (
-		<Box my={"100px"} mx={"50px"} display={"flex"} flexDirection={"column"}>
-			<Text fontSize={"20px"} ml={"50px"}>Kategori</Text>
-			<Box mb={"100px"} mx={"50px"}>
+		<Box
+			mb={"100px"}
+			mx={"80px"}
+			display={"flex"}
+			flexDirection={"column"}
+		>
+			<Text
+				fontSize={"32px"}
+				fontWeight={600}
+				m={"54px 0px 46px 0px"}
+			>
+				Featured Categories
+			</Text>
+			<Box mb={"20px"}>
 				<Swiper
 					style={{
 						height: "200px",
+						width: "100%",
 						display: "flex",
 						justifyContent: "center",
 						alignItems: "center",
 					}}
-					slidesPerView={5}
+					slidesPerView={3.5}
 					spaceBetween={30}
 					className="mySwiper"
 					navigation={true}
@@ -40,11 +56,15 @@ export const CarouselKategori = () => {
 							justifyContent={"center"}
 							alignItems={"center"}
 							border={"1px solid black"}
-							bgColor={"white"}
+							color={"white"}
 							h={"100%"}
 							w={"95%"}
+							borderRadius={"30px"}
+							backgroundImage={KonserMusik}
+							backgroundSize={"110%"}
+							backgroundPosition={"center"}
 						>
-							1
+							KONSER MUSIK
 						</Box>
 					</SwiperSlide>
 					<SwiperSlide
@@ -59,11 +79,15 @@ export const CarouselKategori = () => {
 							justifyContent={"center"}
 							alignItems={"center"}
 							border={"1px solid black"}
-							bgColor={"white"}
+							color={"white"}
 							h={"100%"}
 							w={"95%"}
+							borderRadius={"30px"}
+							backgroundImage={Olahraga}
+							backgroundSize={"110%"}
+							backgroundPosition={"center"}
 						>
-							2
+							OLAHRAGA
 						</Box>
 					</SwiperSlide>
 					<SwiperSlide
@@ -78,11 +102,15 @@ export const CarouselKategori = () => {
 							justifyContent={"center"}
 							alignItems={"center"}
 							border={"1px solid black"}
-							bgColor={"white"}
+							color={"white"}
 							h={"100%"}
 							w={"95%"}
+							borderRadius={"30px"}
+							backgroundImage={Pendidikan}
+							backgroundSize={"110%"}
+							backgroundPosition={"center"}
 						>
-							3
+							PENDIDIKAN
 						</Box>
 					</SwiperSlide>
 					<SwiperSlide
@@ -97,11 +125,15 @@ export const CarouselKategori = () => {
 							justifyContent={"center"}
 							alignItems={"center"}
 							border={"1px solid black"}
-							bgColor={"white"}
+							color={"white"}
 							h={"100%"}
 							w={"95%"}
+							borderRadius={"30px"}
+							backgroundImage={KonserMusik}
+							backgroundSize={"110%"}
+							backgroundPosition={"center"}
 						>
-							4
+							PENTAS SENI
 						</Box>
 					</SwiperSlide>
 					<SwiperSlide
@@ -116,11 +148,15 @@ export const CarouselKategori = () => {
 							justifyContent={"center"}
 							alignItems={"center"}
 							border={"1px solid black"}
-							bgColor={"white"}
+							color={"white"}
 							h={"100%"}
 							w={"95%"}
+							borderRadius={"30px"}
+							backgroundImage={Pendidikan}
+							backgroundSize={"110%"}
+							backgroundPosition={"center"}
 						>
-							5
+							KONSER MUSIK
 						</Box>
 					</SwiperSlide>
 					<SwiperSlide
@@ -135,11 +171,15 @@ export const CarouselKategori = () => {
 							justifyContent={"center"}
 							alignItems={"center"}
 							border={"1px solid black"}
-							bgColor={"white"}
+							color={"white"}
 							h={"100%"}
 							w={"95%"}
+							borderRadius={"30px"}
+							backgroundImage={Olahraga}
+							backgroundSize={"110%"}
+							backgroundPosition={"center"}
 						>
-							6
+							KONSER MUSIK
 						</Box>
 					</SwiperSlide>
 					<SwiperSlide
@@ -154,11 +194,15 @@ export const CarouselKategori = () => {
 							justifyContent={"center"}
 							alignItems={"center"}
 							border={"1px solid black"}
-							bgColor={"white"}
+							color={"white"}
 							h={"100%"}
 							w={"95%"}
+							borderRadius={"30px"}
+							backgroundImage={KonserMusik}
+							backgroundSize={"110%"}
+							backgroundPosition={"center"}
 						>
-							7
+							KONSER MUSIK
 						</Box>
 					</SwiperSlide>
 					<SwiperSlide
@@ -173,11 +217,15 @@ export const CarouselKategori = () => {
 							justifyContent={"center"}
 							alignItems={"center"}
 							border={"1px solid black"}
-							bgColor={"white"}
+							color={"white"}
 							h={"100%"}
 							w={"95%"}
+							borderRadius={"30px"}
+							backgroundImage={Olahraga}
+							backgroundSize={"110%"}
+							backgroundPosition={"center"}
 						>
-							8
+							KONSER MUSIK
 						</Box>
 					</SwiperSlide>
 					<SwiperSlide
@@ -192,11 +240,15 @@ export const CarouselKategori = () => {
 							justifyContent={"center"}
 							alignItems={"center"}
 							border={"1px solid black"}
-							bgColor={"white"}
+							color={"white"}
 							h={"100%"}
 							w={"95%"}
+							borderRadius={"30px"}
+							backgroundImage={Pendidikan}
+							backgroundSize={"110%"}
+							backgroundPosition={"center"}
 						>
-							9
+							KONSER MUSIK
 						</Box>
 					</SwiperSlide>
 					<SwiperSlide
@@ -211,15 +263,24 @@ export const CarouselKategori = () => {
 							justifyContent={"center"}
 							alignItems={"center"}
 							border={"1px solid black"}
-							bgColor={"white"}
+							color={"white"}
 							h={"100%"}
 							w={"95%"}
+							borderRadius={"30px"}
+							backgroundImage={Olahraga}
+							backgroundSize={"110%"}
+							backgroundPosition={"center"}
 						>
-							10
+							OLAHRAGA
 						</Box>
 					</SwiperSlide>
 				</Swiper>
 			</Box>
+			<Center>
+				<Link fontSize={"20px"} fontWeight={600} color={"home.primary"}>
+					See All Categories
+				</Link>
+			</Center>
 		</Box>
 	);
 };

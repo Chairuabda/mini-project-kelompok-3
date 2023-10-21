@@ -1,25 +1,206 @@
 {
-    "user": [
+	"user": [],
 
-    ],
+	"event": [
+		{
+			"title": "Nama Event",
+			"start_date": "10-21-2023",
+			"end_date": "10-25-2023",
+			"start_time": "00.00",
+			"end_time": "23.59",
+			"lokasi": "Jogja",
+			"image": "/event1.png",
+			"image_eo": "/My Selfie Character.jpg",
+			"eo": "nama EO",
+			"deskripsi": "Description Event",
+			"category_event": "Category",
+            "price": "Rp 100.000",
+			"isComplete": "false",
+            "id": 1
+		},
+		{
+			"title": "Nama Event",
+			"start_date": "10-21-2023",
+			"end_date": "10-25-2023",
+			"start_time": "00.00",
+			"end_time": "23.59",
+			"lokasi": "Jogja",
+			"image": "/event1.png",
+			"image_eo": "/My Selfie Character.jpg",
+			"eo": "nama EO",
+			"deskripsi": "Description Event",
+			"category_event": "Category",
+            "price": "Rp 100.000",
+			"isComplete": "false",
+            "id": 2
+		},
+		{
+			"title": "Nama Event",
+			"start_date": "10-21-2023",
+			"end_date": "10-25-2023",
+			"start_time": "00.00",
+			"end_time": "23.59",
+			"lokasi": "Jogja",
+			"image": "/event1.png",
+			"image_eo": "/My Selfie Character.jpg",
+			"eo": "nama EO",
+			"deskripsi": "Description Event",
+			"category_event": "Category",
+            "price": "Rp 100.000",
+			"isComplete": "false",
+            "id": 3
+		},
+		{
+			"title": "Nama Event",
+			"start_date": "10-21-2023",
+			"end_date": "10-25-2023",
+			"start_time": "00.00",
+			"end_time": "23.59",
+			"lokasi": "Jogja",
+			"image": "/event1.png",
+			"image_eo": "/My Selfie Character.jpg",
+			"eo": "nama EO",
+			"deskripsi": "Description Event",
+			"category_event": "Category",
+            "price": "Rp 100.000",
+			"isComplete": "false",
+            "id": 4
+		},
+		{
+			"title": "Nama Event",
+			"start_date": "10-21-2023",
+			"end_date": "10-25-2023",
+			"start_time": "00.00",
+			"end_time": "23.59",
+			"lokasi": "Jogja",
+			"image": "/event1.png",
+			"image_eo": "/My Selfie Character.jpg",
+			"eo": "nama EO",
+			"deskripsi": "Description Event",
+			"category_event": "Category",
+            "price": "Rp 100.000",
+			"isComplete": "false",
+            "id": 5
+		},
+		{
+			"title": "Nama Event",
+			"start_date": "10-21-2023",
+			"end_date": "10-25-2023",
+			"start_time": "00.00",
+			"end_time": "23.59",
+			"lokasi": "Jogja",
+			"image": "/event1.png",
+			"image_eo": "/My Selfie Character.jpg",
+			"eo": "nama EO",
+			"deskripsi": "Description Event",
+			"category_event": "Category",
+            "price": "Rp 100.000",
+			"isComplete": "false",
+            "id": 6
+		},
+		{
+			"title": "Nama Event",
+			"start_date": "10-21-2023",
+			"end_date": "10-25-2023",
+			"start_time": "00.00",
+			"end_time": "23.59",
+			"lokasi": "Jogja",
+			"image": "/event1.png",
+			"image_eo": "/My Selfie Character.jpg",
+			"eo": "nama EO",
+			"deskripsi": "Description Event",
+			"category_event": "Category",
+            "price": "Rp 100.000",
+			"isComplete": "false",
+            "id": 7
+		},
+		{
+			"title": "Nama Event",
+			"start_date": "10-21-2023",
+			"end_date": "10-25-2023",
+			"start_time": "00.00",
+			"end_time": "23.59",
+			"lokasi": "Jogja",
+			"image": "/event1.png",
+			"image_eo": "/My Selfie Character.jpg",
+			"eo": "nama EO",
+			"deskripsi": "Description Event",
+			"category_event": "Category",
+            "price": "Rp 100.000",
+			"isComplete": "false",
+            "id": 8
+		},
+		{
+			"title": "Nama Event",
+			"start_date": "10-21-2023",
+			"end_date": "10-25-2023",
+			"start_time": "00.00",
+			"end_time": "23.59",
+			"lokasi": "Jogja",
+			"image": "/event1.png",
+			"image_eo": "/My Selfie Character.jpg",
+			"eo": "nama EO",
+			"deskripsi": "Description Event",
+			"category_event": "Category",
+            "price": "Rp 100.000",
+			"isComplete": "false",
+            "id": 9
+		},
+		{
+			"title": "Nama Event",
+			"start_date": "10-21-2023",
+			"end_date": "10-25-2023",
+			"start_time": "00.00",
+			"end_time": "23.59",
+			"lokasi": "Jogja",
+			"image": "/event1.png",
+			"image_eo": "/My Selfie Character.jpg",
+			"eo": "nama EO",
+			"deskripsi": "Description Event",
+			"category_event": "Category",
+            "price": "Rp 100.000",
+			"isComplete": "false",
+            "id": 10
+		},
+		{
+			"title": "Nama Event",
+			"start_date": "10-21-2023",
+			"end_date": "10-25-2023",
+			"start_time": "00.00",
+			"end_time": "23.59",
+			"lokasi": "Jogja",
+			"image": "/event1.png",
+			"image_eo": "/My Selfie Character.jpg",
+			"eo": "nama EO",
+			"deskripsi": "Description Event",
+			"category_event": "Category",
+            "price": "Rp 100.000",
+			"isComplete": "false",
+            "id": 11
+		},
+		{
+			"title": "Nama Event",
+			"start_date": "10-21-2023",
+			"end_date": "10-25-2023",
+			"start_time": "00.00",
+			"end_time": "23.59",
+			"lokasi": "Jogja",
+			"image": "/event1.png",
+			"image_eo": "/My Selfie Character.jpg",
+			"eo": "nama EO",
+			"deskripsi": "Description Event",
+			"category_event": "Category",
+            "price": "Rp 100.000",
+			"isComplete": "false",
+            "id": 12
+		}
+	],
 
-    "event": [
+	"event_attendees": [],
 
-    ],
+	"event_tickets": [],
 
-    "event_attendees": [
+	"transaction": [],
 
-    ],
-
-    "event_tickets": [
-
-    ],
-
-    "transaction": [
-
-    ],
-
-    "transaction_items": [
-        
-    ]
+	"transaction_items": []
 }

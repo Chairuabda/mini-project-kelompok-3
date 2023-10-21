@@ -7,22 +7,41 @@ import {
 	FormLabel,
 	Text,
 	Image,
+	Flex,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import googleImg from "../../assets/google.png";
+import ImgVector from "../../../public/3902762.jpg";
 
 export const Login = () => {
 	const [show, setShow] = useState(false);
 
 	return (
-		<Box w={"100vw"} minH={"100vh"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
+		<Flex
+			w={"100vw"}
+			minH={"100vh"}
+			justify={"center"}
+			align={"center"}
+			color={"black"}
+			direction={"column"}
+		>
+			<Box position={"absolute"} top={"5"}>
+				<Text
+					fontWeight={400}
+					fontSize={"42px"}
+					color={"home.primary"}
+				>
+					ada<span style={{ fontWeight: "200" }}>event</span>
+				</Text>
+			</Box>
 			<Box
 				w="60%"
 				display={"flex"}
 				alignItems={"center"}
-				bgColor={"black"}
+				// bgColor={"home.primary"}
+				boxShadow={"0px 0px 13px 10px rgba(255, 46, 99, 0.2)"}
 				borderRadius={"10px"}
 				h={"450px"}
 			>
@@ -44,7 +63,7 @@ export const Login = () => {
 						justifyContent={"center"}
 						alignItems={"center"}
 					>
-						<FormLabel color={"white"} fontSize={"24px"} mb={"30px"}>
+						<FormLabel fontSize={"24px"} mb={"30px"}>
 							Login
 						</FormLabel>
 						<InputGroup mb={"20px"}>
@@ -75,7 +94,11 @@ export const Login = () => {
 								</Box>
 							</InputRightElement>
 						</InputGroup>
-						<Button w={"full"} bgColor={"#6656ff"} color={"white"}>
+						<Button
+							w={"full"}
+							bgColor={"home.primary"}
+							color={"white"}
+						>
 							Sign in
 						</Button>
 						<Box
@@ -85,7 +108,7 @@ export const Login = () => {
 							flexDirection={"column"}
 							mt={"20px"}
 						>
-							<Text color={"white"} fontSize={"12px"} mb={"10px"}>
+							<Text fontSize={"12px"} mb={"10px"}>
 								Or Sign in with
 							</Text>
 							<Button size={"sm"}>
@@ -99,25 +122,41 @@ export const Login = () => {
 							</Button>
 						</Box>
 					</Box>
-					<Text color={"white"} display={"flex"} fontSize={"14px"}>
+					<Text display={"flex"} fontSize={"14px"}>
 						Belum Punya Akun?
 						<Link to="/register" style={{ marginLeft: "5px" }}>
 							Register
 						</Link>
 					</Text>
 				</form>
-				<Box
+				<Flex
 					w={"50%"}
 					h={"100%"}
-					borderLeft={"1px solid white"}
-					borderLeftRadius={"40%"}
+					// borderLeft={"1px solid black"}
 					display={"flex"}
-					justifyContent={"center"}
-					alignItems={"center"}
+					align={"center"}
+					justify={"center"}
+					flexDirection={"column"}
 				>
-					<Text color={"white"}>Logo</Text>
-				</Box>
+					<Flex
+						borderRadius={"10px"}
+						w={"80%"}
+						h={"50%"}
+						direction={"column"}
+						justify={"center"}
+						align={"center"}
+					>
+						<Image src={ImgVector} h={"full"} />
+					</Flex>
+					<Flex direction={"column"} textAlign={"center"} w={"80%"}>
+						<Text fontWeight={600}>Tidak lagi ketinggalan event favoritmu</Text>
+						<Text fontWeight={400}>
+							Gabung dan rasakan kemudahan bertransaksi dan mengelola
+							event di adatiket.
+						</Text>
+					</Flex>
+				</Flex>
 			</Box>
-		</Box>
+		</Flex>
 	);
 };

@@ -6,12 +6,12 @@ import Banner from "../../../../assets/banner.png"
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 import "swiper/css/navigation";
 
 
 // import required modules
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay, Scrollbar } from "swiper/modules";
 
 export const Carousel = () => {
 	return (
@@ -30,10 +30,11 @@ export const Carousel = () => {
 					delay: 2500,
 					disableOnInteraction: false,
 				}}
-				pagination={{
-					clickable: true,
+				scrollbar={{
+					el: ".swiper-scrollbar",
+					hide: true,
 				}}
-				modules={[Autoplay, Pagination]}
+				modules={[Autoplay, Scrollbar]}
 				className="mySwiper"
 				pag
 			>
@@ -103,6 +104,7 @@ export const Carousel = () => {
 						<Image src={Banner} />
 					</Box>
 				</SwiperSlide>
+				<Box className="swiper-scrollbar" background={"white"} ></Box>
 			</Swiper>
 		</Box>
 	);

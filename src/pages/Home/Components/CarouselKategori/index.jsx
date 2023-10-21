@@ -23,7 +23,6 @@ export const CarouselKategori = () => {
 				display={"flex"}
 				flexDirection={"column"}
 				w="75%"
-				mb="100px"
 			>
 				<Text
 					fontSize={"32px"}
@@ -322,6 +321,7 @@ export const CarouselKategori = () => {
 						fontSize={"20px"}
 						fontWeight={600}
 						color={"home.primary"}
+						textDecoration={"underline"}
 					>
 						See All Categories
 					</Link>

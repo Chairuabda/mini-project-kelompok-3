@@ -46,6 +46,7 @@ export const Navbar = () => {
 						<Input
 							type="text"
 							bgColor={"white"}
+							color={"black"}
 							w={"350px"}
 							borderRadius={"40px"}
 							placeholder="Cari event..."

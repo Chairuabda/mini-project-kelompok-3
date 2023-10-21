@@ -5,6 +5,9 @@ import {
 	Grid,
 	Image,
 	Spacer,
+	Text,
+	Center,
+	Link
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -15,9 +18,6 @@ export const FeaturedEventHome = () => {
 	const dataEvent = async () => {
 		try {
 			const response = await axios.get("http://localhost:3000/event");
-			// for (let i in response.data) {
-			// 	setEvent(response.data[i]);
-			// }
 			setEvent(response.data);
 		} catch (err) {
 			console.log(err);
@@ -29,7 +29,21 @@ export const FeaturedEventHome = () => {
 	}, []);
 
 	return (
-		<Box display={"flex"} justifyContent={"center"} mb={"50px"}>
+		<Flex
+			justify={"center"}
+			align={"center"}
+			direction={"column"}
+			mb={"100px"}
+		>
+			<Flex justify={"start"} w={"75%"}>
+				<Text
+					fontSize={"32px"}
+					fontWeight={600}
+					m={"54px 0px 46px 0px"}
+				>
+					Featured Event
+				</Text>
+			</Flex>
 			<Grid templateColumns="repeat(4, 1fr)" gap={6} w={"75%"}>
 				{event?.length > 0 ? (
 					event.map((data, index) => {
@@ -37,17 +51,29 @@ export const FeaturedEventHome = () => {
 							<Card
 								key={index}
 								bgColor={"whiteAlpha.600"}
-								p={"0px 0px 20px 0px"}
+								p={"0px 0px 10px 0px"}
 								gap={2}
 								fontSize={"14px"}
 								h={"350px"}
 								overflow={"hidden"}
 								cursor={"pointer"}
 								outline={"1px solid rgba(0, 0, 0, 0.1)"}
-								_hover={{boxShadow: '0px 0px 13px 10px rgba(0, 0, 0, 0.1)', transform: "scale(1.01)"}}
+								_hover={{
+									boxShadow: "0px 0px 13px 10px rgba(0, 0, 0, 0.1)",
+									transform: "scale(1.01)",
+								}}
 							>
-								<Box backgroundImage={data.image} backgroundPosition={"center"} backgroundSize={"contain"} h={"250px"}></Box>
-								<Flex direction={"column"} h={"full"} p={"0px 15px 10px 15px"}>
+								<Box
+									backgroundImage={data.image}
+									backgroundPosition={"center"}
+									backgroundSize={"contain"}
+									h={"250px"}
+								></Box>
+								<Flex
+									direction={"column"}
+									h={"full"}
+									p={"0px 15px 10px 15px"}
+								>
 									<Box
 										display={"flex"}
 										flexDirection={"column"}
@@ -84,6 +110,16 @@ export const FeaturedEventHome = () => {
 					<></>
 				)}
 			</Grid>
-		</Box>
+			<Center mt={"30px"}>
+					<Link
+						fontSize={"20px"}
+						fontWeight={600}
+						color={"home.primary"}
+						textDecoration={"underline"}
+					>
+						See All Event
+					</Link>
+				</Center>
+		</Flex>
 	);
 };

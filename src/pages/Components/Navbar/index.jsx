@@ -1,32 +1,56 @@
-import { Box, Input, Text } from "@chakra-ui/react";
+import {
+	Box,
+	Input,
+	Text,
+	InputGroup,
+	InputLeftElement,
+	Button,
+} from "@chakra-ui/react";
 // import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Avatar } from "@chakra-ui/react";
+import { SearchIcon } from "@chakra-ui/icons";
 
 export const Navbar = () => {
 	// eslint-disable-next-line no-unused-vars
-	const [ isLogin, setIsLogin ] = useState(true);
+	const [isLogin, setIsLogin] = useState(false);
 
 	return (
 		<Box
-			w={"full"}
-			h={"10vh"}
-			bgColor={"red"}
+			maxW={"100vw"}
+			h={"70px"}
+			bgColor={"home.primary"}
 			display={"flex"}
 			alignItems={"center"}
 			top={"0"}
+			color={"white"}
 		>
 			<Box
 				w={"55%"}
 				display={"flex"}
-				justifyContent={"space-between"}
-				px={"50px"}
+				// justifyContent={"space-between"}
+				px={"80px"}
 				alignItems={"center"}
 			>
-				<Box>Logo</Box>
-				<Box>
-					<Input type="text" bgColor={"white"} w={"350px"} />
+				<Box fontSize={"34px"}>
+					<Text fontWeight={400}>
+						ada<span style={{ fontWeight: "200" }}>event</span>
+					</Text>
+				</Box>
+				<Box ml={"44px"}>
+					<InputGroup>
+						<InputLeftElement pointerEvents="none">
+							<SearchIcon color="gray.300" h={"16"} />
+						</InputLeftElement>
+						<Input
+							type="text"
+							bgColor={"white"}
+							w={"350px"}
+							borderRadius={"40px"}
+							placeholder="Cari event..."
+						/>
+					</InputGroup>
 				</Box>
 			</Box>
 
@@ -37,31 +61,33 @@ export const Navbar = () => {
 				alignItems={"center"}
 				px={"30px"}
 			>
-				<Box display={"flex"} mr={"80px"} gap={"50"}>
+				<Box display={"flex"} mr={"104px"} gap={"50"} alignItems={"center"}>
 					<Link to="/event">
 						<Text>Create Event</Text>
 					</Link>
 					<Link to="/#">
 						<Text>Discovery</Text>
 					</Link>
+					{isLogin ? (
+						<Box alignItems={"center"}>
+							<Link>
+								<Avatar
+									src="https://bit.ly/broken-link"
+									size={"md"}
+								/>
+							</Link>
+						</Box>
+					) : (
+						<Box display={"flex"} gap={"5"} alignItems={"center"}>
+							<Link to="/login">
+								<Text>Log in</Text>
+							</Link>
+							<Link to="/register">
+								<Button h={"40px"} w={"108px"}>Sign Up</Button>
+							</Link>
+						</Box>
+					)}
 				</Box>
-
-				{isLogin ? (
-					<Box>
-						<Link>
-							<Avatar src="https://bit.ly/broken-link" size={"md"} />
-						</Link>
-					</Box>
-				) : (
-					<Box display={"flex"} gap={"5"}>
-						<Link to="/login">
-							<Text>Login</Text>
-						</Link>
-						<Link to="/register">
-							<Text>Register</Text>
-						</Link>
-					</Box>
-				)}
 			</Box>
 		</Box>
 	);

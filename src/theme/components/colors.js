@@ -1,6 +1,6 @@
 const Colors = {
     home : {
-        primary : "#4e449c",
+        primary : "#FF2E63",
         secondary : "#9c446d",
     }
 }

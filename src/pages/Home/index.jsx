@@ -5,10 +5,11 @@ import { CarouselKategori } from "./Components/CarouselKategori";
 
 export const Home = () => {
 	return (
-		<Box bgColor="home.primary" w={"100vw"} overflowX={"hidden"}>
+		<Box bgColor="white" maxW={"100vw"}>
 			<Navbar />
 			<Carousel />
 			<CarouselKategori />
+			
 		</Box>
 	);
 };

@@ -29,13 +29,15 @@ export const Register = () => {
 			direction={"column"}
 		>
 			<Box position={"absolute"} top={"5"}>
-				<Text
-					fontWeight={400}
-					fontSize={"42px"}
-					color={"home.primary"}
-				>
-					ada<span style={{ fontWeight: "200" }}>event</span>
-				</Text>
+				<Link to="/">
+					<Text
+						fontWeight={400}
+						fontSize={"42px"}
+						color={"home.primary"}
+					>
+						ada<span style={{ fontWeight: "200" }}>event.</span>
+					</Text>
+				</Link>
 			</Box>
 			<Box
 				w="60%"
@@ -66,7 +68,9 @@ export const Register = () => {
 						<Image src={ImgVector} h={"full"} />
 					</Flex>
 					<Flex direction={"column"} textAlign={"center"} w={"80%"}>
-						<Text fontWeight={600}>Tidak lagi ketinggalan event favoritmu</Text>
+						<Text fontWeight={600}>
+							Tidak lagi ketinggalan event favoritmu
+						</Text>
 						<Text fontWeight={400}>
 							Gabung dan rasakan kemudahan bertransaksi dan mengelola
 							event di adatiket.
@@ -154,7 +158,11 @@ export const Register = () => {
 							</InputGroup>
 						</Box>
 
-						<Button w={"full"} bgColor={"home.primary"}>
+						<Button
+							w={"full"}
+							bgColor={"home.primary"}
+							color={"white"}
+						>
 							Sign up
 						</Button>
 						<Box

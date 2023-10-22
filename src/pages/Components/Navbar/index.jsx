@@ -35,7 +35,7 @@ export const Navbar = () => {
 			>
 				<Box fontSize={"34px"}>
 					<Text fontWeight={400}>
-						ada<span style={{ fontWeight: "200" }}>event</span>
+						ada<span style={{ fontWeight: "200" }}>event.</span>
 					</Text>
 				</Box>
 				<Box ml={"44px"}>

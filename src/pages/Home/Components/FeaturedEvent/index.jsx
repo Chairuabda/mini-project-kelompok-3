@@ -84,7 +84,7 @@ export const FeaturedEventHome = () => {
 										<Box>
 											{data.start_date} - {data.end_date}
 										</Box>
-										<Box fontWeight={700}>{data.price}</Box>
+										<Box fontWeight={700} color={"home.primary"}>{data.price}</Box>
 									</Box>
 
 									<Spacer />

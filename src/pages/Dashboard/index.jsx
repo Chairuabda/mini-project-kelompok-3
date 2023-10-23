@@ -7,7 +7,9 @@ export const Dashboard = () => {
 			<Box>
 				<SideBar />
 			</Box>
-			<Box>Dashboard</Box>
+			<Box>
+				Dashboard
+			</Box>
 		</Box>
 	);
 };

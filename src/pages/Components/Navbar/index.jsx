@@ -18,13 +18,15 @@ export const Navbar = () => {
 
 	return (
 		<Box
-			maxW={"100vw"}
+			w={"100vw"}
 			h={"70px"}
 			bgColor={"home.primary"}
 			display={"flex"}
 			alignItems={"center"}
 			top={"0"}
 			color={"white"}
+			position={"fixed"}
+			zIndex={10}
 		>
 			<Box
 				w={"55%"}

@@ -1,4 +1,4 @@
-import { Box, Button } from "@chakra-ui/react";
+import { Box, Button, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -9,11 +9,12 @@ export const SideBar = () => {
 		<Box
 			h={"100vh"}
 			w={isOpen ? "215px" : "60px"}
-			bg={"grey"}
+			bg={"home.primary"}
 			display={"flex"}
 			flexDirection={"column"}
 			justifyContent={"space-between"}
 			transition={"0.2s"}
+			color={"white"}
 		>
 			<Box>
 				<Box
@@ -23,9 +24,58 @@ export const SideBar = () => {
 					bgColor={"blackAlpha.200"}
 					h={"70px"}
 				>
-					<Box>Logo</Box>
+					<Link to="/">
+					<Box fontSize={"34px"} _hover={{ color: "white" }}>
+						<Text fontWeight={400}>
+							ada<span style={{ fontWeight: "200" }}>event.</span>
+						</Text>
+					</Box>
+				</Link>
 				</Box>
-				<Box>
+				<Box display={"flex"} flexDirection={"column"} gap={2} mt={"10px"}>
+					<Button
+						p={"5px 20px 5px 20px"}
+						w={"full"}
+						borderRadius={"0"}
+						cursor={"pointer"}
+						bgColor={"transparent"}
+						color={"white"}
+						border={"none"}
+						outline={"none"}
+						display={"flex"}
+						justifyContent={"start"}
+						_hover={{ bgColor: "blackAlpha.200" }}
+						_focus={{
+							bgColor: "blackAlpha.200",
+							outline: "none",
+						}}
+					>
+						{isOpen ? "Jelajah Event" : "icn"}
+					</Button>
+					<Button
+						p={"5px 20px 5px 20px"}
+						w={"full"}
+						borderRadius={"0"}
+						cursor={"pointer"}
+						bgColor={"transparent"}
+						color={"white"}
+						border={"none"}
+						outline={"none"}
+						display={"flex"}
+						justifyContent={"start"}
+						_hover={{ bgColor: "blackAlpha.200" }}
+						_focus={{
+							bgColor: "blackAlpha.200",
+							outline: "none",
+						}}
+					>
+						{isOpen ? "My Ticket" : "Icn"}
+					</Button>
+
+					<Box p={"5px 20px 5px 20px"}>
+						<hr />
+					</Box>
+
 					<Link to="/dashboard">
 						<Button
 							p={"5px 20px 5px 20px"}
@@ -36,11 +86,11 @@ export const SideBar = () => {
 							border={"none"}
 							outline={"none"}
 							display={"flex"}
+							color={"white"}
 							justifyContent={"start"}
-							_hover={{ bgColor: "red" }}
+							_hover={{ bgColor: "blackAlpha.200" }}
 							_focus={{
-								bgColor: "black",
-								color: "white",
+								bgColor: "blackAlpha.200",
 								outline: "none",
 							}}
 						>
@@ -55,79 +105,20 @@ export const SideBar = () => {
 							borderRadius={"0"}
 							cursor={"pointer"}
 							bgColor={"transparent"}
+							color={"white"}
 							border={"none"}
 							outline={"none"}
 							display={"flex"}
 							justifyContent={"start"}
-							_hover={{ bgColor: "red" }}
+							_hover={{ bgColor: "blackAlpha.200" }}
 							_focus={{
-								bgColor: "black",
-								color: "white",
+								bgColor: "blackAlpha.200",
 								outline: "none",
 							}}
 						>
 							{isOpen ? "My Event" : "icn"}
 						</Button>
 					</Link>
-
-					<Box p={"5px 20px 5px 20px"}>
-						<hr />
-					</Box>
-					<Button
-						p={"5px 20px 5px 20px"}
-						w={"full"}
-						borderRadius={"0"}
-						cursor={"pointer"}
-						bgColor={"transparent"}
-						border={"none"}
-						outline={"none"}
-						display={"flex"}
-						justifyContent={"start"}
-						_hover={{ bgColor: "red" }}
-						_focus={{
-							bgColor: "black",
-							color: "white",
-							outline: "none",
-						}}
-					>
-						{isOpen ? "Jelajah Event" : "icn"}
-					</Button>
-					<Button
-						p={"5px 20px 5px 20px"}
-						w={"full"}
-						borderRadius={"0"}
-						cursor={"pointer"}
-						bgColor={"transparent"}
-						border={"none"}
-						outline={"none"}
-						display={"flex"}
-						justifyContent={"start"}
-						_hover={{ bgColor: "red" }}
-						_focus={{
-							bgColor: "black",
-							color: "white",
-							outline: "none",
-						}}
-					>
-						{isOpen ? "My Ticket" : "Icn"}
-					</Button>
-					<Button
-						p={"5px 20px 5px 20px"}
-						w={"full"}
-						borderRadius={"0"}
-						cursor={"pointer"}
-						bgColor={"transparent"}
-						border={"none"}
-						outline={"none"}
-						display={"flex"}
-						justifyContent={"start"}
-						_hover={{ bgColor: "red" }}
-						_focus={{
-							bgColor: "black",
-							color: "white",
-							outline: "none",
-						}}
-					></Button>
 				</Box>
 			</Box>
 			<Box

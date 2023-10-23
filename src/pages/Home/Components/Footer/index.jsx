@@ -24,15 +24,15 @@ export const Footer = () => {
 			<Center w={"30%"}>
 				<Box>
 					<Link to="/">
-						<Box fontSize={"34px"} _hover={{ color: "white" }}>
+						<Box fontSize={"34px"} _hover={{ color: "white" }} mb={"10px"}>
 							<Text fontWeight={400}>
 								ada<span style={{ fontWeight: "200" }}>event.</span>
 							</Text>
 						</Box>
 					</Link>
 
-					<Box>Copyright © 2023 kelompok 3</Box>
-					<Flex mt={"10px"}>
+					<Box>Copyright © 2023 Kelompok 3</Box>
+					<Flex mt={"10px"} gap={5}>
 						<Button
 							variant={"ghost"}
 							color={"white"}
@@ -42,7 +42,8 @@ export const Footer = () => {
 							}}
 							_focus={{ outline: "none", border: "home.primary" }}
                             _active={{ bgColor: "transparant" }}
-                            size={"sm"}
+                            size={"xm"}
+							w={"fit-content"}
 						>
 							<InstagramLogo size={24} />
 						</Button>
@@ -55,7 +56,7 @@ export const Footer = () => {
 							}}
 							_focus={{ outline: "none", border: "home.primary" }}
                             _active={{ bgColor: "transparant" }}
-                            size={"sm"}
+                            size={"xm"}
 						>
 							<YoutubeLogo size={24} />
 						</Button>
@@ -68,7 +69,7 @@ export const Footer = () => {
 							}}
 							_focus={{ outline: "none", border: "home.primary" }}
                             _active={{ bgColor: "transparant" }}
-                            size={"sm"}
+                            size={"xm"}
 						>
 							<TwitterLogo size={24} />
 						</Button>

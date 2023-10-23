@@ -15,8 +15,8 @@ import { Autoplay, Scrollbar } from "swiper/modules";
 
 export const Carousel = () => {
 	return (
-		<Box display={"flex"} alignItems={"center"} h={"500px"}>
-			<Box position={"absolute"} zIndex={10} color={"white"} left={20}>
+		<Box display={"flex"} alignItems={"center"} h={"500px"} mt={"70px"}>
+			<Box position={"absolute"} zIndex={5} color={"white"} left={20}>
 				<Text fontSize={"48px"} fontWeight={300}>Temukan tiket konser</Text>
 				<Text fontSize={"48px"} fontWeight={700} mt={"-15px"}>Band Favoritmu</Text>
 				<Button bgColor={"home.primary"} color={"white"} size={"sm"} w={"110px"} h={"40px"} fontSize={"16px"} fontWeight={300} mt={"30px"}>Beli Disini</Button>

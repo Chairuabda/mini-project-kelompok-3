@@ -33,11 +33,13 @@ export const Navbar = () => {
 				px={"80px"}
 				alignItems={"center"}
 			>
-				<Box fontSize={"34px"}>
-					<Text fontWeight={400}>
-						ada<span style={{ fontWeight: "200" }}>event</span>
-					</Text>
-				</Box>
+				<Link to="/">
+					<Box fontSize={"34px"} _hover={{ color: "white" }}>
+						<Text fontWeight={400}>
+							ada<span style={{ fontWeight: "200" }}>event.</span>
+						</Text>
+					</Box>
+				</Link>
 				<Box ml={"44px"}>
 					<InputGroup>
 						<InputLeftElement pointerEvents="none">
@@ -62,7 +64,12 @@ export const Navbar = () => {
 				alignItems={"center"}
 				px={"30px"}
 			>
-				<Box display={"flex"} mr={"104px"} gap={"50"} alignItems={"center"}>
+				<Box
+					display={"flex"}
+					mr={"104px"}
+					gap={"50"}
+					alignItems={"center"}
+				>
 					<Link to="/event">
 						<Text>Create Event</Text>
 					</Link>
@@ -84,7 +91,9 @@ export const Navbar = () => {
 								<Text>Log in</Text>
 							</Link>
 							<Link to="/register">
-								<Button h={"40px"} w={"108px"}>Sign Up</Button>
+								<Button h={"40px"} w={"108px"}>
+									Sign Up
+								</Button>
 							</Link>
 						</Box>
 					)}

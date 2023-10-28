@@ -18,7 +18,6 @@ export const FeaturedEventHome = () => {
 	const dataEvent = async () => {
 		try {
 			const response = await axios.get("http://localhost:3000/event");
-			console.log(response.data)
 			setEvent(response.data);
 		} catch (err) {
 			console.log(err);

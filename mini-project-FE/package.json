@@ -1,7 +1,7 @@
 {
   "name": "miniproject",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -14,14 +14,16 @@
     "@chakra-ui/react": "^2.8.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@reduxjs/toolkit": "^1.9.7",
     "@phosphor-icons/react": "^2.0.13",
     "axios": "^1.5.1",
     "formik": "^2.4.5",
     "framer-motion": "^10.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.1.3",
+    "react-scripts": "5.0.1",
     "react-router-dom": "^6.16.0",
-    "referral-codes": "^3.0.0",
     "swiper": "^10.3.1",
     "yup": "^1.3.2"
   },

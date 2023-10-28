@@ -7,14 +7,14 @@ import {
 	Button,
 } from "@chakra-ui/react";
 // import React from "react";
-import { useState } from "react";
+// import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Avatar } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
+import { PopoverProfile } from "./components/popoverProfile";
 
 export const Navbar = () => {
-	// eslint-disable-next-line no-unused-vars
-	const [isLogin, setIsLogin] = useState(false);
+
+	const token = localStorage.getItem("token")
 
 	return (
 		<Box
@@ -68,7 +68,7 @@ export const Navbar = () => {
 			>
 				<Box
 					display={"flex"}
-					mr={"104px"}
+					mr={"14px"}
 					gap={"50"}
 					alignItems={"center"}
 				>
@@ -78,15 +78,8 @@ export const Navbar = () => {
 					<Link to="/#">
 						<Text>Discovery</Text>
 					</Link>
-					{isLogin ? (
-						<Box alignItems={"center"}>
-							<Link>
-								<Avatar
-									src="https://bit.ly/broken-link"
-									size={"md"}
-								/>
-							</Link>
-						</Box>
+					{token ? (
+						<PopoverProfile/>
 					) : (
 						<Box display={"flex"} gap={"5"} alignItems={"center"}>
 							<Link to="/login">

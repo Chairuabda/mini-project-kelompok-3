@@ -14,17 +14,12 @@ import { GoogleButton } from "../../components/google-button";
 import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 import { login } from "../../../../../redux/reducer/authReducer";
-// import { AllAlert } from "../../../Components/Alert";
 
 export const LoginSection = () => {
 	const [show, setShow] = useState(false);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	// console.log(dispatch())
 
-	// const Alerts = () => {
-	// 	return <AllAlert />;
-	// };
 
 	const formik = useFormik({
 		initialValues: {
@@ -33,8 +28,7 @@ export const LoginSection = () => {
 		},
 		onSubmit: async (values) => {
 			dispatch(login(values.email, values.password));
-			// Alerts();
-			navigate("/");
+			navigate("/")
 		},
 	});
 

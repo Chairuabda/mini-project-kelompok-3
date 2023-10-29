@@ -25,56 +25,40 @@ export const SideBar = () => {
 					h={"70px"}
 				>
 					<Link to="/">
-					<Box fontSize={"34px"} _hover={{ color: "white" }}>
-						<Text fontWeight={400}>
-							ada<span style={{ fontWeight: "200" }}>event.</span>
-						</Text>
-					</Box>
-				</Link>
+						<Box fontSize={"34px"} _hover={{ color: "white" }}>
+							<Text fontWeight={400}>
+								ada<span style={{ fontWeight: "200" }}>event.</span>
+							</Text>
+						</Box>
+					</Link>
 				</Box>
-				<Box display={"flex"} flexDirection={"column"} gap={2} mt={"10px"}>
-					<Button
-						p={"5px 20px 5px 20px"}
-						w={"full"}
-						borderRadius={"0"}
-						cursor={"pointer"}
-						bgColor={"transparent"}
-						color={"white"}
-						border={"none"}
-						outline={"none"}
-						display={"flex"}
-						justifyContent={"start"}
-						_hover={{ bgColor: "blackAlpha.200" }}
-						_focus={{
-							bgColor: "blackAlpha.200",
-							outline: "none",
-						}}
-					>
-						{isOpen ? "Jelajah Event" : "icn"}
-					</Button>
-					<Button
-						p={"5px 20px 5px 20px"}
-						w={"full"}
-						borderRadius={"0"}
-						cursor={"pointer"}
-						bgColor={"transparent"}
-						color={"white"}
-						border={"none"}
-						outline={"none"}
-						display={"flex"}
-						justifyContent={"start"}
-						_hover={{ bgColor: "blackAlpha.200" }}
-						_focus={{
-							bgColor: "blackAlpha.200",
-							outline: "none",
-						}}
-					>
-						{isOpen ? "My Ticket" : "Icn"}
-					</Button>
-
-					<Box p={"5px 20px 5px 20px"}>
-						<hr />
-					</Box>
+				<Box
+					display={"flex"}
+					flexDirection={"column"}
+					gap={2}
+					mt={"10px"}
+				>
+					<Link to="/discovery">
+						<Button
+							p={"5px 20px 5px 20px"}
+							w={"full"}
+							borderRadius={"0"}
+							cursor={"pointer"}
+							bgColor={"transparent"}
+							color={"white"}
+							border={"none"}
+							outline={"none"}
+							display={"flex"}
+							justifyContent={"start"}
+							_hover={{ bgColor: "blackAlpha.200" }}
+							_focus={{
+								bgColor: "blackAlpha.200",
+								outline: "none",
+							}}
+						>
+							{isOpen ? "Jelajah Event" : "icn"}
+						</Button>
+					</Link>
 
 					<Link to="/dashboard">
 						<Button
@@ -94,7 +78,33 @@ export const SideBar = () => {
 								outline: "none",
 							}}
 						>
-							{isOpen ? "Dashboard" : "Icn"}
+							{isOpen ? "Profile" : "Icn"}
+						</Button>
+					</Link>
+
+					<Box p={"5px 20px 5px 20px"}>
+						<hr />
+					</Box>
+
+					<Link to="/myticket">
+						<Button
+							p={"5px 20px 5px 20px"}
+							w={"full"}
+							borderRadius={"0"}
+							cursor={"pointer"}
+							bgColor={"transparent"}
+							color={"white"}
+							border={"none"}
+							outline={"none"}
+							display={"flex"}
+							justifyContent={"start"}
+							_hover={{ bgColor: "blackAlpha.200" }}
+							_focus={{
+								bgColor: "blackAlpha.200",
+								outline: "none",
+							}}
+						>
+							{isOpen ? "My Ticket" : "Icn"}
 						</Button>
 					</Link>
 

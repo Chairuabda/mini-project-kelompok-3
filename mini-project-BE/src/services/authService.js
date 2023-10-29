@@ -1,4 +1,4 @@
-const { registerQuery } = require("../queries/authQuery");
+const { registerQuery, keepLoginQuery } = require("../queries/authQuery");
 const { findUserQuery } = require("../queries/userQuery");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
@@ -55,4 +55,16 @@ const loginService = async (email, password) => {
     }
 }
 
-module.exports = { registerService, loginService };
+const keepLoginService = async (id) => {
+	try {
+		const res = await keepLoginQuery(id)
+
+		if(!res) throw new Error("User doesnt exist");
+
+		return res
+	} catch (err) {
+		throw err
+	}
+} 
+
+module.exports = { registerService, loginService, keepLoginService };

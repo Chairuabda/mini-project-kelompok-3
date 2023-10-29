@@ -15,7 +15,7 @@ const registerQuery = async (
 				email,
 				password,
 				fullname,
-				coin: 0,
+				coin: 5000,
 			});
 		});
 	} catch (err) {
@@ -23,4 +23,18 @@ const registerQuery = async (
 	}
 };
 
-module.exports = { registerQuery };
+const keepLoginQuery = async (id) => {
+  try {
+    const res = await user.findByPk(id, {
+      attributes: { 	
+        exclude: ["password"],
+      },
+    });
+
+    return res;
+  } catch (err) {
+    throw err;
+  }
+};
+
+module.exports = { registerQuery, keepLoginQuery };

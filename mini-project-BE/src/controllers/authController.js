@@ -1,6 +1,7 @@
 const {
 	registerService,
 	loginService,
+	keepLoginService,
 } = require("../services/authService");
 
 const registerController = async (req, res) => {
@@ -35,4 +36,21 @@ const loginController = async (req, res) => {
 	}
 };
 
-module.exports = { registerController, loginController };
+const keepLoginController = async (req, res) => {
+	try {
+		const { id } = req.user;
+
+		const result = await keepLoginService(id)
+		console.log(result)
+
+		return res.status(200).json({
+			message: 'Keep Login',
+			data: result,
+		})
+
+	} catch (err) {
+		res.status(500).send(err.message)
+	}
+}
+
+module.exports = { registerController, loginController, keepLoginController };

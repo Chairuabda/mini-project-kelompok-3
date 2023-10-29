@@ -23,12 +23,18 @@ export const PopoverProfile = () => {
 				variant={"ghost"}
 				size={"xm"}
 				border={"none"}
-				_hover={{ bgColor: "transparant", border: "none" }}
+				_hover={{ bgColor: "transparant", border: "none", fillOpacity:"50%" }}
 				_active={{ bgColor: "transparant" }}
+				bgColor={"red"}
+				display={"flex"}
+				justifyContent={"center"}
+				borderRadius={"50%"}
+				p={"2.5px"}
+				outline={"1px solid white"}
 			>
 				<PopoverTrigger>
 					<Link>
-						<Avatar src="https://bit.ly/broken-link" size={"md"} />
+						<Avatar src="https://bit.ly/broken-link" size={"sm"} />
 					</Link>
 				</PopoverTrigger>
 			</Button>

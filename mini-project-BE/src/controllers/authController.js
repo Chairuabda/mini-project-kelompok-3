@@ -41,7 +41,6 @@ const keepLoginController = async (req, res) => {
 		const { id } = req.user;
 
 		const result = await keepLoginService(id)
-		console.log(result)
 
 		return res.status(200).json({
 			message: 'Keep Login',

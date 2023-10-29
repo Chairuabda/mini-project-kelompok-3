@@ -13,7 +13,7 @@ export const Register = () => {
 			color={"black"}
 			direction={"column"}
 		>
-			<Logo />
+			<Logo posisi="absolute"/>
 			<Box
 				w="60%"
 				display={"flex"}

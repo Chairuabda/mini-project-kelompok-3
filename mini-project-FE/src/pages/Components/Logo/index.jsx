@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import { Box, Text } from "@chakra-ui/react"
 import { Link } from "react-router-dom"
 
-export const Logo = () => {
+export const Logo = (props) => {
   return (
-    <Box position={"absolute"} top={"5"}>
+    <Box position={`${props.posisi}`} top={"5"}>
 				<Link to="/">
 					<Text
 						fontWeight={400}

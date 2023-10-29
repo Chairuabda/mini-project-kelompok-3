@@ -11,7 +11,7 @@ import {
 	FormControl,
 	FormLabel,
 	FormHelperText,
-  Image
+	Image,
 } from "@chakra-ui/react";
 
 export const Profile = () => {
@@ -19,69 +19,83 @@ export const Profile = () => {
 	console.log(user);
 
 	return (
-		<Center w={"full"} h={"full"}>
-			<Box w={"100%"} h={"80%"} px={"70px"}>
-				<Box
-					fontSize={"20px"}
-					py={"10px"}
-					borderBottom={"1px solid black"}
-				>
-					<Text>Profile</Text>
-				</Box>
+		<Box>
+			<Box
+				fontSize={"20px"}
+				py={"20px"}
+				borderBottom={"2px solid"}
+        borderBottomColor={"gray.300"}
+        px={"30px"}
+        justifyContent={"space-between"}
+        display={"flex"}
+			>
+				<Text>Profile</Text>
 
-				<Center mt={"35px"}>
-					<Box w={"90%"}>
-						<Box mb={"30px"}>
-							<Image
-								borderRadius="full"
-								boxSize="150px"
-								src="https://bit.ly/dan-abramov"
-								alt="Dan Abramov"
-							/>
-						</Box>
+        <Box border={"1px solid black"} px={"10px"} borderRadius={"20px"} fontSize={"16px"} display={"flex"} alignItems={"center"} cursor={"pointer"}>
+          {user.email}
+        </Box>
 
-						<form action="">
-							<Box display={"flex"} flexDirection={"column"} gap={5}>
-								<FormControl isRequired>
-									<FormLabel>Full Name</FormLabel>
-									<Editable
-										defaultValue={user.fullname}
-										borderBottom={"1px solid black"}
-									>
-										<EditablePreview />
-										<EditableInput />
-									</Editable>
-								</FormControl>
-
-								<FormControl isRequired>
-									<FormLabel>Username</FormLabel>
-									<Editable
-										defaultValue={user.username}
-										borderBottom={"1px solid black"}
-									>
-										<EditablePreview />
-										<EditableInput />
-									</Editable>
-								</FormControl>
-
-								<FormControl isRequired>
-									<FormLabel>Email</FormLabel>
-									<Editable
-										defaultValue={user.email}
-										borderBottom={"1px solid black"}
-									>
-										<EditablePreview />
-										<EditableInput />
-									</Editable>
-									<FormHelperText>
-										We'll never share your email.
-									</FormHelperText>
-								</FormControl>
-							</Box>
-						</form>
-					</Box>
-				</Center>
 			</Box>
-		</Center>
+			<Center w={"full"} h={"full"}>
+				<Box w={"100%"} h={"80%"} px={"70px"}>
+					<Center mt={"35px"}>
+						<Box w={"90%"}>
+							<Box mb={"30px"}>
+								<Image
+									borderRadius="full"
+									boxSize="150px"
+									src="https://bit.ly/dan-abramov"
+									alt="Dan Abramov"
+								/>
+							</Box>
+
+							<form action="">
+								<Box
+									display={"flex"}
+									flexDirection={"column"}
+									gap={5}
+								>
+									<FormControl isRequired>
+										<FormLabel>Full Name</FormLabel>
+										<Editable
+											defaultValue={user.fullname}
+											borderBottom={"1px solid black"}
+										>
+											<EditablePreview />
+											<EditableInput />
+										</Editable>
+									</FormControl>
+
+									<FormControl isRequired>
+										<FormLabel>Username</FormLabel>
+										<Editable
+											defaultValue={user.username}
+											borderBottom={"1px solid black"}
+										>
+											<EditablePreview />
+											<EditableInput />
+										</Editable>
+									</FormControl>
+
+									<FormControl isRequired>
+										<FormLabel>Email</FormLabel>
+										<Editable
+											defaultValue={user.email}
+											borderBottom={"1px solid black"}
+										>
+											<EditablePreview />
+											<EditableInput />
+										</Editable>
+										<FormHelperText>
+											We'll never share your email.
+										</FormHelperText>
+									</FormControl>
+								</Box>
+							</form>
+						</Box>
+					</Center>
+				</Box>
+			</Center>
+		</Box>
 	);
 };

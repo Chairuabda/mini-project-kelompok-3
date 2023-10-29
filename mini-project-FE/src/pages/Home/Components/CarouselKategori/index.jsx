@@ -41,7 +41,7 @@ export const CarouselKategori = () => {
 					<Button
 						className="prev"
 						position={"absolute"}
-						zIndex={10}
+						zIndex={5}
 						left={"210px"}
 						size={"xm"}
 						borderRadius={"50%"}
@@ -50,12 +50,12 @@ export const CarouselKategori = () => {
 						_focus={{ outline: "none" }}
 						_hover={{ border: "none" }}
 					>
-						<ChevronLeftIcon />
+						<ChevronLeftIcon/>
 					</Button>
 					<Button
 						className="next"
 						position={"absolute"}
-						zIndex={10}
+						zIndex={5}
 						right={"185px"}
 						size={"xm"}
 						borderRadius={"50%"}

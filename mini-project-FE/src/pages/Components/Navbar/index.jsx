@@ -7,14 +7,14 @@ import {
 	Button,
 } from "@chakra-ui/react";
 // import React from "react";
-import { useState } from "react";
+// import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Avatar } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
+import { PopoverProfile } from "./components/popoverProfile";
+import DrawerList from "./components/drawerList";
 
 export const Navbar = () => {
-	// eslint-disable-next-line no-unused-vars
-	const [isLogin, setIsLogin] = useState(false);
+	const token = localStorage.getItem("token");
 
 	return (
 		<Box
@@ -32,17 +32,20 @@ export const Navbar = () => {
 				w={"55%"}
 				display={"flex"}
 				// justifyContent={"space-between"}
-				px={"80px"}
+				px={{ base: "10px", md: "80px" }}
 				alignItems={"center"}
 			>
 				<Link to="/">
-					<Box fontSize={"34px"} _hover={{ color: "white" }}>
+					<Box
+						fontSize={{ base: "20px", md: "34px" }}
+						_hover={{ color: "white" }}
+					>
 						<Text fontWeight={400}>
 							ada<span style={{ fontWeight: "200" }}>event.</span>
 						</Text>
 					</Box>
 				</Link>
-				<Box ml={"44px"}>
+				<Box ml={"44px"} display={{ base: "none", sm: "block" }}>
 					<InputGroup>
 						<InputLeftElement pointerEvents="none">
 							<SearchIcon color="gray.300" h={"16"} />
@@ -61,14 +64,14 @@ export const Navbar = () => {
 
 			<Box
 				w={"45%"}
-				display={"flex"}
+				display={{ base: "none", md: "flex" }}
 				justifyContent={"end"}
 				alignItems={"center"}
 				px={"30px"}
 			>
 				<Box
 					display={"flex"}
-					mr={"104px"}
+					mr={"14px"}
 					gap={"50"}
 					alignItems={"center"}
 				>
@@ -78,15 +81,8 @@ export const Navbar = () => {
 					<Link to="/#">
 						<Text>Discovery</Text>
 					</Link>
-					{isLogin ? (
-						<Box alignItems={"center"}>
-							<Link>
-								<Avatar
-									src="https://bit.ly/broken-link"
-									size={"md"}
-								/>
-							</Link>
-						</Box>
+					{token ? (
+						<PopoverProfile />
 					) : (
 						<Box display={"flex"} gap={"5"} alignItems={"center"}>
 							<Link to="/login">
@@ -100,6 +96,16 @@ export const Navbar = () => {
 						</Box>
 					)}
 				</Box>
+			</Box>
+
+			<Box
+				w={"45%"}
+				display={{ base: "flex", md: "none" }}
+				justifyContent={"end"}
+				alignItems={"center"}
+				px={"15px"}
+			>
+				<DrawerList/>
 			</Box>
 		</Box>
 	);

@@ -7,6 +7,7 @@ import { CreateEvent } from "./pages/CreateEvent";
 import {Dashboard} from "./pages/Dashboard";
 import { MyEvent } from "./pages/Dashboard/Components/MyEvent";
 import { PersonalInformation } from "./pages/PersonalInformation";
+import { Discovery } from "./pages/Discovery"
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
 				<Route path="/event" element={<CreateEvent />} />
 				<Route path="/dashboard/myevent" element={<MyEvent />} />
 				<Route path="/personal-information" element={<PersonalInformation />} />
+				<Route path="/discovery" element={<Discovery/>} />
 			</Routes>
 		</Box>
 	);

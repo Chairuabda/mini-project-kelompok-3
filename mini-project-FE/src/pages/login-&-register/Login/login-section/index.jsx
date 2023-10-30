@@ -6,6 +6,8 @@ import {
 	Input,
 	FormLabel,
 	Text,
+	FormControl,
+	FormErrorMessage,
 } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
@@ -14,21 +16,27 @@ import { GoogleButton } from "../../components/google-button";
 import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 import { login } from "../../../../../redux/reducer/authReducer";
+import * as Yup from "yup";
+
+const registerScheme = Yup.object().shape({
+	email: Yup.string().required("Email is required"),
+	password: Yup.string().required("Password is required"),
+});
 
 export const LoginSection = () => {
 	const [show, setShow] = useState(false);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
-
 	const formik = useFormik({
 		initialValues: {
 			email: "",
 			password: "",
 		},
+		validationSchema: registerScheme,
 		onSubmit: async (values) => {
-			dispatch(login(values.email, values.password));
-			navigate("/")
+			const isLoginn = await dispatch(login(values.email, values.password));
+			if(!isLoginn) navigate("/");
 		},
 	});
 
@@ -55,40 +63,61 @@ export const LoginSection = () => {
 				<FormLabel fontSize={"24px"} mb={"30px"}>
 					Login
 				</FormLabel>
-				<InputGroup mb={"20px"}>
-					<Input
-						type="text"
-						placeholder="Email"
-						bgColor={"white"}
-						name="email"
-						value={formik.values.email}
-						onChange={formik.handleChange}
-					/>
-				</InputGroup>
+				<FormControl
+					isInvalid={formik.touched.email && formik.errors.email}
+					mb={"20px"}
+				>
+					<InputGroup>
+						<Input
+							type="text"
+							placeholder="Email"
+							bgColor={"white"}
+							name="email"
+							value={formik.values.email}
+							onChange={formik.handleChange}
+						/>
+					</InputGroup>
+					{formik.touched.email && formik.errors.email && (
+						<FormErrorMessage position={"absolute"} mt={0}>{formik.errors.email}</FormErrorMessage>
+					)}
+				</FormControl>
 
-				<InputGroup mb={"20px"}>
-					<Input
-						type={show ? "text" : "password"}
-						placeholder="Password"
-						bgColor={"white"}
-						name="password"
-						value={formik.values.password}
-						onChange={formik.handleChange}
-					/>
-					<InputRightElement>
-						<Box
-							onClick={() => {
-								setShow(!show);
-							}}
-							size={"xm"}
-							display={"flex"}
-							alignItems={"center"}
-							cursor={"pointer"}
-						>
-							{show ? <ViewOffIcon /> : <ViewIcon />}
-						</Box>
-					</InputRightElement>
-				</InputGroup>
+				<FormControl
+					isInvalid={
+						formik.touched.password && formik.errors.password
+					}
+					mb={"20px"}
+					>
+					<InputGroup>
+						<Input
+							type={show ? "text" : "password"}
+							placeholder="Password"
+							bgColor={"white"}
+							name="password"
+							value={formik.values.password}
+							onChange={formik.handleChange}
+						/>
+						<InputRightElement>
+							<Box
+								onClick={() => {
+									setShow(!show);
+								}}
+								size={"xm"}
+								display={"flex"}
+								alignItems={"center"}
+								cursor={"pointer"}
+							>
+								{show ? <ViewOffIcon /> : <ViewIcon />}
+							</Box>
+						</InputRightElement>
+					</InputGroup>
+					{formik.touched.password && formik.errors.password && (
+						<FormErrorMessage position={"absolute"} mt={0}>
+							{formik.errors.password}
+						</FormErrorMessage>
+					)}
+				</FormControl>
+
 				<Button
 					w={"full"}
 					bgColor={"home.primary"}

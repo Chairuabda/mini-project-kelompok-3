@@ -7,6 +7,8 @@ import {
 	Input,
 	FormLabel,
 	Text,
+	FormControl,
+	FormErrorMessage,
 } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
@@ -14,27 +16,41 @@ import { useState } from "react";
 import { GoogleButton } from "../../components/google-button";
 import axios from "axios";
 import { useFormik } from "formik";
+import * as Yup from "yup";
+
+const registerScheme = Yup.object().shape({
+	email: Yup.string()
+		.email("Invalid Email")
+		.required("Email is required"),
+	password: Yup.string()
+		.min(8, "Password must be 8 characters minimum")
+		.required("Password is required"),
+});
 
 export const RegisterSection = () => {
 	const [showP, setShowp] = useState(false);
 	const [showCp, setShowCp] = useState(false);
 	const navigate = useNavigate();
 
-	const register = async (email, username, password, fullname, confirmPassword) => {
+	const register = async (
+		email,
+		username,
+		password,
+		fullname,
+		confirmPassword
+	) => {
 		try {
-			if (password !== confirmPassword) throw new Error("Password tidak sama")
-			await axios.post(
-				"http://localhost:8080/auth/register",
-				{
-					email,
-					username,
-					password,
-					fullname,
-				}
-			);
-			navigate("/login")
+			if (password !== confirmPassword)
+				throw new Error("Password tidak sama");
+			await axios.post("http://localhost:8080/auth/register", {
+				email,
+				username,
+				password,
+				fullname,
+			});
+			navigate("/login");
 		} catch (err) {
-			throw err;
+			throw err.message;
 		}
 	};
 	const formik = useFormik({
@@ -44,13 +60,14 @@ export const RegisterSection = () => {
 			email: "",
 			password: "",
 		},
+		validationSchema: registerScheme,
 		onSubmit: (values) => {
 			register(
 				values.email,
 				values.username,
 				values.password,
 				values.fullname,
-				values.confirmPassword,
+				values.confirmPassword
 			);
 		},
 	});
@@ -69,16 +86,17 @@ export const RegisterSection = () => {
 			<Box
 				w={"100%"}
 				h={"100%"}
-				p={"10px 45px"}
+				p={"5px 45px"}
 				display={"flex"}
 				flexDirection={"column"}
 				justifyContent={"center"}
 				alignItems={"center"}
+				gap={5}
 			>
-				<FormLabel fontSize={"24px"} mb={"20px"}>
+				<FormLabel fontSize={"24px"} m={"-10px"} >
 					Register
 				</FormLabel>
-				<InputGroup mb={"10px"}>
+				<InputGroup >
 					<Input
 						type="text"
 						placeholder="Fullname"
@@ -88,7 +106,8 @@ export const RegisterSection = () => {
 						onChange={formik.handleChange}
 					/>
 				</InputGroup>
-				<InputGroup mb={"10px"}>
+
+				<InputGroup >
 					<Input
 						type="text"
 						placeholder="Username"
@@ -98,66 +117,90 @@ export const RegisterSection = () => {
 						onChange={formik.handleChange}
 					/>
 				</InputGroup>
-				<InputGroup mb={"10px"}>
-					<Input
-						type="text"
-						placeholder="Email"
-						bgColor={"white"}
-						name="email"
-						value={formik.values.email}
-						onChange={formik.handleChange}
-					/>
-				</InputGroup>
+
+				<FormControl
+					isInvalid={formik.touched.email && formik.errors.email}
+				>
+					<InputGroup>
+						<Input
+							type="text"
+							placeholder="Email"
+							bgColor={"white"}
+							name="email"
+							value={formik.values.email}
+							onChange={formik.handleChange}
+						/>
+					</InputGroup>
+					{formik.touched.email && formik.errors.email && (
+						<FormErrorMessage position={"absolute"} mt={0}>{formik.errors.email}</FormErrorMessage>
+					)}
+				</FormControl>
 
 				<Box display={"flex"}>
-					<InputGroup mb={"10px"} mr={"10px"} w={"50%"}>
-						<Input
-							type={showP ? "text" : "password"}
-							placeholder="Password"
-							bgColor={"white"}
-							fontSize={"12px"}
-							name="password"
-							value={formik.values.password}
-							onChange={formik.handleChange}
-						/>
-						<InputRightElement>
-							<Box
-								onClick={() => {
-									setShowp(!showP);
-								}}
-								size={"xm"}
-								display={"flex"}
-								alignItems={"center"}
-								cursor={"pointer"}
-							>
-								{showP ? <ViewOffIcon /> : <ViewIcon />}
-							</Box>
-						</InputRightElement>
-					</InputGroup>
-					<InputGroup mb={"10px"} w={"50%"}>
-						<Input
-							type={showCp ? "text" : "password"}
-							placeholder="Confirm Password"
-							bgColor={"white"}
-							fontSize={"12px"}
-							name="confirmPassword"
-							value={formik.values.confirmPassword}
-							onChange={formik.handleChange}
-						/>
-						<InputRightElement>
-							<Box
-								onClick={() => {
-									setShowCp(!showCp);
-								}}
-								size={"xm"}
-								display={"flex"}
-								alignItems={"center"}
-								cursor={"pointer"}
-							>
-								{showCp ? <ViewOffIcon /> : <ViewIcon />}
-							</Box>
-						</InputRightElement>
-					</InputGroup>
+					<FormControl
+						isInvalid={
+							formik.touched.password && formik.errors.password
+						}
+						mr={"10px"}
+						w={"50%"}
+					>
+						<InputGroup>
+							<Input
+								type={showP ? "text" : "password"}
+								placeholder="Password"
+								bgColor={"white"}
+								fontSize={"12px"}
+								name="password"
+								value={formik.values.password}
+								onChange={formik.handleChange}
+							/>
+							<InputRightElement>
+								<Box
+									onClick={() => {
+										setShowp(!showP);
+									}}
+									size={"xm"}
+									display={"flex"}
+									alignItems={"center"}
+									cursor={"pointer"}
+								>
+									{showP ? <ViewOffIcon /> : <ViewIcon />}
+								</Box>
+							</InputRightElement>
+						</InputGroup>
+						{formik.touched.password && formik.errors.password && (
+							<FormErrorMessage position={"absolute"} mt={0}>
+								{formik.errors.password}
+							</FormErrorMessage>
+						)}
+					</FormControl>
+
+					<FormControl w={"50%"}>
+						<InputGroup>
+							<Input
+								type={showCp ? "text" : "password"}
+								placeholder="Confirm Password"
+								bgColor={"white"}
+								fontSize={"12px"}
+								name="confirmPassword"
+								value={formik.values.confirmPassword}
+								onChange={formik.handleChange}
+							/>
+							<InputRightElement>
+								<Box
+									onClick={() => {
+										setShowCp(!showCp);
+									}}
+									size={"xm"}
+									display={"flex"}
+									alignItems={"center"}
+									cursor={"pointer"}
+								>
+									{showCp ? <ViewOffIcon /> : <ViewIcon />}
+								</Box>
+							</InputRightElement>
+						</InputGroup>
+					</FormControl>
 				</Box>
 
 				<Button
@@ -173,9 +216,9 @@ export const RegisterSection = () => {
 					justifyContent={"center"}
 					alignItems={"center"}
 					flexDirection={"column"}
-					mt={"10px"}
+					mt={"-10px"}
 				>
-					<Text fontSize={"12px"} mb={"10px"}>
+					<Text fontSize={"12px"}>
 						Or Sign up with
 					</Text>
 					<GoogleButton />

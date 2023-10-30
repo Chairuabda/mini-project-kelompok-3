@@ -35,16 +35,16 @@ export const FeaturedEventHome = () => {
 			direction={"column"}
 			mb={"100px"}
 		>
-			<Flex justify={"start"} w={"75%"}>
+			<Flex justify={"start"} w={{base: "75%", sm: "87%",md: "80%", lg: "75%"}}>
 				<Text
-					fontSize={"32px"}
+					fontSize={{base: "20px",md: "32px"}}
 					fontWeight={600}
 					m={"54px 0px 46px 0px"}
 				>
 					Featured Event
 				</Text>
 			</Flex>
-			<Grid templateColumns="repeat(4, 1fr)" gap={6} w={"75%"}>
+			<Grid templateColumns={{sm: "repeat(2, 1fr)",md: "repeat(3, 1fr)",xl: "repeat(4, 1fr)"}} gap={6} w={{base: "75%", sm: "87%",md: "80%", lg: "75%"}}>
 				{event?.length > 0 ? (
 					event.map((data, index) => {
 						return (
@@ -66,8 +66,9 @@ export const FeaturedEventHome = () => {
 								<Box
 									backgroundImage={data.image}
 									backgroundPosition={"center"}
-									backgroundSize={"contain"}
-									h={"250px"}
+									backgroundSize={"cover"}
+									backgroundRepeat={"no-repeat"}
+									h={"350px"}
 								></Box>
 								<Flex
 									direction={"column"}
@@ -112,7 +113,7 @@ export const FeaturedEventHome = () => {
 			</Grid>
 			<Center mt={"30px"}>
 					<Link
-						fontSize={"20px"}
+						fontSize={{base: "14px",md: "20px"}}
 						fontWeight={600}
 						color={"home.primary"}
 						textDecoration={"underline"}

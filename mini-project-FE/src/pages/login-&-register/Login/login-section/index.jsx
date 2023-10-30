@@ -43,7 +43,7 @@ export const LoginSection = () => {
 	return (
 		<form
 			style={{
-				width: "50%",
+				width: "100%",
 				display: "flex",
 				flexDirection: "column",
 				justifyContent: "center",
@@ -52,7 +52,7 @@ export const LoginSection = () => {
 			onSubmit={formik.handleSubmit}
 		>
 			<Box
-				w={"100%"}
+				w={{base: "80%",md: "50%"}}
 				h={"350px"}
 				p={"10px 45px"}
 				display={"flex"}

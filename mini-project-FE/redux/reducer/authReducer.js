@@ -31,6 +31,7 @@ export const AuthReducer = createSlice({
 				fullname,
 				coin,
 			};
+			
 		},
 		loginSuccess: (state, action) => {
 			state.isLogin = true;

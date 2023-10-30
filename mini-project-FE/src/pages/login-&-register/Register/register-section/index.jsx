@@ -75,7 +75,7 @@ export const RegisterSection = () => {
 	return (
 		<form
 			style={{
-				width: "50%",
+				width: "100%",
 				display: "flex",
 				flexDirection: "column",
 				justifyContent: "center",
@@ -84,7 +84,7 @@ export const RegisterSection = () => {
 			onSubmit={formik.handleSubmit}
 		>
 			<Box
-				w={"100%"}
+				w={{base: "80%",md: "50%"}}
 				h={"100%"}
 				p={"5px 45px"}
 				display={"flex"}
@@ -93,7 +93,7 @@ export const RegisterSection = () => {
 				alignItems={"center"}
 				gap={5}
 			>
-				<FormLabel fontSize={"24px"} m={"-10px"} >
+				<FormLabel fontSize={"24px"} my={"-10px"} mb={{md: "30px"}} >
 					Register
 				</FormLabel>
 				<InputGroup >
@@ -216,7 +216,7 @@ export const RegisterSection = () => {
 					justifyContent={"center"}
 					alignItems={"center"}
 					flexDirection={"column"}
-					mt={"-10px"}
+					mt={{base: "10px",md: "-10px"}}
 				>
 					<Text fontSize={"12px"}>
 						Or Sign up with

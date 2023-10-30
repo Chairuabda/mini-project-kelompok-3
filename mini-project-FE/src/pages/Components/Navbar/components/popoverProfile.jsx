@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { Avatar } from "@chakra-ui/react";
+import { RiLogoutBoxLine } from "react-icons/ri"
 
 export const PopoverProfile = () => {
 
@@ -46,6 +47,7 @@ export const PopoverProfile = () => {
 				<PopoverFooter>
 					<Link to={"/login"} onClick={logOut}>
 						<Text color={"red"}>Log Out</Text>
+						<RiLogoutBoxLine />
 					</Link>
 				</PopoverFooter>
 			</PopoverContent>

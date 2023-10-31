@@ -78,7 +78,7 @@ export const Navbar = () => {
 					<Link to="/event">
 						<Text>Create Event</Text>
 					</Link>
-					<Link to="/#">
+					<Link to="/Discovery">
 						<Text>Discovery</Text>
 					</Link>
 					{token ? (

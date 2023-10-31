@@ -18,7 +18,8 @@ export const Carousel = () => {
 			display={"flex"}
 			alignItems={"center"}
 			h={{ base: "220px",sm: "300px",md: "400px" ,lg: "500px" }}
-			mt={{ base: "30px",sm: "60px", lg: "70px" }}
+			mt={{ base: "30px",sm: "60px", lg: "69px" }}
+			ml={"-1px"}
 		>
 			<Box position={"absolute"} zIndex={5} color={"white"} left={{base: 10,lg: 20}}>
 				<Text fontSize={{sm: "24px",lg: "48px"}} fontWeight={300}>

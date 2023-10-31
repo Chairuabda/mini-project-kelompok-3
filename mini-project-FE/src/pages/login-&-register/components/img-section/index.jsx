@@ -7,7 +7,7 @@ export const ImgSection = () => {
 			w={"50%"}
 			h={"100%"}
 			// borderLeft={"1px solid black"}
-			display={"flex"}
+			display={{base: "none",md: "flex"}}
 			align={"center"}
 			justify={"center"}
 			flexDirection={"column"}

@@ -8,8 +8,10 @@ export const Logo = (props) => {
 				<Link to="/">
 					<Text
 						fontWeight={400}
-						fontSize={"42px"}
-						color={"home.primary"}
+						fontSize={`${props.size}`}
+						color={`${props.color}`}
+						// fontSize={"42px"}
+						// color={"home.primary"}
 					>
 						ada<span style={{ fontWeight: "200" }}>event.</span>
 					</Text>

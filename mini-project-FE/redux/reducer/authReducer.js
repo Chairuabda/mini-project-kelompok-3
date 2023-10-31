@@ -3,6 +3,8 @@
 /* eslint-disable no-unused-vars */
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const initialState = {
 	user: {
@@ -31,6 +33,7 @@ export const AuthReducer = createSlice({
 				fullname,
 				coin,
 			};
+			
 		},
 		loginSuccess: (state, action) => {
 			state.isLogin = true;
@@ -60,8 +63,8 @@ export const login = (email, password) => {
 			dispatch(setUser(res?.data?.data?.user));
 			dispatch(loginSuccess());
 		} catch (err) {
-			// alert(err?.response?.data);
-      throw err
+			alert(err?.response?.data.message);
+			throw err;
 		}
 	};
 };
@@ -86,7 +89,7 @@ export const keepLogin = () => {
 			}
 		} catch (err) {
 			localStorage.removeItem("token");
-			alert(err?.response?.data);
+			toast(err?.response?.data);
 		}
 	};
 };

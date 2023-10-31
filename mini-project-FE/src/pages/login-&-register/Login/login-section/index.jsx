@@ -8,6 +8,7 @@ import {
 	Text,
 	FormControl,
 	FormErrorMessage,
+	useToast,
 } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
@@ -15,8 +16,13 @@ import { useState } from "react";
 import { GoogleButton } from "../../components/google-button";
 import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
-import { login } from "../../../../../redux/reducer/authReducer";
+import {
+	setUser,
+	loginSuccess,
+} from "../../../../../redux/reducer/authReducer";
+import "react-toastify/dist/ReactToastify.css";
 import * as Yup from "yup";
+import axios from "axios";
 
 const registerScheme = Yup.object().shape({
 	email: Yup.string().required("Email is required"),
@@ -27,6 +33,36 @@ export const LoginSection = () => {
 	const [show, setShow] = useState(false);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const toast = useToast();
+
+
+	const login = async (email, password) => {
+		try {
+			const res = await axios.post(
+				"http://localhost:8080/auth/login",
+				{
+					email,
+					password,
+				}
+			);
+			localStorage.setItem("token", res?.data?.data?.token);
+			dispatch(setUser(res?.data?.data?.user));
+			dispatch(loginSuccess());
+
+			toast({
+				title: "Login Success",
+				status: "success",
+			});
+			
+			navigate("/");
+
+		} catch (err) {
+			toast({
+				title: err.response?.data,
+				status: "error",
+			});
+		}
+	};
 
 	const formik = useFormik({
 		initialValues: {
@@ -35,25 +71,22 @@ export const LoginSection = () => {
 		},
 		validationSchema: registerScheme,
 		onSubmit: async (values) => {
-			const isLoginn = await dispatch(
-				login(values.email, values.password)
-			);
-			if (!isLoginn) navigate("/");
+			login(values.email, values.password);
 		},
 	});
 
 	return (
-		<Box w={{base: "100%", sm: "70%",md: "50%"}}>
-		<form
-			onSubmit={formik.handleSubmit}
-			style={{
-				display: "flex",
-				width: "100%",
-				flexDirection: "column",
-				justifyContent: "center",
-				alignItems: "center"
-			}}
-		>
+		<Box w={{ base: "100%", sm: "70%", md: "50%" }}>
+			<form
+				onSubmit={formik.handleSubmit}
+				style={{
+					display: "flex",
+					width: "100%",
+					flexDirection: "column",
+					justifyContent: "center",
+					alignItems: "center",
+				}}
+			>
 				<Box
 					w={"80%"}
 					h={"350px"}
@@ -150,7 +183,7 @@ export const LoginSection = () => {
 						Register
 					</Link>
 				</Text>
-		</form>
-			</Box>
+			</form>
+		</Box>
 	);
 };

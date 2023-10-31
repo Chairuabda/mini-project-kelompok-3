@@ -8,7 +8,7 @@ import KategoriDropBar from './DropBar/kategorieventdrop'
 import WaktuDropBar from './DropBar/waktudropbar'
 import TiketDropBar from './DropBar/tiketkategoridrop'
 import { Navbar } from '../Components/Navbar'
-import { Footer } from '../Home/Components/Footer'
+import { Footer } from '../Components/Footer'
 
 export const Discovery = () => {
 return (

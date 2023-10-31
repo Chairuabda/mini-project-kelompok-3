@@ -8,6 +8,7 @@ import { Dashboard } from "./pages/Dashboard";
 import { MyEvent } from "./pages/Dashboard/Components/MyEvent";
 import { PersonalInformation } from "./pages/PersonalInformation";
 import { Auth } from "./components/auth";
+import { Discovery } from "./pages/Discovery";
 
 function App() {
 	return (
@@ -21,6 +22,7 @@ function App() {
 					<Route path="/dashboard" element={<Dashboard />} />
 					<Route path="/dashboard/myevent" element={<MyEvent />} />
 					<Route path="/dashboard/myevent" element={<MyEvent />} />
+					<Route path="/discovery" element={<Discovery />} />
 					<Route
 						path="/personal-information"
 						element={<PersonalInformation />}

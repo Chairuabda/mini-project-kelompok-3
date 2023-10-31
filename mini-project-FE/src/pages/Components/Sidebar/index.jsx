@@ -1,14 +1,20 @@
-import { Box, Button, Flex, Text } from "@chakra-ui/react";
+/* eslint-disable react/prop-types */
+import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AiFillCompass } from "react-icons/ai";
-import { MdOutlineEventNote } from "react-icons/md"
-import { IoPerson } from "react-icons/io5"
-import { BsTicketPerforatedFill } from "react-icons/bs"
-import { HiMiniArrowLeftCircle, HiMiniArrowRightCircle } from "react-icons/hi2"
+import { MdOutlineEventNote } from "react-icons/md";
+import { IoPerson } from "react-icons/io5";
+import { BsTicketPerforatedFill } from "react-icons/bs";
+import {
+	HiMiniArrowLeftCircle,
+	HiMiniArrowRightCircle,
+} from "react-icons/hi2";
+// import  FaviconLogo  from "../../../../public/Favicon-red-bg.png"
+// import { useBreakpointValue } from "@chakra-ui/react";
 
 export const SideBar = () => {
-	const [isOpen, setIsOpen] = useState(true);
+	const [isOpen, setIsOpen] = useState(false);
 
 	return (
 		<Box
@@ -29,13 +35,24 @@ export const SideBar = () => {
 					bgColor={"blackAlpha.200"}
 					h={"70px"}
 				>
-					<Link to="/">
-						<Box fontSize={"34px"} _hover={{ color: "white" }}>
-							<Text fontWeight={400}>
-								ada<span style={{ fontWeight: "200" }}>event.</span>
-							</Text>
-						</Box>
-					</Link>
+					{isOpen ? (
+						<Link to="/">
+							<Box fontSize={"34px"} _hover={{ color: "white" }}>
+								<Text fontWeight={400}>
+									ada
+									<span style={{ fontWeight: "200" }}>event.</span>
+								</Text>
+							</Box>
+						</Link>
+					) : (
+						<Link to="/">
+							<Box fontSize={"34px"} _hover={{ color: "white" }}>
+								<Text fontWeight={400}>
+									a<span style={{ fontWeight: "200" }}>e.</span>
+								</Text>
+							</Box>
+						</Link>
+					)}
 				</Box>
 				<Box
 					display={"flex"}
@@ -61,7 +78,14 @@ export const SideBar = () => {
 								outline: "none",
 							}}
 						>
-							{isOpen ? <Flex align={"center"} gap={2}><AiFillCompass fontSize={"25px"}/>Jelajah Event</Flex> : <AiFillCompass fontSize={"20px"}/>}
+							{isOpen ? (
+								<Flex align={"center"} gap={2}>
+									<AiFillCompass fontSize={"25px"} />
+									Jelajah Event
+								</Flex>
+							) : (
+								<AiFillCompass fontSize={"20px"} />
+							)}
 						</Button>
 					</Link>
 
@@ -83,7 +107,14 @@ export const SideBar = () => {
 								outline: "none",
 							}}
 						>
-							{isOpen ? <Flex align={"center"} gap={2}><IoPerson fontSize={"25px"}/>Profile</Flex> : <IoPerson/>}
+							{isOpen ? (
+								<Flex align={"center"} gap={2}>
+									<IoPerson fontSize={"25px"} />
+									Profile
+								</Flex>
+							) : (
+								<IoPerson />
+							)}
 						</Button>
 					</Link>
 
@@ -110,7 +141,14 @@ export const SideBar = () => {
 								outline: "none",
 							}}
 						>
-							{isOpen ? <Flex align={"center"} gap={2}><BsTicketPerforatedFill fontSize={"25px"}/> My Ticket</Flex> : <BsTicketPerforatedFill fontSize={"20px"}/> }
+							{isOpen ? (
+								<Flex align={"center"} gap={2}>
+									<BsTicketPerforatedFill fontSize={"25px"} /> My
+									Ticket
+								</Flex>
+							) : (
+								<BsTicketPerforatedFill fontSize={"20px"} />
+							)}
 						</Button>
 					</Link>
 
@@ -132,7 +170,14 @@ export const SideBar = () => {
 								outline: "none",
 							}}
 						>
-							{isOpen ? <Flex align={"center"} gap={2}><MdOutlineEventNote fontSize={"25px"}/>My Event</Flex> : <MdOutlineEventNote fontSize={"20px"}/>}
+							{isOpen ? (
+								<Flex align={"center"} gap={2}>
+									<MdOutlineEventNote fontSize={"25px"} />
+									My Event
+								</Flex>
+							) : (
+								<MdOutlineEventNote fontSize={"20px"} />
+							)}
 						</Button>
 					</Link>
 				</Box>
@@ -150,11 +195,15 @@ export const SideBar = () => {
 					color={"white"}
 					fontSize={"30px"}
 					border={"none"}
-					_hover={{bgColor: "none", border: "none"}}
-					_focus={{bgColor: "transparant", outline: "none"}}
-					_active={{bgColor: "transparant"}}
+					_hover={{ bgColor: "none", border: "none" }}
+					_focus={{ bgColor: "transparant", outline: "none" }}
+					_active={{ bgColor: "transparant" }}
 				>
-					{isOpen ? <HiMiniArrowLeftCircle/> : <HiMiniArrowRightCircle/>}
+					{isOpen ? (
+						<HiMiniArrowLeftCircle />
+					) : (
+						<HiMiniArrowRightCircle />
+					)}
 				</Button>
 			</Box>
 		</Box>

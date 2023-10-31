@@ -15,13 +15,14 @@ export const Register = () => {
 		>
 			<Logo posisi="absolute" size= "42px" color="home.primary"/>
 			<Box
-				w={{base: "full",md: "60%"}}
+				w={{base: "full",md: "80%", lg: "70%", xl: "60%"}}
 				display={"flex"}
-				alignItems={"center"}
 				flexDirection={{base: "column-reverse", md: "row"}}
+				alignItems={"center"}
 				boxShadow={{base: "none",md: "0px 0px 13px 10px rgba(255, 46, 99, 0.2)"}}
 				borderRadius={"10px"}
 				h={{base: "",md: "450px"}}
+				justifyContent={"center"}
 			>
 				<ImgSection />
 

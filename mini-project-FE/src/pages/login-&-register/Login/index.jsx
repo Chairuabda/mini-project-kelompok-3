@@ -15,7 +15,7 @@ export const Login = () => {
 		>
 			<Logo posisi="absolute" size= "42px" color="home.primary"/>
 			<Box
-				w={{base: "full",md: "60%"}}
+				w={{base: "full",md: "80%", lg: "70%", xl: "60%"}}
 				display={"flex"}
 				flexDirection={{base: "column-reverse", md: "row"}}
 				alignItems={"center"}

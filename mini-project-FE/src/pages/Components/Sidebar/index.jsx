@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AiFillCompass } from "react-icons/ai";

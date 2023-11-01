@@ -12,7 +12,7 @@ import {
 
 export const EventAktif = () => {
 	return (
-		<Box height={"437px"} overflow={"auto"} pb={"0px"}>
+		<Box height={"437px"} overflow={"auto"} pb={0} scrollPadding={"20px"}>
 			<Card
 				direction={{ base: "column", sm: "row" }}
 				overflow="hidden"

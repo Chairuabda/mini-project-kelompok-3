@@ -49,7 +49,6 @@ export const Dashboard = () => {
 							cursor={"pointer"}
 						>
 							{user.email}
-							email
 						</Box>
 					</Box>
 

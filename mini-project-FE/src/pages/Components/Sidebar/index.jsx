@@ -1,20 +1,30 @@
+/* eslint-disable react/prop-types */
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AiFillCompass } from "react-icons/ai";
-import { MdOutlineEventNote } from "react-icons/md"
-import { IoPerson } from "react-icons/io5"
-import { BsTicketPerforatedFill } from "react-icons/bs"
-import { HiMiniArrowLeftCircle, HiMiniArrowRightCircle } from "react-icons/hi2"
+import {
+	HiOutlineRectangleStack,
+	HiOutlineTicket,
+} from "react-icons/hi2";
+import { HiOutlineUserCircle } from "react-icons/hi";
+// import { BsTicketPerforatedFill } from "react-icons/bs";
+import {
+	HiMiniArrowLeftCircle,
+	HiMiniArrowRightCircle,
+} from "react-icons/hi2";
+// import  FaviconLogo  from "../../../../public/Favicon-red-bg.png"
+// import { useBreakpointValue } from "@chakra-ui/react";
+// import { RectangleStackIcon } from "@heroicons/24/outline"
 
-export const SideBar = () => {
-	const [isOpen, setIsOpen] = useState(true);
+export const SideBar = ({ setActive }) => {
+	const [isOpen, setIsOpen] = useState(false);
 
 	return (
 		<Box
 			h={"100vh"}
-			w={isOpen ? "215px" : "60px"}
-			bg={"home.primary"}
+			w={isOpen ? "215px" : "70px"}
+			bg={"home.secondary"}
 			display={"flex"}
 			flexDirection={"column"}
 			justifyContent={"space-between"}
@@ -26,16 +36,27 @@ export const SideBar = () => {
 					display={"flex"}
 					justifyContent={"center"}
 					alignItems={"center"}
-					bgColor={"blackAlpha.200"}
+					bgColor={"home.primary"}
 					h={"70px"}
 				>
-					<Link to="/">
-						<Box fontSize={"34px"} _hover={{ color: "white" }}>
-							<Text fontWeight={400}>
-								ada<span style={{ fontWeight: "200" }}>event.</span>
-							</Text>
-						</Box>
-					</Link>
+					{isOpen ? (
+						<Link to="/">
+							<Box fontSize={"34px"} _hover={{ color: "white" }}>
+								<Text fontWeight={400}>
+									ada
+									<span style={{ fontWeight: "200" }}>event.</span>
+								</Text>
+							</Box>
+						</Link>
+					) : (
+						<Link to="/">
+							<Box fontSize={"34px"} _hover={{ color: "white" }}>
+								<Text fontWeight={400}>
+									a<span style={{ fontWeight: "200" }}>e.</span>
+								</Text>
+							</Box>
+						</Link>
+					)}
 				</Box>
 				<Box
 					display={"flex"}
@@ -43,57 +64,9 @@ export const SideBar = () => {
 					gap={2}
 					mt={"10px"}
 				>
-					<Link to="/discovery">
-						<Button
-							p={"5px 20px 5px 20px"}
-							w={"full"}
-							borderRadius={"0"}
-							cursor={"pointer"}
-							bgColor={"transparent"}
-							color={"white"}
-							border={"none"}
-							outline={"none"}
-							display={"flex"}
-							justifyContent={"start"}
-							_hover={{ bgColor: "blackAlpha.200" }}
-							_focus={{
-								bgColor: "blackAlpha.200",
-								outline: "none",
-							}}
-						>
-							{isOpen ? <Flex align={"center"} gap={2}><AiFillCompass fontSize={"25px"}/>Jelajah Event</Flex> : <AiFillCompass fontSize={"20px"}/>}
-						</Button>
-					</Link>
-
-					<Link to="/dashboard">
-						<Button
-							p={"5px 20px 5px 20px"}
-							w={"full"}
-							borderRadius={"0"}
-							cursor={"pointer"}
-							bgColor={"transparent"}
-							border={"none"}
-							outline={"none"}
-							display={"flex"}
-							color={"white"}
-							justifyContent={"start"}
-							_hover={{ bgColor: "blackAlpha.200" }}
-							_focus={{
-								bgColor: "blackAlpha.200",
-								outline: "none",
-							}}
-						>
-							{isOpen ? <Flex align={"center"} gap={2}><IoPerson fontSize={"25px"}/>Profile</Flex> : <IoPerson/>}
-						</Button>
-					</Link>
-
-					<Box p={"5px 20px 5px 20px"}>
-						<hr />
-					</Box>
-
 					<Link to="/myticket">
 						<Button
-							p={"5px 20px 5px 20px"}
+							pl={"20px"}
 							w={"full"}
 							borderRadius={"0"}
 							cursor={"pointer"}
@@ -104,19 +77,87 @@ export const SideBar = () => {
 							display={"flex"}
 							alignItems={"center"}
 							justifyContent={"start"}
-							_hover={{ bgColor: "blackAlpha.200" }}
+							_hover={{ bgColor: "home.tertiary" }}
 							_focus={{
-								bgColor: "blackAlpha.200",
+								bgColor: "home.tertiary",
 								outline: "none",
 							}}
 						>
-							{isOpen ? <Flex align={"center"} gap={2}><BsTicketPerforatedFill fontSize={"25px"}/> My Ticket</Flex> : <BsTicketPerforatedFill fontSize={"20px"}/> }
+							{isOpen ? (
+								<Flex align={"center"} gap={5}>
+									<HiOutlineTicket fontSize={"25px"} /> My Ticket
+								</Flex>
+							) : (
+								<HiOutlineTicket fontSize={"25px"} />
+							)}
 						</Button>
 					</Link>
 
-					<Link to="./myevent">
+					{/* <Link to="/dashboard/myevent"> */}
+					<Button
+						pl={"20px"}
+						w={"full"}
+						borderRadius={"0"}
+						cursor={"pointer"}
+						bgColor={"transparent"}
+						color={"white"}
+						border={"none"}
+						outline={"none"}
+						display={"flex"}
+						justifyContent={"start"}
+						_hover={{ bgColor: "home.tertiary" }}
+						_focus={{
+							bgColor: "home.tertiary",
+							outline: "none",
+						}}
+						onClick={() => setActive("My Event")}
+					>
+						{isOpen ? (
+							<Flex align={"center"} gap={5}>
+								<HiOutlineRectangleStack fontSize={"25px"} />
+								My Event
+							</Flex>
+						) : (
+							<HiOutlineRectangleStack fontSize={"25px"} />
+						)}
+					</Button>
+					{/* </Link> */}
+
+					<Box p={"5px 20px 5px 20px"}>
+						<hr />
+					</Box>
+
+					<Button
+						pl={"20px"}
+						w={"full"}
+						borderRadius={"0"}
+						cursor={"pointer"}
+						bgColor={"transparent"}
+						border={"none"}
+						outline={"none"}
+						display={"flex"}
+						color={"white"}
+						justifyContent={"start"}
+						_hover={{ bgColor: "home.tertiary" }}
+						onClick={() => setActive("Profile")}
+						_focus={{
+							bgColor: "home.tertiary",
+							outline: "none",
+						}}
+					>
+						{isOpen ? (
+							<Flex align={"center"} gap={5}>
+								<HiOutlineUserCircle fontSize={"25px"} />
+								Profile
+							</Flex>
+						) : (
+							<HiOutlineUserCircle fontSize={"25px"} />
+						)}
+					</Button>
+
+					<Link to="/discovery">
 						<Button
-							p={"5px 20px 5px 20px"}
+							pl={"20px"}
 							w={"full"}
 							borderRadius={"0"}
 							cursor={"pointer"}
@@ -126,13 +167,20 @@ export const SideBar = () => {
 							outline={"none"}
 							display={"flex"}
 							justifyContent={"start"}
-							_hover={{ bgColor: "blackAlpha.200" }}
+							_hover={{ bgColor: "home.tertiary" }}
 							_focus={{
-								bgColor: "blackAlpha.200",
+								bgColor: "home.tertiary",
 								outline: "none",
 							}}
 						>
-							{isOpen ? <Flex align={"center"} gap={2}><MdOutlineEventNote fontSize={"25px"}/>My Event</Flex> : <MdOutlineEventNote fontSize={"20px"}/>}
+							{isOpen ? (
+								<Flex align={"center"} gap={5}>
+									<AiFillCompass fontSize={"25px"} />
+									Jelajah Event
+								</Flex>
+							) : (
+								<AiFillCompass fontSize={"25px"} />
+							)}
 						</Button>
 					</Link>
 				</Box>
@@ -150,11 +198,15 @@ export const SideBar = () => {
 					color={"white"}
 					fontSize={"30px"}
 					border={"none"}
-					_hover={{bgColor: "none", border: "none"}}
-					_focus={{bgColor: "transparant", outline: "none"}}
-					_active={{bgColor: "transparant"}}
+					_hover={{ bgColor: "none", border: "none" }}
+					_focus={{ bgColor: "transparant", outline: "none" }}
+					_active={{ bgColor: "transparant" }}
 				>
-					{isOpen ? <HiMiniArrowLeftCircle/> : <HiMiniArrowRightCircle/>}
+					{isOpen ? (
+						<HiMiniArrowLeftCircle />
+					) : (
+						<HiMiniArrowRightCircle />
+					)}
 				</Button>
 			</Box>
 		</Box>

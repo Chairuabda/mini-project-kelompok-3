@@ -6,11 +6,12 @@ const {
 
 const registerController = async (req, res) => {
 	try {
-		const { username, email, password, fullname  } = req.body;
+		const { username, email, password, confirmPassword, fullname  } = req.body;
 		const result = await registerService(
 			username,
 			email,
 			password,
+			confirmPassword,
 			fullname,
 		);
 

@@ -18,7 +18,7 @@ export const Footer = () => {
 		>
 			<Box w={"50%"} pt={"30px"}>
 				<Box>
-					<Logo posisi="static" />
+					<Logo posisi="static" size="42px" color="home.primary" />
 
 					<Box w={"200px"} fontSize={"14px"}>
 						<Text>Pacific Building</Text> 

@@ -5,16 +5,17 @@ import {
 	PopoverBody,
 	Button,
 	PopoverFooter,
-  Text
+	Text,
+	Flex,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { Avatar } from "@chakra-ui/react";
+import { RiLogoutBoxLine } from "react-icons/ri";
 
 export const PopoverProfile = () => {
-
-  const logOut = () => {
-    localStorage.removeItem("token")
-  }
+	const logOut = () => {
+		localStorage.removeItem("token");
+	};
 
 	return (
 		<Popover placement="bottom-start">
@@ -23,7 +24,11 @@ export const PopoverProfile = () => {
 				variant={"ghost"}
 				size={"xm"}
 				border={"none"}
-				_hover={{ bgColor: "transparant", border: "none", fillOpacity:"50%" }}
+				_hover={{
+					bgColor: "transparant",
+					border: "none",
+					fillOpacity: "50%",
+				}}
 				_active={{ bgColor: "transparant" }}
 				bgColor={"red"}
 				display={"flex"}
@@ -38,14 +43,16 @@ export const PopoverProfile = () => {
 					</Link>
 				</PopoverTrigger>
 			</Button>
-			<PopoverContent color="black" w={"180px"}>
-	
+			<PopoverContent color="black" w={"fit-content"} right={-6}>
 				<PopoverBody>
 					<Link to={"/dashboard"}>Dashboard</Link>
 				</PopoverBody>
 				<PopoverFooter>
 					<Link to={"/login"} onClick={logOut}>
-						<Text color={"red"}>Log Out</Text>
+						<Flex align={"center"} gap={2}>
+							<Text color={"red"}>Log Out</Text>
+							<RiLogoutBoxLine />
+						</Flex>
 					</Link>
 				</PopoverFooter>
 			</PopoverContent>

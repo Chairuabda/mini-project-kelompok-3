@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import {
 	Box,
 	Center,
-	Text,
 	Editable,
 	EditableInput,
 	// EditableTextarea,
@@ -12,35 +11,25 @@ import {
 	FormLabel,
 	FormHelperText,
 	Image,
+
+	// BreadcrumbSeparator,
 } from "@chakra-ui/react";
+// import { PopoverDashboard } from "../popoverDashboard";
 
 export const Profile = () => {
 	const user = useSelector((state) => state.AuthReducer.user);
-	console.log(user);
 
 	return (
 		<Box>
-			<Box
-				fontSize={"20px"}
-				py={"20px"}
-				borderBottom={"2px solid"}
-        borderBottomColor={"gray.300"}
-        px={"30px"}
-        justifyContent={"space-between"}
-        display={"flex"}
-			>
-				<Text>Profile</Text>
-
-        <Box border={"1px solid black"} px={"10px"} borderRadius={"20px"} fontSize={"16px"} display={"flex"} alignItems={"center"} cursor={"pointer"}>
-          {user.email}
-        </Box>
-
-			</Box>
 			<Center w={"full"} h={"full"}>
 				<Box w={"100%"} h={"80%"} px={"70px"}>
 					<Center mt={"35px"}>
 						<Box w={"90%"}>
-							<Box mb={"30px"}>
+							<Box
+								mb={"30px"}
+								display={"flex"}
+								justifyContent={{ base: "center", md: "start" }}
+							>
 								<Image
 									borderRadius="full"
 									boxSize="150px"

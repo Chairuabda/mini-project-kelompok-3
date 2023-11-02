@@ -45,7 +45,7 @@ export const Navbar = () => {
 						</Text>
 					</Box>
 				</Link>
-				<Box ml={"44px"} display={{ base: "none", sm: "block" }}>
+				<Box ml={"44px"} display={{ base: "none", md: "block" }}>
 					<InputGroup>
 						<InputLeftElement pointerEvents="none">
 							<SearchIcon color="gray.300" h={"16"} />
@@ -103,9 +103,9 @@ export const Navbar = () => {
 				display={{ base: "flex", md: "none" }}
 				justifyContent={"end"}
 				alignItems={"center"}
-				px={"15px"}
+				px={"20px"}
 			>
-				<DrawerList/>
+				<DrawerList />
 			</Box>
 		</Box>
 	);

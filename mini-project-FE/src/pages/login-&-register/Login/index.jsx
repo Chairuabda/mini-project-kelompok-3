@@ -13,15 +13,16 @@ export const Login = () => {
 			color={"black"}
 			direction={"column"}
 		>
-			<Logo posisi="absolute"/>
+			<Logo posisi="absolute" size= "42px" color="home.primary"/>
 			<Box
-				w="60%"
+				w={{base: "full",md: "80%", lg: "70%", xl: "60%"}}
 				display={"flex"}
+				flexDirection={{base: "column-reverse", md: "row"}}
 				alignItems={"center"}
-				// bgColor={"home.primary"}
-				boxShadow={"0px 0px 13px 10px rgba(255, 46, 99, 0.2)"}
+				boxShadow={{base: "none",md: "0px 0px 13px 10px rgba(255, 46, 99, 0.2)"}}
 				borderRadius={"10px"}
-				h={"450px"}
+				h={{base: "",md: "450px"}}
+				justifyContent={"center"}
 			>
 				<LoginSection />
 

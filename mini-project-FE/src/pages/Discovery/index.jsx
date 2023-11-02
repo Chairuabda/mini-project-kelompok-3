@@ -9,6 +9,7 @@ import WaktuDropBar from './DropBar/waktudropbar'
 import TiketDropBar from './DropBar/tiketkategoridrop'
 import { Navbar } from '../Components/Navbar'
 import { Footer } from '../Components/Footer'
+import { ThisCardEvent } from './cardevent'
 
 export const Discovery = () => {
 return (
@@ -23,10 +24,10 @@ return (
         <Box 
         width='272px' 
         height='232px' 
-        border='1px solid #FFF' 
+        border='1px solid Gray' 
         borderRadius='9px' 
         background='#FFF' 
-        boxShadow='0px 8px 17px 0px rgba(0, 0, 0, 0.05)'
+        boxShadow='md'
         position='absolute'
         marginTop='7rem'
         marginLeft='80px'
@@ -38,10 +39,10 @@ return (
         <Box 
         width='272px' 
         height='232px' 
-        border='1px solid #FFF' 
+        border='1px solid Gray' 
         borderRadius='9px' 
         background='#FFF' 
-        boxShadow='0px 8px 17px 0px rgba(0, 0, 0, 0.05)'
+        boxShadow='md'
         position='absolute'
         marginTop='23rem'
         marginLeft='80px'
@@ -53,10 +54,10 @@ return (
         <Box 
         width='272px' 
         height='232px' 
-        border='1px solid #FFF' 
+        border='1px solid Gray' 
         borderRadius='9px' 
         background='#FFF' 
-        boxShadow='0px 8px 17px 0px rgba(0, 0, 0, 0.05)'
+        boxShadow='md'
         position='absolute'
         marginTop='39rem'
         marginLeft='80px'
@@ -68,10 +69,10 @@ return (
         <Box 
         width='272px' 
         height='232px' 
-        border='1px solid #FFF' 
+        border='1px solid Gray' 
         borderRadius='9px' 
         background='#FFF' 
-        boxShadow='0px 8px 17px 0px rgba(0, 0, 0, 0.05)'
+        boxShadow='md'
         position='absolute'
         marginTop='55rem'
         marginLeft='80px'
@@ -91,6 +92,7 @@ return (
             <Footer/>
             </Box>
         </Box>
+        <ThisCardEvent/>
 
     </Box>
 )

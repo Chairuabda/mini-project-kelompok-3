@@ -15,35 +15,47 @@ import {
 	Box,
 	Button,
 	Text,
+	useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useFormik } from "formik";
 import { Link } from "react-router-dom";
 import { DetailPemesanan } from "./detailPemesanan";
 import { useState } from "react";
+import { Timer } from "./timer";
 
 export const InformationForm = () => {
 	const [refferal, setRefferal] = useState();
+	const toast = useToast();
 
 	const personalInfo = async (
 		name,
 		email,
-		phoneNumber,
-		dateOfBirth,
+		phone_number,
+		date_of_birth,
 		gender,
-		refferalCode
+		referral_code,
 	) => {
 		try {
-			await axios.post("http://localhost:3000/event_attendees", {
+			await axios.post("http://localhost:8080/event/attendees", {
 				name,
 				email,
-				phoneNumber,
-				dateOfBirth,
+				phone_number,
+				date_of_birth,
 				gender,
-				refferalCode,
+				referral_code,
+			});
+
+			toast({
+				title: `Success, this is your refferal code ${refferal}`,
+				status: "success",
 			});
 		} catch (err) {
-			console.log(err);
+			toast({
+				title: "Failed",
+				status: "error",
+			});
+			throw err;
 		}
 	};
 
@@ -60,24 +72,23 @@ export const InformationForm = () => {
 			counter += 1;
 		}
 		setRefferal(result);
-		console.log("generate code");
 	};
 
 	const formik = useFormik({
 		initialValues: {
 			name: "",
 			email: "",
-			phoneNumber: "",
-			dateOfBirth: "",
+			phone_number: "",
+			date_of_birth: "",
 			gender: "",
-			refferalCode: refferal,
+			referral_code: refferal,
 		},
 		onSubmit: (values) => {
 			personalInfo(
 				values.name,
 				values.email,
-				values.phoneNumber,
-				values.dateOfBirth,
+				values.phone_number,
+				values.date_of_birth,
 				values.gender,
 				refferal
 			);
@@ -87,7 +98,7 @@ export const InformationForm = () => {
 	return (
 		<Center w={"100vw"} mt={"100px"} mb={"150px"}>
 			<form onSubmit={formik.handleSubmit}>
-				<Flex w={"80%"} justify={"space-evenly"}>
+				<Flex w={"90%"} justify={"space-evenly"}>
 					<Flex
 						direction={"column"}
 						w={"full"}
@@ -129,9 +140,9 @@ export const InformationForm = () => {
 										<InputLeftAddon>+62</InputLeftAddon>
 										<Input
 											type="number"
-											name="phoneNumber"
+											name="phone_number"
 											placeholder="phone number"
-											value={formik.values.phoneNumber}
+											value={formik.values.phone_number}
 											onChange={formik.handleChange}
 										/>
 									</InputGroup>
@@ -144,8 +155,8 @@ export const InformationForm = () => {
 											placeholder="Select Date and Time"
 											size="md"
 											type="date"
-											name="dateOfBirth"
-											value={formik.values.dateOfBirth}
+											name="date_of_birth"
+											value={formik.values.date_of_birth}
 											onChange={formik.handleChange}
 										/>
 									</InputGroup>
@@ -175,7 +186,7 @@ export const InformationForm = () => {
 							bgColor={"yellow.400"}
 							color={"black"}
 						>
-							Segera selesaikan pembyaranmu
+							Segera selesaikan pembyaranmu <Timer/>
 						</Card>
 						<Card h={"fit-content"} w={"fit-content"} p={"40px 50px"}>
 							<Center display={"flex"} flexDirection={"column"}>

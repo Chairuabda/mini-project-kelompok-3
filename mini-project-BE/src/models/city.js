@@ -1,6 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
 	const city = sequelize.define(
-		"cities",
+		"city",
 		{
 			city: {
 				type: Sequelize.STRING,
@@ -13,9 +13,9 @@ module.exports = (sequelize, Sequelize) => {
 		}
 	);
 
-	// user.associate = (models) => {
-	// 	user.hasMany(models.event, { foreignKey: "userId" });
-	// };
+	city.associate = (models) => {
+		city.hasMany(models.event, { foreignKey: "cityId" });
+	};
 
 	return city;
 };

@@ -9,12 +9,12 @@ import "../../../../../node_modules/swiper/modules/navigation.css";
 
 // import required modules
 import { Navigation } from "swiper/modules";
-import { Box, Button, Center, Link, Text } from "@chakra-ui/react";
+import { Box, Button, Center, Text } from "@chakra-ui/react";
 import { ChevronRightIcon, ChevronLeftIcon } from "@chakra-ui/icons";
 import KonserMusik from "../../../../assets/KonserMusik.png";
 import Pendidikan from "../../../../assets/pendidikan.png";
 import Olahraga from "../../../../assets/olahraga.png";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const CarouselKategori = () => {
 	return (
@@ -22,12 +22,12 @@ export const CarouselKategori = () => {
 			<Box
 				display={"flex"}
 				flexDirection={"column"}
-				w={{base: "75%", sm: "87%",md: "80%", lg: "75%"}}
+				w={{ base: "75%", sm: "87%", md: "80%", lg: "75%" }}
 			>
 				<Text
-					fontSize={{base: "16px",lg: "32px"}}
+					fontSize={{ base: "16px", lg: "32px" }}
 					fontWeight={600}
-					m={{base: "14px 0px 16px 0px",lg: "54px 0px 46px 0px"}}
+					m={{ base: "14px 0px 16px 0px", lg: "54px 0px 46px 0px" }}
 				>
 					Featured Categories
 				</Text>
@@ -36,30 +36,42 @@ export const CarouselKategori = () => {
 					display={"flex"}
 					justifyContent={"center"}
 					alignItems={"center"}
-					h={{base:"100px", sm: "120px", md: "150px" }}
+					h={{ base: "100px", sm: "120px", md: "150px" }}
 				>
 					<Button
 						className="prev"
 						position={"absolute"}
 						zIndex={5}
-						left={{base: "60px",sm:"60px",md: "100px",lg:"170px", xl:"210px"}}
+						left={{
+							base: "60px",
+							sm: "60px",
+							md: "100px",
+							lg: "170px",
+							xl: "210px",
+						}}
 						size={"xm"}
 						borderRadius={"50%"}
-						fontSize={{sm: "16px",lg: "24px", xl: "28px"}}
+						fontSize={{ sm: "16px", lg: "24px", xl: "28px" }}
 						bgColor={"white"}
 						_focus={{ outline: "none" }}
 						_hover={{ border: "none" }}
 					>
-						<ChevronLeftIcon/>
+						<ChevronLeftIcon />
 					</Button>
 					<Button
 						className="next"
 						position={"absolute"}
 						zIndex={5}
-						right={{base:"52px",sm: "35px",md: "75px",lg: "145px", xl: "185px"}}
+						right={{
+							base: "52px",
+							sm: "35px",
+							md: "75px",
+							lg: "145px",
+							xl: "185px",
+						}}
 						size={"xm"}
 						borderRadius={"50%"}
-						fontSize={{sm:"16px",lg:"24px", xl: "28px"}}
+						fontSize={{ sm: "16px", lg: "24px", xl: "28px" }}
 						bgColor={"white"}
 						_focus={{ outline: "none" }}
 						_hover={{ border: "none" }}
@@ -331,13 +343,15 @@ export const CarouselKategori = () => {
 					</Swiper>
 				</Box>
 				<Center>
-					<Link
-						fontSize={{base: "14px",lg: "20px"}}
-						fontWeight={600}
-						color={"home.primary"}
-						textDecoration={"underline"}
-					>
-						See All Categories
+					<Link to="/discovery">
+						<Text
+							fontSize={{ base: "14px", lg: "20px" }}
+							fontWeight={600}
+							color={"home.primary"}
+							textDecoration={"underline"}
+						>
+							See All Categories
+						</Text>
 					</Link>
 				</Center>
 			</Box>

@@ -1,99 +1,77 @@
-import { Box,
-        Text,
-} from '@chakra-ui/react'
+import {
+	Box,
+	Breadcrumb,
+	BreadcrumbItem,
+	BreadcrumbLink,
+	Flex,
+} from "@chakra-ui/react";
 
+import LokasiDropBar from "./components/DropBar/locationdrop";
+import KategoriDropBar from "./components/DropBar/kategorieventdrop";
+import WaktuDropBar from "./components/DropBar/waktudropbar";
+import TiketDropBar from "./components/DropBar/tiketkategoridrop";
+import { Navbar } from "../Components/Navbar";
+import { Footer } from "../Components/Footer";
+import { ThisCardEvent } from "./components/cardevent";
+import { ChevronRightIcon } from "@chakra-ui/icons";
 
-import LokasiDropBar from './DropBar/locationdrop'
-import KategoriDropBar from './DropBar/kategorieventdrop'
-import WaktuDropBar from './DropBar/waktudropbar'
-import TiketDropBar from './DropBar/tiketkategoridrop'
-import { Navbar } from '../Components/Navbar'
-import { Footer } from '../Components/Footer'
-import { ThisCardEvent } from './cardevent'
+// import axios from "axios";
+// import { useFormik } from "formik";
+import { useState } from "react";
 
 export const Discovery = () => {
-return (
-    <Box 
-    backgroundColor='#F4F4F4' 
-    width='400' 
-    height='1700'
-    flexShrink='0'
-    >
-        <Navbar/>
-    
-        <Box 
-        width='272px' 
-        height='232px' 
-        border='1px solid Gray' 
-        borderRadius='9px' 
-        background='#FFF' 
-        boxShadow='md'
-        position='absolute'
-        marginTop='7rem'
-        marginLeft='80px'
-        >
-            <Text color='black' fontSize='17px' fontStyle='normal' fontWeight='500' lineHeight='normal' marginTop='5' marginLeft='5'>Lokasi</Text>
-            <LokasiDropBar/>
-        </Box>
+	const [dataLocation, setDataLocation] = useState("");
+	const [dataCategory, setDataCategory] = useState("");
 
-        <Box 
-        width='272px' 
-        height='232px' 
-        border='1px solid Gray' 
-        borderRadius='9px' 
-        background='#FFF' 
-        boxShadow='md'
-        position='absolute'
-        marginTop='23rem'
-        marginLeft='80px'
-        >
-            <Text color='black' fontSize='17px' fontStyle='normal' fontWeight='500' lineHeight='normal' marginTop='5' marginLeft='5'>Kategori</Text>
-            <KategoriDropBar/>
-        </Box>
+	return (
+		<Box w={"100vw"} minH={"100vh"} bgColor={"#F3F3F3"}>
+			<Navbar />
 
-        <Box 
-        width='272px' 
-        height='232px' 
-        border='1px solid Gray' 
-        borderRadius='9px' 
-        background='#FFF' 
-        boxShadow='md'
-        position='absolute'
-        marginTop='39rem'
-        marginLeft='80px'
-        >
-            <Text color='black' fontSize='17px' fontStyle='normal' fontWeight='500' lineHeight='normal' marginTop='5' marginLeft='5'>Waktu</Text>
-            <WaktuDropBar/>
-        </Box>
+			<Box
+				w={"full"}
+				display={"flex"}
+				pt={"90px"}
+				flexDirection={"column"}
+			>
+				<Breadcrumb
+					spacing="8px"
+					separator={<ChevronRightIcon color="gray.500" />}
+					mb={"20px"}
+					px={"40px"}
+				>
+					<BreadcrumbItem>
+						<BreadcrumbLink href="/">Home</BreadcrumbLink>
+					</BreadcrumbItem>
 
-        <Box 
-        width='272px' 
-        height='232px' 
-        border='1px solid Gray' 
-        borderRadius='9px' 
-        background='#FFF' 
-        boxShadow='md'
-        position='absolute'
-        marginTop='55rem'
-        marginLeft='80px'
-        >
-            <Text color='black' fontSize='17px' fontStyle='normal' fontWeight='500' lineHeight='normal' marginTop='5' marginLeft='5'>Jenis Tiket</Text>
-            <TiketDropBar/>
+					<BreadcrumbItem>
+						<BreadcrumbLink>Discovery</BreadcrumbLink>
+					</BreadcrumbItem>
+				</Breadcrumb>
 
-            <Box
-            width='118.49rem' 
-            height='24rem' 
-            flexShrink='0'
-            background='#EBEBEB' 
-            position='absolute'
-            marginTop='20rem'
-            marginLeft='-4.78rem'
-            >
-            <Footer/>
-            </Box>
-        </Box>
-        <ThisCardEvent/>
+				<Flex
+					w={"full"}
+					mb={"100px"}
+					gap={"10"}
+					justifyContent={"center"}
+				>
+					<Box display={"flex"} flexDirection={"column"} gap={5}>
+						<LokasiDropBar setDataLocation={setDataLocation} />
 
-    </Box>
-)
-}
+						<KategoriDropBar setDataCategory={setDataCategory} />
+
+						<WaktuDropBar />
+
+						<TiketDropBar />
+					</Box>
+
+					<ThisCardEvent
+						cityId={dataLocation}
+						categoryId={dataCategory}
+					/>
+				</Flex>
+			</Box>
+
+			<Footer />
+		</Box>
+	);
+};

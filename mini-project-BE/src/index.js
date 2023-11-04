@@ -4,7 +4,7 @@ const cors = require("cors");
 const path = require("path");
 
 require("dotenv").config({
-  path: path.resolve(__dirname, "../.env"),
+	path: path.resolve(__dirname, "../.env"),
 });
 
 // const db = require("./models");
@@ -15,15 +15,15 @@ const PORT = process.env.PORT || 8000;
 const app = new express();
 app.use(bodyParser.json());
 app.use(
-  cors({
-    origin: [
-      process.env.WHITELISTED_DOMAIN &&
-        process.env.WHITELISTED_DOMAIN.split(" "),
-    ],
-  })
+	cors({
+		origin: [
+			process.env.WHITELISTED_DOMAIN &&
+				process.env.WHITELISTED_DOMAIN.split(" "),
+		],
+	})
 );
 const authRouter = require("./routes/authRouter");
-const eventRouter = require("./routes/eventRouter")
+const eventRouter = require("./routes/eventRouter");
 
 app.use("/auth", authRouter);
 app.use("/event", eventRouter);

@@ -1,5 +1,6 @@
+const { where } = require("sequelize");
 const db = require("../models");
-const user = db.users;
+const user = db.user;
 // const { Op } = require("sequelize");
 
 const registerQuery = async (
@@ -24,17 +25,48 @@ const registerQuery = async (
 };
 
 const keepLoginQuery = async (id) => {
-  try {
-    const res = await user.findByPk(id, {
-      attributes: { 	
-        exclude: ["password"],
-      },
-    });
+	try {
+		const res = await user.findByPk(id, {
+			attributes: {
+				exclude: ["password"],
+			},
+		});
 
-    return res;
-  } catch (err) {
-    throw err;
-  }
+		return res;
+	} catch (err) {
+		throw err;
+	}
 };
 
-module.exports = { registerQuery, keepLoginQuery };
+const updateQuery = async (
+	username,
+	email,
+	fullname,
+	avatar,
+	id
+) => {
+	try {
+		await db.sequelize.transaction(async (t) => {
+			await user.update(
+				{
+					username,
+					email,
+					fullname,
+					avatar,
+				},
+				{
+					where: {
+						id,
+					},
+				}
+			);
+		});
+		console.log(username);
+		console.log(id);
+	} catch (err) {
+		console.log(err);
+		throw err;
+	}
+};
+
+module.exports = { registerQuery, keepLoginQuery, updateQuery };

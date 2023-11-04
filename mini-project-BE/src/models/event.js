@@ -1,16 +1,24 @@
 module.exports = (sequelize, Sequelize) => {
 	const event = sequelize.define(
-		"events",
+		"event",
 		{
+			userId: {
+				type: Sequelize.INTEGER,
+				allowNull: false,
+			},
 			title: {
 				type: Sequelize.STRING,
 				allowNull: false,
 			},
-			location: {
+			description: {
 				type: Sequelize.STRING,
 				allowNull: false,
 			},
-			description: {
+			cityId: {
+				type: Sequelize.INTEGER,
+				allowNull: false,
+			},
+			address: {
 				type: Sequelize.STRING,
 				allowNull: false,
 			},
@@ -27,7 +35,7 @@ module.exports = (sequelize, Sequelize) => {
 				allowNull: false,
 			},
 			end_TIME: {
-				type: Sequelize.DATE,
+				type: Sequelize.TIME,
 				allowNull: false,
 			},
 			isComplate: {
@@ -40,8 +48,12 @@ module.exports = (sequelize, Sequelize) => {
 			},
 			banner: {
 				type: Sequelize.STRING,
-				allowNull: false,
+				// allowNull: false,
 			},
+			categoryId: {
+				type: Sequelize.INTEGER,
+				allowNull: false,
+			}
 		},
 		{
 			timestamps: false,
@@ -49,9 +61,11 @@ module.exports = (sequelize, Sequelize) => {
 		}
 	);
 
-	// user.associate = (models) => {
-	// 	user.hasMany(models.event, { foreignKey: "userId" });
-	// };
+	event.associate = (models) => {
+		event.belongsTo(models.city, { foreignKey: "cityId" });
+		event.belongsTo(models.user, { foreignKey : "userId" })
+		event.belongsTo(models.category, { foreignKey : "categoryId" })
+	};
 
 	return event;
 };

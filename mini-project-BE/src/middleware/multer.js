@@ -3,16 +3,25 @@ const multer = require("multer");
 
 const avatarStorage = multer.diskStorage({
   destination: (req, res, cb) => {
-    cb(null, path.join(__dirname, "../public/image/avatar"))
+    cb(null, path.join(__dirname, "../public/images/avatar"))
   },
-  filename: (req, res, cb) => {
-    const { username } = req.user;
-    cb(null, `avatar_${username}-${Date.now()}-${file.originalname}`)
+  filename: (req, file, cb) => {
+    // const { username } = req.user;
+    cb(null, `avatar_${Date.now()}-${file.originalname}`)
+  }
+})
+const bannerStorage = multer.diskStorage({
+  destination: (req, res, cb) => {
+    cb(null, path.join(__dirname, "../public/images/banner"))
+  },
+  filename: (req, file, cb) => {
+    // const { username } = req.user;
+    cb(null, `banner${Date.now()}-${file.originalname}`)
   }
 })
 
-const fileFilter = (req, res, cb) => {
-  const fileType = file.mimetype.split("/")[1]
+const fileFilter = (req, file, cb) => {
+  const fileType = file.mimetype.split("/")[1];
   if (
     fileType === "png" ||
     fileType === "jpg" ||
@@ -35,5 +44,11 @@ const uploadAvatar = multer({
   limits
 }).single("avatar")
 
+const uploadBanner = multer({
+  storage: bannerStorage,
+  fileFilter,
+  limits
+}).single("banner")
 
-module.exports = { uploadAvatar }
+
+module.exports = { uploadAvatar, uploadBanner }

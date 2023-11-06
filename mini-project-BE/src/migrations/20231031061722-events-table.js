@@ -46,10 +46,6 @@ module.exports = {
 				type: Sequelize.BOOLEAN,
 				allowNull: false,
 			},
-			max_capacity: {
-				type: Sequelize.INTEGER,
-				allowNull: false,
-			},
 			banner: {
 				type: Sequelize.STRING,
 				allowNull: false,

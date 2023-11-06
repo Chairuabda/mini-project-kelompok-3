@@ -28,6 +28,8 @@ const eventRouter = require("./routes/eventRouter");
 app.use("/auth", authRouter);
 app.use("/event", eventRouter);
 
+app.use("/uploads", express.static(path.join(__dirname, "./public/images")));
+
 app.listen(PORT, (req, res) => {
 	console.log(`Server started on port ${PORT}`);
 });

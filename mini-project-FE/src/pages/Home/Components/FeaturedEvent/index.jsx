@@ -11,6 +11,7 @@ import {
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Avatar } from "@chakra-ui/react";
 
 export const FeaturedEventHome = () => {
 	const [event, setEvent] = useState();
@@ -108,12 +109,17 @@ export const FeaturedEventHome = () => {
 										gap={3}
 										mt={"15px"}
 									>
-										<Image
-											src={data.image_eo}
-											w={"40px"}
-											h={"40px"}
-											borderRadius={"50%"}
-										/>
+										{data?.user?.avatar ? (
+											<Image
+												src={`http://localhost:8080/uploads/avatar/${data.user?.avatar}`}
+												w={"40px"}
+												h={"40px"}
+												borderRadius={"50%"}
+											/>
+
+										) : (
+											<Avatar src="https://bit.ly/broken-link" size={"sm"} />
+										)}
 										<Box>{data.user.username}</Box>
 									</Box>
 								</Flex>

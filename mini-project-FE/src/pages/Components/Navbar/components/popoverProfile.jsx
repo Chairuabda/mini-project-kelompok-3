@@ -7,12 +7,17 @@ import {
 	PopoverFooter,
 	Text,
 	Flex,
+	Image,
+	AspectRatio,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { Avatar } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
 import { RiLogoutBoxLine } from "react-icons/ri";
 
 export const PopoverProfile = () => {
+	const user = useSelector((state) => state.AuthReducer.user);
+
 	const logOut = () => {
 		localStorage.removeItem("token");
 	};
@@ -36,11 +41,19 @@ export const PopoverProfile = () => {
 				borderRadius={"50%"}
 				p={"2.5px"}
 				outline={"1px solid white"}
+				overflow={"hidden"}
 			>
 				<PopoverTrigger>
-					<Link>
+					{user?.avatar ? (
+						<AspectRatio width="10" ratio={1}>
+							<Image
+								src={`http://localhost:8080/uploads/avatar/${user?.avatar}`}
+								transform={"scale(1.5)"}
+							/>
+						</AspectRatio>
+					) : (
 						<Avatar src="https://bit.ly/broken-link" size={"sm"} />
-					</Link>
+					)}
 				</PopoverTrigger>
 			</Button>
 			<PopoverContent color="black" w={"fit-content"} right={-6}>

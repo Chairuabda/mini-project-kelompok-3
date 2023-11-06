@@ -78,6 +78,7 @@ const keepLoginService = async (id) => {
 const updateService = async (username, email, fullname, avatar, id) => {
 	try {
 		const res = updateQuery(username, email, fullname, avatar, id)
+		console.log(res)
 		return res
 	} catch (err) {
 		throw err

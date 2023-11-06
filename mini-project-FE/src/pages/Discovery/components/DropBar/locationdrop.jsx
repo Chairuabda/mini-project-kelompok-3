@@ -26,6 +26,7 @@ export default function LokasiDropBar({ setDataLocation }) {
 				`http://localhost:8080/event/location?city=${city}`
 			);
 			setLocation(response.data?.data);
+			console.log(response.data?.data)
 		} catch (err) {
 			console.log(err.message);
 		}

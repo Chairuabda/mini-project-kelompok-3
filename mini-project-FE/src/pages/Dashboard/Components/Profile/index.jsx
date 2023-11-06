@@ -3,20 +3,23 @@ import { useSelector } from "react-redux";
 import {
 	Box,
 	Center,
-	Editable,
-	EditableInput,
-	EditablePreview,
 	FormControl,
 	FormLabel,
 	FormHelperText,
 	Button,
 	useToast,
+	Input,
 } from "@chakra-ui/react";
-import UploadImage from "../../../Components/uploadAvatarImage";
+import UploadImage from "../uploadAvatar/uploadAvatarImage";
 import { useFormik } from "formik";
 import axios from "axios";
 
+import { useDispatch } from "react-redux";
+import { keepLogin } from "../../../../../redux/reducer/authReducer";
+
 export const Profile = () => {
+	const dispatch = useDispatch();
+
 	const user = useSelector((state) => state.AuthReducer.user);
 	const toast = useToast();
 
@@ -31,10 +34,11 @@ export const Profile = () => {
 				}
 			);
 
-			// toast({
-			// 	title: "Update data success",
-			// 	status: "success",
-			// });
+			dispatch(keepLogin());
+			toast({
+				title: "Update data success",
+				status: "success",
+			});
 		} catch (err) {
 			toast({
 				title: err.response?.data,
@@ -45,9 +49,9 @@ export const Profile = () => {
 
 	const formik = useFormik({
 		initialValues: {
-			username: user.username,
-			email: user.email,
-			fullname: user.fullname,
+			username: user.username || "",
+			email: user.email || "",
+			fullname: user.fullname || "",
 		},
 		onSubmit: (values) => {
 			console.log("submit");
@@ -78,47 +82,30 @@ export const Profile = () => {
 								>
 									<FormControl isRequired>
 										<FormLabel>Full Name</FormLabel>
-										<Editable
-											defaultValue={user.fullname}
-											borderBottom={"1px solid black"}
+										<Input
+											value={formik.values.fullname}
 											onChange={formik.handleChange}
 											name="fullname"
-										>
-											<EditablePreview />
-											<EditableInput
-											// value={formik.values.fullname}
-											/>
-										</Editable>
+										/>
 									</FormControl>
 
 									<FormControl isRequired>
 										<FormLabel>Username</FormLabel>
-										<Editable
-											placeholder={user.username}
-											borderBottom={"1px solid black"}
-										>
-											<EditablePreview />
-											<EditableInput
-												onChange={formik.handleChange}
-												name="username"
-												value={formik.values.username}
-											/>
-										</Editable>
+										<Input
+											value={formik.values.username}
+											onChange={formik.handleChange}
+											name="username"
+										/>
 									</FormControl>
 
 									<FormControl isRequired>
 										<FormLabel>Email</FormLabel>
-										<Editable
-											placeholder={user.email}
-											borderBottom={"1px solid black"}
-										>
-											<EditablePreview />
-											<EditableInput
-												onChange={formik.handleChange}
-												name="email"
-												value={formik.values.email}
-											/>
-										</Editable>
+										<Input
+											value={formik.values.email}
+											onChange={formik.handleChange}
+											name="email"
+										/>
+
 										<FormHelperText>
 											We'll never share your email.
 										</FormHelperText>

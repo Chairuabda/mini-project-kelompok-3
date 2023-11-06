@@ -90,7 +90,7 @@ export const PaidTicket = (props) => {
           <ModalBody>
             <FormControl>
               <FormLabel>Tentukan Jumlah Tiket</FormLabel>
-              <NumberInput max={100} min={10}>
+              <NumberInput max={100} min={0}>
                 <NumberInputField />
                 <NumberInputStepper>
                   <NumberIncrementStepper />

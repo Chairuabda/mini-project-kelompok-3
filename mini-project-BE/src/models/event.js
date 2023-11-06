@@ -34,16 +34,12 @@ module.exports = (sequelize, Sequelize) => {
 				type: Sequelize.TIME,
 				allowNull: false,
 			},
-			end_TIME: {
+			end_time: {
 				type: Sequelize.TIME,
 				allowNull: false,
 			},
 			isComplate: {
 				type: Sequelize.BOOLEAN,
-				allowNull: false,
-			},
-			max_capacity: {
-				type: Sequelize.INTEGER,
 				allowNull: false,
 			},
 			banner: {

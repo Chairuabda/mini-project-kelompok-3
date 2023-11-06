@@ -8,6 +8,8 @@ import {
   FormLabel,
   Select,
   Textarea,
+  Stack,
+  Button
 } from "@chakra-ui/react";
 
 import { Navbar } from "../Components/Navbar";
@@ -37,7 +39,7 @@ export const CreateEvent = () => {
           >
             Buat Event
           </Text>
-          <UploadImage />
+          <UploadImage/>
           <Box mt="90px" display="flex " gap="10" flexDirection="column">
             <FormControl>
               <FormLabel>Nama Event</FormLabel>
@@ -108,6 +110,11 @@ export const CreateEvent = () => {
         </Box>
       </Box>
       <Footer />
+	<Stack spacing={4} direction='row' align='center'>
+	<Button marginTop='-49rem' marginLeft='45rem' width='500px' bgColor='home.primary' color='white' size='lg'>
+    Buat Event
+  </Button>
+	</Stack>
     </Box>
   );
 };

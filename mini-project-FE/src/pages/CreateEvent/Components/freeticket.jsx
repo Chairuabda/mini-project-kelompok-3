@@ -91,7 +91,7 @@ export const FreeTicket = () => {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="red" mr={3} onClick={onClose}>
+            <Button bgColor='home.primary' color='white' mr={3} onClick={onClose}>
               Close
             </Button>
             <Button variant="ghost">Oke</Button>

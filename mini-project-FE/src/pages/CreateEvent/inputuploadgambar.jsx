@@ -109,10 +109,12 @@ import {
     const startAnimation = () => controls.start("hover")
     const stopAnimation = () => controls.stop()
     return (
-      <Container position='absolute' top='72rem' left='49rem' my="12">
+      <Container>
         <AspectRatio width="64" ratio={1}>
           <Box
-            borderColor="gray.300"
+            ml='10.60rem'
+            mt='2rem'
+            borderColor="gray.200"
             borderStyle="dashed"
             borderWidth="2px"
             rounded="md"

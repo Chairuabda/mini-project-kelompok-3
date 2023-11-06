@@ -76,12 +76,15 @@ export const FeaturedEventHome = () => {
 								}}
 							>
 								<Box
-									backgroundImage={data.image}
 									backgroundPosition={"center"}
 									backgroundSize={"cover"}
 									backgroundRepeat={"no-repeat"}
 									h={"350px"}
-								></Box>
+								>
+									<Image
+									src={`http://localhost:8080/uploads/banner/${data?.banner}`}
+								/>
+								</Box>
 								<Flex
 									direction={"column"}
 									h={"full"}

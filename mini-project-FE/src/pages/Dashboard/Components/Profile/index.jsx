@@ -38,7 +38,7 @@ export const Profile = () => {
 			formData.append("email", email);
 			formData.append("fullname", fullname);
 			formData.append("avatar", selectedImage);
-			const { data } = await axios.patch(
+			await axios.patch(
 				`http://localhost:8080/auth/update-profile/${user.id}`,
 				formData
 			);

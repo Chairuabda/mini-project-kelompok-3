@@ -7,20 +7,20 @@ import {
 	Spacer,
 	Text,
 	Center,
-	Link
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export const FeaturedEventHome = () => {
 	const [event, setEvent] = useState();
 
 	const dataEvent = async () => {
 		try {
-			const response = await axios.get("http://localhost:3000/event");
-			setEvent(response.data);
+			const response = await axios.get("http://localhost:8080/event");
+			setEvent(response.data?.data);
 		} catch (err) {
-			console.log(err);
+			console.log(err.message);
 		}
 	};
 
@@ -35,16 +35,27 @@ export const FeaturedEventHome = () => {
 			direction={"column"}
 			mb={"100px"}
 		>
-			<Flex justify={"start"} w={{base: "75%", sm: "87%",md: "80%", lg: "75%"}}>
+			<Flex
+				justify={"start"}
+				w={{ base: "75%", sm: "87%", md: "80%", lg: "75%" }}
+			>
 				<Text
-					fontSize={{base: "20px",md: "32px"}}
+					fontSize={{ base: "20px", md: "32px" }}
 					fontWeight={600}
 					m={"54px 0px 46px 0px"}
 				>
 					Featured Event
 				</Text>
 			</Flex>
-			<Grid templateColumns={{sm: "repeat(2, 1fr)",md: "repeat(3, 1fr)",xl: "repeat(4, 1fr)"}} gap={6} w={{base: "75%", sm: "87%",md: "80%", lg: "75%"}}>
+			<Grid
+				templateColumns={{
+					sm: "repeat(2, 1fr)",
+					md: "repeat(3, 1fr)",
+					xl: "repeat(4, 1fr)",
+				}}
+				gap={6}
+				w={{ base: "75%", sm: "87%", md: "80%", lg: "75%" }}
+			>
 				{event?.length > 0 ? (
 					event.map((data, index) => {
 						return (
@@ -84,7 +95,9 @@ export const FeaturedEventHome = () => {
 										<Box>
 											{data.start_date} - {data.end_date}
 										</Box>
-										<Box fontWeight={700} color={"home.primary"}>{data.price}</Box>
+										<Box fontWeight={700} color={"home.primary"}>
+											{data.price}
+										</Box>
 									</Box>
 
 									<Spacer />
@@ -101,7 +114,7 @@ export const FeaturedEventHome = () => {
 											h={"40px"}
 											borderRadius={"50%"}
 										/>
-										<Box>{data.eo}</Box>
+										<Box>{data.user.username}</Box>
 									</Box>
 								</Flex>
 							</Card>
@@ -112,15 +125,17 @@ export const FeaturedEventHome = () => {
 				)}
 			</Grid>
 			<Center mt={"30px"}>
-					<Link
-						fontSize={{base: "14px",md: "20px"}}
+				<Link to="/discovery">
+					<Text
+						fontSize={{ base: "14px", md: "20px" }}
 						fontWeight={600}
 						color={"home.primary"}
 						textDecoration={"underline"}
 					>
 						See All Event
-					</Link>
-				</Center>
+					</Text>
+				</Link>
+			</Center>
 		</Flex>
 	);
 };

@@ -5,19 +5,55 @@ import {
 	Center,
 	Editable,
 	EditableInput,
-	// EditableTextarea,
 	EditablePreview,
 	FormControl,
 	FormLabel,
 	FormHelperText,
-	Image,
-
-	// BreadcrumbSeparator,
+	Button,
+	useToast,
 } from "@chakra-ui/react";
-// import { PopoverDashboard } from "../popoverDashboard";
+import UploadImage from "../../../Components/uploadAvatarImage";
+import { useFormik } from "formik";
+import axios from "axios";
 
 export const Profile = () => {
 	const user = useSelector((state) => state.AuthReducer.user);
+	const toast = useToast();
+
+	const updateProfile = async (username, email, fullname) => {
+		try {
+			await axios.patch(
+				`http://localhost:8080/auth/update-profile/${user.id}`,
+				{
+					username,
+					email,
+					fullname,
+				}
+			);
+
+			// toast({
+			// 	title: "Update data success",
+			// 	status: "success",
+			// });
+		} catch (err) {
+			toast({
+				title: err.response?.data,
+				status: "error",
+			});
+		}
+	};
+
+	const formik = useFormik({
+		initialValues: {
+			username: user.username,
+			email: user.email,
+			fullname: user.fullname,
+		},
+		onSubmit: (values) => {
+			console.log("submit");
+			updateProfile(values.username, values.email, values.fullname);
+		},
+	});
 
 	return (
 		<Box>
@@ -26,19 +62,15 @@ export const Profile = () => {
 					<Center mt={"35px"}>
 						<Box w={"90%"}>
 							<Box
-								mb={"30px"}
+								mb={"70px"}
 								display={"flex"}
 								justifyContent={{ base: "center", md: "start" }}
+								alignItems={"start"}
 							>
-								<Image
-									borderRadius="full"
-									boxSize="150px"
-									src="https://bit.ly/dan-abramov"
-									alt="Dan Abramov"
-								/>
+								<UploadImage />
 							</Box>
 
-							<form action="">
+							<form onSubmit={formik.handleSubmit}>
 								<Box
 									display={"flex"}
 									flexDirection={"column"}
@@ -49,37 +81,50 @@ export const Profile = () => {
 										<Editable
 											defaultValue={user.fullname}
 											borderBottom={"1px solid black"}
+											onChange={formik.handleChange}
+											name="fullname"
 										>
 											<EditablePreview />
-											<EditableInput />
+											<EditableInput
+											// value={formik.values.fullname}
+											/>
 										</Editable>
 									</FormControl>
 
 									<FormControl isRequired>
 										<FormLabel>Username</FormLabel>
 										<Editable
-											defaultValue={user.username}
+											placeholder={user.username}
 											borderBottom={"1px solid black"}
 										>
 											<EditablePreview />
-											<EditableInput />
+											<EditableInput
+												onChange={formik.handleChange}
+												name="username"
+												value={formik.values.username}
+											/>
 										</Editable>
 									</FormControl>
 
 									<FormControl isRequired>
 										<FormLabel>Email</FormLabel>
 										<Editable
-											defaultValue={user.email}
+											placeholder={user.email}
 											borderBottom={"1px solid black"}
 										>
 											<EditablePreview />
-											<EditableInput />
+											<EditableInput
+												onChange={formik.handleChange}
+												name="email"
+												value={formik.values.email}
+											/>
 										</Editable>
 										<FormHelperText>
 											We'll never share your email.
 										</FormHelperText>
 									</FormControl>
 								</Box>
+								<Button type="submit">Submit</Button>
 							</form>
 						</Box>
 					</Center>

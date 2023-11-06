@@ -14,11 +14,15 @@ module.exports = {
 				type: Sequelize.STRING,
 				allowNull: false,
 			},
-			location: {
+			description: {
 				type: Sequelize.STRING,
 				allowNull: false,
 			},
-			description: {
+			cityId: {
+				type: Sequelize.STRING,
+				allowNull: false,
+			},
+			location: {
 				type: Sequelize.STRING,
 				allowNull: false,
 			},
@@ -35,21 +39,21 @@ module.exports = {
 				allowNull: false,
 			},
 			end_TIME: {
-				type: Sequelize.DATE,
+				type: Sequelize.TIME,
 				allowNull: false,
 			},
-      isComplate: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false
-      }, 
-      max_capacity: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
-      banner: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      }
+			isComplate: {
+				type: Sequelize.BOOLEAN,
+				allowNull: false,
+			},
+			max_capacity: {
+				type: Sequelize.INTEGER,
+				allowNull: false,
+			},
+			banner: {
+				type: Sequelize.STRING,
+				allowNull: false,
+			},
 		});
 	},
 

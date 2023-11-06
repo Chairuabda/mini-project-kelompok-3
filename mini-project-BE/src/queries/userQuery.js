@@ -1,6 +1,6 @@
 const db = require("../models");
 const { Op } = require("sequelize");
-const user = db.users;
+const user = db.user;
 
 const findUserQuery = async ({  username = null, email = null }) => {
   try {

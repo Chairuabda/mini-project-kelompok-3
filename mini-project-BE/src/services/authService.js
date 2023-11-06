@@ -1,6 +1,7 @@
 const {
 	registerQuery,
 	keepLoginQuery,
+	updateQuery
 } = require("../queries/authQuery");
 const { findUserQuery } = require("../queries/userQuery");
 const jwt = require("jsonwebtoken");
@@ -73,4 +74,14 @@ const keepLoginService = async (id) => {
 	}
 };
 
-module.exports = { registerService, loginService, keepLoginService };
+
+const updateService = async (username, email, fullname, avatar, id) => {
+	try {
+		const res = updateQuery(username, email, fullname, avatar, id)
+		return res
+	} catch (err) {
+		throw err
+	}
+}
+
+module.exports = { registerService, loginService, keepLoginService, updateService };

@@ -1,8 +1,17 @@
-const express = require("express")
+const express = require("express");
 const router = express.Router();
 
-const { eventAttendeesController } = require("../controllers/eventAttendeesController")
+const {
+	eventAttendeesController,
+	eventController,
+	eventLocationController,
+	eventCategoryController,
+} = require("../controllers/eventController");
 
-router.post("/attendees", eventAttendeesController)
+router.post("/attendees", eventAttendeesController);
+router.get("/", eventController);
+// router.get("/eventLocation/:id", eventLocationController)
+router.get("/location", eventLocationController);
+router.get("/category", eventCategoryController);
 
 module.exports = router;

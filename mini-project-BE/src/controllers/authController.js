@@ -65,11 +65,9 @@ const updateController = async (req, res) => {
 			req.file?.filename,
 			id
 		);
-		console.log(result);
 		console.log(req.file?.filename);
 		res.status(200).json({
 			message: "Update User Info",
-			data: result,
 		});
 	} catch (err) {
 		console.log(err);

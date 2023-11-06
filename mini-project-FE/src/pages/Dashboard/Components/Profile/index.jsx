@@ -16,6 +16,7 @@ import {
 import AvatarProfile from "../../../../assets/avatar-profile.jpeg";
 import { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
+
 import { useFormik } from "formik";
 import axios from "axios";
 
@@ -25,6 +26,7 @@ import { keepLogin } from "../../../../../redux/reducer/authReducer";
 export const Profile = () => {
 	const dispatch = useDispatch();
 	const [selectedImage, setSelectedImage] = useState(null);
+
 
 	const user = useSelector((state) => state.AuthReducer.user);
 	const toast = useToast();
@@ -42,7 +44,6 @@ export const Profile = () => {
 			);
 
 			dispatch(keepLogin());
-			alert(data?.meesage);
 			toast({
 				title: "Update data success",
 				status: "success",

@@ -57,7 +57,7 @@ export const FeaturedEventHome = () => {
 				w={{ base: "75%", sm: "87%", md: "80%", lg: "75%" }}
 			>
 				{event?.length > 0 ? (
-					event.map((data, index) => {
+					event.slice(0, 8).map((data, index) => {
 						return (
 							<Card
 								key={index}

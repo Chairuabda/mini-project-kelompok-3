@@ -14,7 +14,6 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useState } from "react";
-import { GoogleButton } from "../../components/google-button";
 import axios from "axios";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -231,18 +230,9 @@ export const RegisterSection = () => {
 					>
 						Sign up
 					</Button>
-					<Box
-						display={"flex"}
-						justifyContent={"center"}
-						alignItems={"center"}
-						flexDirection={"column"}
-					>
-						<Text fontSize={"12px"}>Or Sign up with</Text>
-						<GoogleButton />
-					</Box>
 				</Box>
 
-				<Text display={"flex"} fontSize={"14px"}>
+				<Text display={"flex"} fontSize={"14px"} mt={'5px'}>
 					Sudah Punya Akun?
 					<Link to="/login" style={{ marginLeft: "5px" }}>
 						Login

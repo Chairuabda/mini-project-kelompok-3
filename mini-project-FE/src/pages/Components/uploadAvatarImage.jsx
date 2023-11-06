@@ -23,7 +23,6 @@ export default function UploadImage() {
 		try {
 			let formData = new FormData();
 			formData.append("avatar", fieldImage);
-			console.log(formData);
 
 			const { data } = await axios.patch(
 				`http://localhost:8080/auth/update-profile/${user.id}`,

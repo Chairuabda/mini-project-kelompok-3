@@ -9,11 +9,13 @@ import {
 	FormControl,
 	FormErrorMessage,
 	useToast,
+	Image
 } from "@chakra-ui/react";
+import { signInWithGoogle } from "../../../../firebase";
 import { Link, useNavigate } from "react-router-dom";
+import googleImg from "../../../../assets/google.png";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useState } from "react";
-import { GoogleButton } from "../../components/google-button";
 import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 import {
@@ -35,7 +37,6 @@ export const LoginSection = () => {
 	const navigate = useNavigate();
 	const toast = useToast();
 
-
 	const login = async (email, password) => {
 		try {
 			const res = await axios.post(
@@ -53,14 +54,24 @@ export const LoginSection = () => {
 				title: "Login Success",
 				status: "success",
 			});
-			
-			navigate("/");
 
+			navigate("/");
 		} catch (err) {
-				toast({
-					title: err.response?.data,
-					status: "error",
-				});
+			toast({
+				title: err.response?.data,
+				status: "error",
+			});
+		}
+	};
+
+	const onLoginWithGoogle = async () => {
+		try {
+			const result = await signInWithGoogle();
+			if (result === "signin with google success") {
+				navigate("/");
+			}
+		} catch (error) {
+			console.log(error);
 		}
 	};
 
@@ -174,7 +185,15 @@ export const LoginSection = () => {
 						<Text fontSize={"12px"} mb={"10px"}>
 							Or Sign in with
 						</Text>
-						<GoogleButton />
+						<Button size={"sm"} onClick={onLoginWithGoogle}>
+							<Image
+								src={googleImg}
+								w={"15px"}
+								mr={"7px"}
+								alt="Google Image"
+							/>
+							Google
+						</Button>
 					</Box>
 				</Box>
 				<Text display={"flex"} fontSize={"14px"}>

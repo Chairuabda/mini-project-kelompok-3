@@ -6,9 +6,9 @@ const {
 } = require("../queries/eventQuery");
 
 
-const eventService = async (categoryId, cityId) => {
+const eventService = async ( title ,categoryId, cityId) => {
 	try {
-		const res = eventQuery(categoryId, cityId)
+		const res = eventQuery(title, categoryId, cityId)
 		return res
 	} catch (err) {
 		throw err
@@ -41,9 +41,9 @@ const eventAttendeesService = async (
 };
 
 
-const eventLocationService = async () => {
+const eventLocationService = async (city) => {
 	try {
-		const res = await eventLocationQuery()
+		const res = await eventLocationQuery(city)
 		return res
 	} catch (err) {
 		throw err;

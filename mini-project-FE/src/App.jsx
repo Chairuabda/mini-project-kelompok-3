@@ -9,25 +9,31 @@ import { MyEvent } from "./pages/Dashboard/Components/MyEvent";
 import { PersonalInformation } from "./pages/PersonalInformation";
 import { Auth } from "./components/auth";
 import { Discovery } from "./pages/Discovery";
+import ScrollToTop from "./components/scrollToTop";
 
 function App() {
 	return (
 		<Box fontFamily={"Outfit"} overflow="hidden">
 			<Auth>
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/login" element={<Login />} />
-					<Route path="/register" element={<Register />} />
-					<Route path="/event" element={<CreateEvent />} />
-					<Route path="/dashboard" element={<Dashboard />}>
-						<Route path="/dashboard/myevent" element={<MyEvent />} />
-					</Route>
-					<Route path="/discovery" element={<Discovery />} />
-					<Route
-						path="/personal-information"
-						element={<PersonalInformation />}
-					/>
-				</Routes>
+				<ScrollToTop>
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/login" element={<Login />} />
+						<Route path="/register" element={<Register />} />
+						<Route path="/event" element={<CreateEvent />} />
+						<Route path="/dashboard" element={<Dashboard />}>
+							<Route
+								path="/dashboard/myevent"
+								element={<MyEvent />}
+							/>
+						</Route>
+						<Route path="/discovery" element={<Discovery />} />
+						<Route
+							path="/personal-information"
+							element={<PersonalInformation />}
+						/>
+					</Routes>
+				</ScrollToTop>
 			</Auth>
 		</Box>
 	);

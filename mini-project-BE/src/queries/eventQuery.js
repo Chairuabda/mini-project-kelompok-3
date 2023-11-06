@@ -1,20 +1,28 @@
 const db = require("../models");
 const attendees = db.event_attendees;
 const event = db.event;
-const city = db.city;
+const cities = db.city;
 const user = db.user;
 const category = db.category;
 const { Op } = require("sequelize");
 
-const eventQuery = async (categoryId = null, cityId = null) => {
+const eventQuery = async (
+	title = null,
+	categoryId = null,
+	cityId = null
+) => {
 	try {
 		const params = {};
 		if (categoryId) params.categoryId = categoryId;
 		if (cityId) params.cityId = cityId;
+		if (title)
+			params.title = {
+				[Op.like]: `%${title}%`,
+			};
 		const res = await event.findAll({
 			include: [
 				{ model: user },
-				{ model: city },
+				{ model: cities },
 				{ model: category },
 			],
 			where: {
@@ -52,9 +60,18 @@ const eventAttendeesQuery = async (
 	}
 };
 
-const eventLocationQuery = async () => {
+const eventLocationQuery = async (city = null) => {
 	try {
-		const res = await city.findAll();
+		const filter = {};
+		if (city)
+			filter.city = {
+				[Op.like]: `%${city}%`,
+			};
+		const res = await cities.findAll({
+			where: {
+				...filter,
+			},
+		});
 
 		return res;
 	} catch (err) {

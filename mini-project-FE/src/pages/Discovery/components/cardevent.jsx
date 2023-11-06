@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import {
 	Image,
@@ -12,17 +13,13 @@ import axios from "axios";
 import { useEffect } from "react";
 
 export const ThisCardEvent = (props) => {
-	const [event, setEvent] = useState();
-	console.log(props.cityId);
+	const [event, setEvent] = useState([]);
+
 	const dataEvent = async () => {
 		try {
 			const response = await axios.get(
 				`http://localhost:8080/event?categoryId=${props.categoryId}&cityId=${props.cityId}`
 			);
-			// const result = response.data.data.map((data) => data.events);
-			// const hasil = result.map((data) => {
-			// 	if (data.length > 0) return data;
-			// });
 			setEvent(response.data.data);
 		} catch (err) {
 			console.log(err.message);
@@ -31,7 +28,7 @@ export const ThisCardEvent = (props) => {
 
 	useEffect(() => {
 		dataEvent();
-	}, [event]);
+	}, [props.categoryId, props.cityId]);
 
 	return (
 		<Grid

@@ -1,6 +1,8 @@
 // import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 // Import Swiper styles
 import "swiper/css";
@@ -14,9 +16,33 @@ import { ChevronRightIcon, ChevronLeftIcon } from "@chakra-ui/icons";
 import KonserMusik from "../../../../assets/KonserMusik.png";
 import Pendidikan from "../../../../assets/pendidikan.png";
 import Olahraga from "../../../../assets/olahraga.png";
-import { Link } from "react-router-dom";
+import AnakKeluarge from "../../../../assets/anak&keluarge.jpeg"
+import DesainFOtoVideo from "../../../../assets/desain,foto,video.jpg"
+import FashionKecantikan from "../../../../assets/Fashion&kecatikan.jpeg"
+import FilmSinema from "../../../../assets/filmsinema.jpeg"
+import { Link, useNavigate } from "react-router-dom";
 
 export const CarouselKategori = () => {
+	const navigate = useNavigate();
+	const [category, setCategory] = useState();
+
+	const dataCategory = async () => {
+		try {
+			const response = await axios.get(
+				"http://localhost:8080/event/category"
+			);
+			setCategory(response.data.data);
+		} catch (err) {
+			console.log(err.message);
+		}
+	};
+
+	const Image = [KonserMusik, Olahraga,Pendidikan, AnakKeluarge, DesainFOtoVideo, FashionKecantikan, FilmSinema];
+
+	useEffect(() => {
+		dataCategory();
+	}, []);
+
 	return (
 		<Box display={"flex"} justifyContent={"center"} w={"full"}>
 			<Box
@@ -110,236 +136,39 @@ export const CarouselKategori = () => {
 						}}
 						modules={[Navigation]}
 					>
-						<SwiperSlide
-							style={{
-								display: "flex",
-								justifyContent: "center",
-								alignItems: "center",
-							}}
-						>
-							<Box
-								display={"flex"}
-								justifyContent={"center"}
-								alignItems={"center"}
-								color={"white"}
-								h={"100%"}
-								w={"95%"}
-								borderRadius={"30px"}
-								backgroundImage={KonserMusik}
-								backgroundSize={"110%"}
-								backgroundPosition={"center"}
-								backgroundRepeat={"no-repeat"}
-							>
-								KONSER MUSIK
-							</Box>
-						</SwiperSlide>
-						<SwiperSlide
-							style={{
-								display: "flex",
-								justifyContent: "center",
-								alignItems: "center",
-							}}
-						>
-							<Box
-								display={"flex"}
-								justifyContent={"center"}
-								alignItems={"center"}
-								color={"white"}
-								h={"100%"}
-								w={"95%"}
-								borderRadius={"30px"}
-								backgroundImage={Olahraga}
-								backgroundSize={"110%"}
-								backgroundPosition={"center"}
-								backgroundRepeat={"no-repeat"}
-							>
-								OLAHRAGA
-							</Box>
-						</SwiperSlide>
-						<SwiperSlide
-							style={{
-								display: "flex",
-								justifyContent: "center",
-								alignItems: "center",
-							}}
-						>
-							<Box
-								display={"flex"}
-								justifyContent={"center"}
-								alignItems={"center"}
-								color={"white"}
-								h={"100%"}
-								w={"95%"}
-								borderRadius={"30px"}
-								backgroundImage={Pendidikan}
-								backgroundSize={"110%"}
-								backgroundPosition={"center"}
-								backgroundRepeat={"no-repeat"}
-							>
-								PENDIDIKAN
-							</Box>
-						</SwiperSlide>
-						<SwiperSlide
-							style={{
-								display: "flex",
-								justifyContent: "center",
-								alignItems: "center",
-							}}
-						>
-							<Box
-								display={"flex"}
-								justifyContent={"center"}
-								alignItems={"center"}
-								color={"white"}
-								h={"100%"}
-								w={"95%"}
-								borderRadius={"30px"}
-								backgroundImage={KonserMusik}
-								backgroundSize={"110%"}
-								backgroundPosition={"center"}
-								backgroundRepeat={"no-repeat"}
-							>
-								PENTAS SENI
-							</Box>
-						</SwiperSlide>
-						<SwiperSlide
-							style={{
-								display: "flex",
-								justifyContent: "center",
-								alignItems: "center",
-							}}
-						>
-							<Box
-								display={"flex"}
-								justifyContent={"center"}
-								alignItems={"center"}
-								color={"white"}
-								h={"100%"}
-								w={"95%"}
-								borderRadius={"30px"}
-								backgroundImage={Pendidikan}
-								backgroundSize={"110%"}
-								backgroundPosition={"center"}
-								backgroundRepeat={"no-repeat"}
-							>
-								KONSER MUSIK
-							</Box>
-						</SwiperSlide>
-						<SwiperSlide
-							style={{
-								display: "flex",
-								justifyContent: "center",
-								alignItems: "center",
-							}}
-						>
-							<Box
-								display={"flex"}
-								justifyContent={"center"}
-								alignItems={"center"}
-								color={"white"}
-								h={"100%"}
-								w={"95%"}
-								borderRadius={"30px"}
-								backgroundImage={Olahraga}
-								backgroundSize={"110%"}
-								backgroundPosition={"center"}
-								backgroundRepeat={"no-repeat"}
-							>
-								KONSER MUSIK
-							</Box>
-						</SwiperSlide>
-						<SwiperSlide
-							style={{
-								display: "flex",
-								justifyContent: "center",
-								alignItems: "center",
-							}}
-						>
-							<Box
-								display={"flex"}
-								justifyContent={"center"}
-								alignItems={"center"}
-								color={"white"}
-								h={"100%"}
-								w={"95%"}
-								borderRadius={"30px"}
-								backgroundImage={KonserMusik}
-								backgroundSize={"110%"}
-								backgroundPosition={"center"}
-								backgroundRepeat={"no-repeat"}
-							>
-								KONSER MUSIK
-							</Box>
-						</SwiperSlide>
-						<SwiperSlide
-							style={{
-								display: "flex",
-								justifyContent: "center",
-								alignItems: "center",
-							}}
-						>
-							<Box
-								display={"flex"}
-								justifyContent={"center"}
-								alignItems={"center"}
-								color={"white"}
-								h={"100%"}
-								w={"95%"}
-								borderRadius={"30px"}
-								backgroundImage={Olahraga}
-								backgroundSize={"110%"}
-								backgroundPosition={"center"}
-								backgroundRepeat={"no-repeat"}
-							>
-								KONSER MUSIK
-							</Box>
-						</SwiperSlide>
-						<SwiperSlide
-							style={{
-								display: "flex",
-								justifyContent: "center",
-								alignItems: "center",
-							}}
-						>
-							<Box
-								display={"flex"}
-								justifyContent={"center"}
-								alignItems={"center"}
-								color={"white"}
-								h={"100%"}
-								w={"95%"}
-								borderRadius={"30px"}
-								backgroundImage={Pendidikan}
-								backgroundSize={"110%"}
-								backgroundPosition={"center"}
-								backgroundRepeat={"no-repeat"}
-							>
-								KONSER MUSIK
-							</Box>
-						</SwiperSlide>
-						<SwiperSlide
-							style={{
-								display: "flex",
-								justifyContent: "center",
-								alignItems: "center",
-							}}
-						>
-							<Box
-								display={"flex"}
-								justifyContent={"center"}
-								alignItems={"center"}
-								color={"white"}
-								h={"100%"}
-								w={"95%"}
-								borderRadius={"30px"}
-								backgroundImage={Olahraga}
-								backgroundSize={"110%"}
-								backgroundPosition={"center"}
-								backgroundRepeat={"no-repeat"}
-							>
-								OLAHRAGA
-							</Box>
-						</SwiperSlide>
+						{category?.slice(0, 7).map((data, index) => {
+							return (
+								<SwiperSlide
+									style={{
+										display: "flex",
+										justifyContent: "center",
+										alignItems: "center",
+									}}
+									key={index}
+								>
+									<Box
+										display={"flex"}
+										justifyContent={"center"}
+										alignItems={"center"}
+										color={"white"}
+										h={"100%"}
+										w={"95%"}
+										borderRadius={"30px"}
+										backgroundImage={Image[index]}
+										backgroundSize={"110%"}
+										backgroundPosition={"center"}
+										backgroundRepeat={"no-repeat"}
+										cursor={"pointer"}
+										onClick={() => {
+											navigate("/discovery");
+											sessionStorage.setItem("id", index + 1);
+										}}
+									>
+										{data.category.toUpperCase()}
+									</Box>
+								</SwiperSlide>
+							);
+						})}
 					</Swiper>
 				</Box>
 				<Center>

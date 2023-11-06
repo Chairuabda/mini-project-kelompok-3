@@ -5,7 +5,6 @@ import {
 	BreadcrumbLink,
 	Flex,
 } from "@chakra-ui/react";
-
 import LokasiDropBar from "./components/DropBar/locationdrop";
 import KategoriDropBar from "./components/DropBar/kategorieventdrop";
 import WaktuDropBar from "./components/DropBar/waktudropbar";
@@ -14,14 +13,17 @@ import { Navbar } from "../Components/Navbar";
 import { Footer } from "../Components/Footer";
 import { ThisCardEvent } from "./components/cardevent";
 import { ChevronRightIcon } from "@chakra-ui/icons";
-
-// import axios from "axios";
-// import { useFormik } from "formik";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const Discovery = () => {
 	const [dataLocation, setDataLocation] = useState("");
 	const [dataCategory, setDataCategory] = useState("");
+
+	const ctgryID = sessionStorage.getItem("id");
+
+	useEffect(() => {
+		setDataCategory(ctgryID || "");
+	}, []);
 
 	return (
 		<Box w={"100vw"} minH={"100vh"} bgColor={"#F3F3F3"}>

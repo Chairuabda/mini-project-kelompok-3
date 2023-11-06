@@ -1,17 +1,14 @@
 import {
 	Box,
-	Input,
 	Text,
-	InputGroup,
-	InputLeftElement,
 	Button,
 } from "@chakra-ui/react";
 // import React from "react";
 // import { useState } from "react";
 import { Link } from "react-router-dom";
-import { SearchIcon } from "@chakra-ui/icons";
 import { PopoverProfile } from "./components/popoverProfile";
 import DrawerList from "./components/drawerList";
+import { SearchEvent } from "./components/searchEvent";
 
 export const Navbar = () => {
 	const token = localStorage.getItem("token");
@@ -46,19 +43,7 @@ export const Navbar = () => {
 					</Box>
 				</Link>
 				<Box ml={"44px"} display={{ base: "none", md: "block" }}>
-					<InputGroup>
-						<InputLeftElement pointerEvents="none">
-							<SearchIcon color="gray.300" h={"16"} />
-						</InputLeftElement>
-						<Input
-							type="text"
-							bgColor={"white"}
-							color={"black"}
-							w={"350px"}
-							borderRadius={"40px"}
-							placeholder="Cari event..."
-						/>
-					</InputGroup>
+						<SearchEvent />
 				</Box>
 			</Box>
 

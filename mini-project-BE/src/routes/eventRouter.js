@@ -10,7 +10,6 @@ const {
 
 router.post("/attendees", eventAttendeesController);
 router.get("/", eventController);
-// router.get("/eventLocation/:id", eventLocationController)
 router.get("/location", eventLocationController);
 router.get("/category", eventCategoryController);
 

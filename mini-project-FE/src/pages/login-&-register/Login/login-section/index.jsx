@@ -57,10 +57,10 @@ export const LoginSection = () => {
 			navigate("/");
 
 		} catch (err) {
-			toast({
-				title: err.response?.data,
-				status: "error",
-			});
+				toast({
+					title: err.response?.data,
+					status: "error",
+				});
 		}
 	};
 

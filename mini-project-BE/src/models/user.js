@@ -1,6 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
 	const user = sequelize.define(
-		"users",
+		"user",
 		{
 			email: {
 				type: Sequelize.STRING,
@@ -14,14 +14,17 @@ module.exports = (sequelize, Sequelize) => {
 				type: Sequelize.STRING,
 				allowNull: false,
 			},
-            fullname: {
-                type: Sequelize.STRING,
-                allowNull: false,
-            },
-            coin: {
-                type: Sequelize.INTEGER,
-                allowNull: false,
-            },
+			fullname: {
+				type: Sequelize.STRING,
+				allowNull: false,
+			},
+			coin: {
+				type: Sequelize.INTEGER,
+				allowNull: false,
+			},
+			avatar: {
+				type: Sequelize.STRING
+			}
 		},
 		{
 			timestamps: false,
@@ -29,9 +32,9 @@ module.exports = (sequelize, Sequelize) => {
 		}
 	);
 
-	// user.associate = (models) => {
-	// 	user.hasMany(models.event, { foreignKey: "userId" });
-	// };
+	user.associate = (models) => {
+		user.hasMany(models.event, { foreignKey: "userId" });
+	};
 
 	return user;
 };

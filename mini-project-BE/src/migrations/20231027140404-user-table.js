@@ -30,6 +30,9 @@ module.exports = {
 				type: Sequelize.INTEGER,
         allowNull: false,
 			},
+			avatar: {
+				type: Sequelize.STRING
+			}
 		});
 	},
 

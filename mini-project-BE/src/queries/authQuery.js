@@ -62,6 +62,9 @@ const updateQuery = async (
 			);
 		});
 		console.log(username);
+		console.log(fullname);
+		console.log(email);
+		console.log(avatar);
 		console.log(id);
 	} catch (err) {
 		console.log(err);

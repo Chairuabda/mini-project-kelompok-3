@@ -25,7 +25,7 @@ export const Dashboard = () => {
 					<SideBar setActive={setIsActivePage} />
 				</Box>
 			</Box>
-			<Flex direction={"column"} w={"full"}> 
+			<Flex direction={"column"} w={"full"}>
 				<Box position={"relative"}>
 					<Box
 						fontSize={"20px"}
@@ -48,7 +48,7 @@ export const Dashboard = () => {
 							alignItems={"center"}
 							cursor={"pointer"}
 						>
-							{user.email}
+							{user?.email}
 						</Box>
 					</Box>
 
@@ -63,7 +63,9 @@ export const Dashboard = () => {
 						</BreadcrumbItem>
 
 						<BreadcrumbItem isCurrentPage>
-							<BreadcrumbLink href="#" fontWeight={500}>{activePage}</BreadcrumbLink>
+							<BreadcrumbLink href="#" fontWeight={500}>
+								{activePage}
+							</BreadcrumbLink>
 						</BreadcrumbItem>
 					</Breadcrumb>
 				</Box>

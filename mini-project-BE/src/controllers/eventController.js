@@ -7,17 +7,17 @@ const {
 } = require("../services/eventService");
 
 const eventController = async (req, res) => {
-  try {
-    const { categoryId, cityId } = req.query;
-    const result = await eventService(categoryId, cityId);
-    res.status(200).json({
-      message: "Event success",
-      data: result,
-    });
-  } catch (err) {
-    res.status(500).send(err.message);
-  }
-};
+	try {
+		const { title, categoryId, cityId } = req.query;
+		const result = await eventService(title, categoryId, cityId)
+		res.status(200).json({
+			message: "Event success",
+			data: result,
+		})
+	} catch (err) {
+		res.status(500).send(err.message)
+	}
+}
 
 const eventAttendeesController = async (req, res) => {
   try {
@@ -43,8 +43,9 @@ const eventAttendeesController = async (req, res) => {
 };
 
 const eventLocationController = async (req, res) => {
-  try {
-    const result = await eventLocationService();
+	try {
+		const { city } = req.query
+		const result = await eventLocationService(city)
 
     res.status(200).json({
       message: "Get Event by Location Success",

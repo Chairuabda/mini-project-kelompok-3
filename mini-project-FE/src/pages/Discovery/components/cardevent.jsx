@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import {
 	Image,
@@ -10,19 +11,16 @@ import {
 import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
+import { Avatar } from "@chakra-ui/react";
 
 export const ThisCardEvent = (props) => {
-	const [event, setEvent] = useState();
-	console.log(props.cityId);
+	const [event, setEvent] = useState([]);
+
 	const dataEvent = async () => {
 		try {
 			const response = await axios.get(
 				`http://localhost:8080/event?categoryId=${props.categoryId}&cityId=${props.cityId}`
 			);
-			// const result = response.data.data.map((data) => data.events);
-			// const hasil = result.map((data) => {
-			// 	if (data.length > 0) return data;
-			// });
 			setEvent(response.data.data);
 		} catch (err) {
 			console.log(err.message);
@@ -31,7 +29,7 @@ export const ThisCardEvent = (props) => {
 
 	useEffect(() => {
 		dataEvent();
-	}, [event]);
+	}, [props.categoryId, props.cityId]);
 
 	return (
 		<Grid
@@ -62,12 +60,15 @@ export const ThisCardEvent = (props) => {
 							}}
 						>
 							<Box
-								// backgroundImage={event.banner}
 								backgroundPosition={"center"}
 								backgroundSize={"cover"}
 								backgroundRepeat={"no-repeat"}
 								h={"350px"}
-							></Box>
+							>
+								<Image
+									src={`http://localhost:8080/uploads/banner/${data?.banner}`}
+								/>
+							</Box>
 							<Flex
 								direction={"column"}
 								h={"full"}
@@ -95,12 +96,19 @@ export const ThisCardEvent = (props) => {
 									gap={3}
 									mt={"15px"}
 								>
-									<Image
-										// src={event.image_eo}
-										w={"40px"}
-										h={"40px"}
-										borderRadius={"50%"}
-									/>
+									{data?.user?.avatar ? (
+										<Image
+											src={`http://localhost:8080/uploads/avatar/${data.user?.avatar}`}
+											w={"40px"}
+											h={"40px"}
+											borderRadius={"50%"}
+										/>
+									) : (
+										<Avatar
+											src="https://bit.ly/broken-link"
+											size={"sm"}
+										/>
+									)}
 									<Box>{data.user.username}</Box>
 								</Box>
 							</Flex>

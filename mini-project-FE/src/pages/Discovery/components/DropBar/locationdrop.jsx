@@ -18,13 +18,15 @@ import { useEffect } from "react";
 
 export default function LokasiDropBar({ setDataLocation }) {
 	const [location, setLocation] = useState();
+	const [city, setCity] = useState("");
 
 	const dataLocation = async () => {
 		try {
 			const response = await axios.get(
-				`http://localhost:8080/event/location`
+				`http://localhost:8080/event/location?city=${city}`
 			);
 			setLocation(response.data?.data);
+			console.log(response.data?.data)
 		} catch (err) {
 			console.log(err.message);
 		}
@@ -32,7 +34,11 @@ export default function LokasiDropBar({ setDataLocation }) {
 
 	useEffect(() => {
 		dataLocation();
-	}, []);
+	}, [city]);
+
+	const handelinput = (event) => {
+		setCity(event.target.value);
+	};
 
 	return (
 		<Box
@@ -66,7 +72,12 @@ export default function LokasiDropBar({ setDataLocation }) {
 						</AccordionButton>
 					</Text>
 					<AccordionPanel pb={4}>
-						<Input placeholder="Cari Lokasi" mb={"20px"} />
+						<Input
+							placeholder="Cari Lokasi"
+							mb={"20px"}
+							onChange={handelinput}
+							value={city}
+						/>
 						<Flex direction={"column"} gap={3} fontSize={"14px"}>
 							<Link
 								fontWeight={400}

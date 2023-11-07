@@ -33,11 +33,11 @@ export default function KategoriDropBar({ setDataCategory }) {
 
 	return (
 		<Box
-			padding={"21px"}
+			padding={{ base: "5px", lg: "21px" }}
 			borderRadius="9px"
 			background="#FFF"
 			boxShadow="md"
-			w={"272px"}
+			w={{ base: "120px", md: "272px" }}
 			display={"flex"}
 			justifyContent={"center"}
 			flexDirection={"column"}
@@ -56,13 +56,18 @@ export default function KategoriDropBar({ setDataCategory }) {
 								outline: "transparent",
 							}}
 						>
-							<Box as="span" flex="1" textAlign="left">
+							<Box
+								as="span"
+								flex="1"
+								textAlign="left"
+								fontSize={{ base: "12px", lg: "16px" }}
+							>
 								Kategori
 							</Box>
 							<AccordionIcon />
 						</AccordionButton>
 					</Text>
-					<AccordionPanel pb={4}>
+					<AccordionPanel pb={4} fontSize={{base: "12px", lg: "16px"}}>
 						<Link
 							fontWeight={400}
 							onClick={() => setDataCategory("")}

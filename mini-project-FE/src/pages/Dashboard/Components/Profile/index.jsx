@@ -73,7 +73,7 @@ export const Profile = () => {
 	return (
 		<Box>
 			<Center w={"full"} h={"full"}>
-				<Box w={"100%"} h={"80%"} px={"70px"}>
+				<Box w={"100%"} h={"80%"} px={{base: "10px",sm: "50px", md: "70px"}}>
 					<Center mt={"35px"}>
 						<Box w={"90%"}>
 							<form onSubmit={formik.handleSubmit}>
@@ -84,7 +84,7 @@ export const Profile = () => {
 									alignItems={"start"}
 								>
 									<Box>
-										<AspectRatio width="40" ratio={1}>
+										<AspectRatio width={{base: "20",md: "40"}} ratio={1}>
 											<Box
 												borderColor="gray.300"
 												borderStyle="dashed"
@@ -123,7 +123,7 @@ export const Profile = () => {
 															display="flex"
 															alignItems={"center"}
 															justifyContent={"center"}
-														>
+														>``
 															{user?.avatar ? (
 																<Image
 																	src={`http://localhost:8080/uploads/avatar/${user?.avatar}`}

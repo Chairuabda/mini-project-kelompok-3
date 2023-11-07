@@ -11,12 +11,13 @@ export const Footer = () => {
 	return (
 		<Box
 			display={"flex"}
-			h={"300px"}
+			h={{base: "fit-content",md: "300px"}}
 			bgColor={"#EBEBEB"}
 			color="black"
 			px={{base: "20px",lg: "80px"}}
+			flexDirection={{base: "column", md: "row"}}
 		>
-			<Box w={{base: "30%",lg: "50%"}} pt={"30px"}>
+			<Box w={{base: "100%",md: "30%",lg: "50%"}} pt={"30px"}>
 				<Box>
 					<Logo posisi="static" size="42px" color="home.primary" />
 
@@ -71,13 +72,13 @@ export const Footer = () => {
 				</Box>
 			</Box>
 
-			<Box w={{base: "70%",lg: "50%"}}>
+			<Box w={{base: "100%",md: "70%",lg: "50%"}}>
 				<Center h={"full"}>
 					<Flex
 						w={"full"}
 						h={"full"}
 						justifyContent={"space-around"}
-						p={{base: "40px 20px",lg: "40px 50px"}}
+						p={{base: "30px 10px", sm: "40px 20px",lg: "40px 50px"}}
 						alignItems={"center"}
 					>
 						<Flex

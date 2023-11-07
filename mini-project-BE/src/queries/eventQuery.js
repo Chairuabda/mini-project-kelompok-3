@@ -35,6 +35,18 @@ const eventQuery = async (
 	}
 };
 
+const eventDetailQuery = async (id) =>{
+  try {
+    const res = await event.findByPk(id, {
+      include : [user]
+    })
+
+    return res
+  } catch (err) {
+    throw err
+  }
+}
+
 const eventAttendeesQuery = async (
   name = null,
   email = null,
@@ -129,4 +141,5 @@ module.exports = {
   eventLocationQuery,
   eventCategoryQuery,
   createEventQuery,
+  eventDetailQuery
 };

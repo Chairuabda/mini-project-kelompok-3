@@ -4,7 +4,6 @@ import {
 	Image,
 	Flex,
 	Card,
-	Spacer,
 	Box,
 	Grid,
 } from "@chakra-ui/react";
@@ -12,9 +11,11 @@ import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import { Avatar } from "@chakra-ui/react";
+import { useNavigate } from "react-router";
 
 export const ThisCardEvent = (props) => {
 	const [event, setEvent] = useState([]);
+	const navigate = useNavigate();
 
 	const dataEvent = async () => {
 		try {
@@ -35,12 +36,12 @@ export const ThisCardEvent = (props) => {
 		<Grid
 			templateColumns={{
 				sm: "repeat(2, 1fr)",
-				md: "repeat(3, 1fr)",
+				md: "repeat(2, 1fr)",
 				xl: "repeat(4, 1fr)",
 			}}
 			h={"fit-content"}
-			gap={6}
-			w={{ base: "75%", sm: "87%", md: "80%", lg: "75%" }}
+			gap={{base: 3, lg: 6}}
+			w={{ base: "55%", sm: "67%", md: "80%", lg: "75%" }}
 		>
 			{event?.length > 0 ? (
 				event.map((data, index) => {
@@ -58,12 +59,13 @@ export const ThisCardEvent = (props) => {
 								boxShadow: "0px 0px 13px 10px rgba(0, 0, 0, 0.1)",
 								transform: "scale(1.01)",
 							}}
+							onClick={() => navigate(`/event/${data.id}`)}
 						>
 							<Box
 								backgroundPosition={"center"}
 								backgroundSize={"cover"}
 								backgroundRepeat={"no-repeat"}
-								h={"350px"}
+								h={"214px"}
 							>
 								<Image
 									src={`http://localhost:8080/uploads/banner/${data?.banner}`}
@@ -73,28 +75,30 @@ export const ThisCardEvent = (props) => {
 								direction={"column"}
 								h={"full"}
 								p={"0px 15px 10px 15px"}
+								justify={"space-between"}
 							>
 								<Box
 									display={"flex"}
 									flexDirection={"column"}
 									gap={3}
 								>
-									<Box>{data.title}</Box>
-									<Box>
+									<Box h={"40px"} overflow={"hidden"}>
+										{data.title}
+									</Box>
+									<Box color={"gray"} fontSize={"13px"}>
 										{data.start_date} - {data.end_date}
 									</Box>
 									<Box fontWeight={700} color={"home.primary"}>
-										{data.price}
+										{/* {data.price} */}
+										Rp. 500.000
 									</Box>
 								</Box>
 
-								<Spacer />
 								<hr />
 								<Box
 									display={"flex"}
 									alignItems={"center"}
 									gap={3}
-									mt={"15px"}
 								>
 									{data?.user?.avatar ? (
 										<Image
@@ -110,7 +114,7 @@ export const ThisCardEvent = (props) => {
 										/>
 									)}
 
-									<Box>{data.user.username}</Box>
+									<Box>{data.user.fullname}</Box>
 								</Box>
 							</Flex>
 						</Card>

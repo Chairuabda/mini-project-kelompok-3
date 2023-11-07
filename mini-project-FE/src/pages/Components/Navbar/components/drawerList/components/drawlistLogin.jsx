@@ -62,7 +62,7 @@ export const DrawlistLogin = () => {
 					<Link to="/event">
 						<Text>Create Event</Text>
 					</Link>
-					<Link to="/#">
+					<Link to="/discovery">
 						<Text>Discovery</Text>
 					</Link>
 				</Box>

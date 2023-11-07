@@ -26,7 +26,7 @@ export default function LokasiDropBar({ setDataLocation }) {
 				`http://localhost:8080/event/location?city=${city}`
 			);
 			setLocation(response.data?.data);
-			console.log(response.data?.data)
+			console.log(response.data?.data);
 		} catch (err) {
 			console.log(err.message);
 		}
@@ -42,11 +42,11 @@ export default function LokasiDropBar({ setDataLocation }) {
 
 	return (
 		<Box
-			padding={"21px"}
+			padding={{ base: "5px", lg: "21px" }}
 			borderRadius="9px"
 			background="#FFF"
 			boxShadow="md"
-			w={"272px"}
+			w={{ base: "120px", md: "272px" }}
 			display={"flex"}
 			justifyContent={"center"}
 			flexDirection={"column"}
@@ -65,7 +65,12 @@ export default function LokasiDropBar({ setDataLocation }) {
 								outline: "transparent",
 							}}
 						>
-							<Box as="span" flex="1" textAlign="left">
+							<Box
+								as="span"
+								flex="1"
+								textAlign="left"
+								fontSize={{ base: "12px", lg: "16px" }}
+							>
 								Lokasi
 							</Box>
 							<AccordionIcon />
@@ -77,6 +82,7 @@ export default function LokasiDropBar({ setDataLocation }) {
 							mb={"20px"}
 							onChange={handelinput}
 							value={city}
+							fontSize={{ base: "12px", lg: "16px" }}
 						/>
 						<Flex direction={"column"} gap={3} fontSize={"14px"}>
 							<Link
@@ -94,7 +100,9 @@ export default function LokasiDropBar({ setDataLocation }) {
 												setDataLocation(data.id);
 											}}
 										>
-											{data.city}
+											<Text fontSize={{ base: "12px", lg: "16px" }}>
+												{data.city}
+											</Text>
 										</Link>
 									</Box>
 								);

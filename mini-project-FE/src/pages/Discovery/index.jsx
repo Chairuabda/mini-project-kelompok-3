@@ -53,7 +53,7 @@ export const Discovery = () => {
 				<Flex
 					w={"full"}
 					mb={"100px"}
-					gap={"10"}
+					gap={{base: 5,lg: 10}}
 					justifyContent={"center"}
 				>
 					<Box display={"flex"} flexDirection={"column"} gap={5}>

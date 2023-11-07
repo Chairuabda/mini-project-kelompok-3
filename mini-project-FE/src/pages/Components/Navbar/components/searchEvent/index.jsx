@@ -12,22 +12,24 @@ import {
 	Flex,
 	Text,
 	Tooltip,
+	Image
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 
 export const SearchEvent = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const [title, setTitle] = useState("");
 	const [events, setEvents] = useState();
+	const navigate = useNavigate()
 
 	const findEvent = async () => {
 		try {
 			const response = await axios.get(
 				`http://localhost:8080/event?title=${title}`
 			);
-			console.log(response.data.data);
 			setEvents(response?.data?.data);
 		} catch (err) {
 			console.log(err);
@@ -96,13 +98,16 @@ export const SearchEvent = () => {
 									borderRadius={"5px"}
 									w={"full"}
 									cursor={"pointer"}
+									onClick={() => navigate(`/event/${data.id}`)}
 								>
 									<Box
 										bgColor={"grey"}
 										w={"35%"}
 										borderLeftRadius={"5px"}
 										h={"full"}
-									></Box>
+									>
+										<Image src={`http://localhost:8080/uploads/banner/${data?.banner}`} w={"full"} h={"full"}/>
+									</Box>
 									<Box w={"65%"} p={"5px 8px"}>
 										<Box
 											fontSize={"14px"}
@@ -120,7 +125,6 @@ export const SearchEvent = () => {
 										<Text fontSize={"12px"}>
 											{data.start_date} - {data.end_date}
 										</Text>
-										<Text></Text>
 									</Box>
 								</Flex>
 							);

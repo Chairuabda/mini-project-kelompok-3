@@ -10,6 +10,7 @@ import { PersonalInformation } from "./pages/PersonalInformation";
 import { Auth } from "./components/auth";
 import { Discovery } from "./pages/Discovery";
 import ScrollToTop from "./components/scrollToTop";
+import { DetailEvent } from "./pages/DetailEvent";
 
 function App() {
 	return (
@@ -31,6 +32,10 @@ function App() {
 						<Route
 							path="/personal-information"
 							element={<PersonalInformation />}
+						/>
+						<Route
+							path="/event/:id"
+							element={<DetailEvent />}
 						/>
 					</Routes>
 				</ScrollToTop>

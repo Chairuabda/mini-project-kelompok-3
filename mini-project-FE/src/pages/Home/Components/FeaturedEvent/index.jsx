@@ -4,7 +4,6 @@ import {
 	Flex,
 	Grid,
 	Image,
-	Spacer,
 	Text,
 	Center,
 } from "@chakra-ui/react";
@@ -12,9 +11,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Avatar } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 export const FeaturedEventHome = () => {
 	const [event, setEvent] = useState();
+	const navigate = useNavigate()
 
 	const dataEvent = async () => {
 		try {
@@ -74,44 +75,43 @@ export const FeaturedEventHome = () => {
 									boxShadow: "0px 0px 13px 10px rgba(0, 0, 0, 0.1)",
 									transform: "scale(1.01)",
 								}}
+								onClick={() => navigate(`/event/${data.id}`)}
 							>
 								<Box
 									backgroundPosition={"center"}
 									backgroundSize={"cover"}
 									backgroundRepeat={"no-repeat"}
-									h={"350px"}
+									h={"214px"}
 								>
 									<Image
-									src={`http://localhost:8080/uploads/banner/${data?.banner}`}
-								/>
+										src={`http://localhost:8080/uploads/banner/${data?.banner}`}
+									/>
 								</Box>
 								<Flex
 									direction={"column"}
 									h={"full"}
 									p={"0px 15px 10px 15px"}
+									justify={"space-between"}
 								>
 									<Box
 										display={"flex"}
 										flexDirection={"column"}
 										gap={3}
 									>
-										<Box>{data.title}</Box>
-										<Box>
+										<Box h={"40px"} overflow={"hidden"}>
+											{data.title}
+										</Box>
+										<Box color={"gray"} fontSize={"13px"}>
 											{data.start_date} - {data.end_date}
 										</Box>
 										<Box fontWeight={700} color={"home.primary"}>
-											{data.price}
+											{/* {data.price} */}
+											Rp. 500.000
 										</Box>
 									</Box>
 
-									<Spacer />
 									<hr />
-									<Box
-										display={"flex"}
-										alignItems={"center"}
-										gap={3}
-										mt={"15px"}
-									>
+									<Box display={"flex"} alignItems={"center"} gap={3}>
 										{data?.user?.avatar ? (
 											<Image
 												src={`http://localhost:8080/uploads/avatar/${data.user?.avatar}`}
@@ -119,9 +119,11 @@ export const FeaturedEventHome = () => {
 												h={"40px"}
 												borderRadius={"50%"}
 											/>
-
 										) : (
-											<Avatar src="https://bit.ly/broken-link" size={"sm"} />
+											<Avatar
+												src="https://bit.ly/broken-link"
+												size={"sm"}
+											/>
 										)}
 										<Box>{data.user.username}</Box>
 									</Box>

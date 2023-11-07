@@ -122,17 +122,20 @@ export const CreateEvent = () => {
         alignItems="center"
         flexDirection="column"
       >
-        <form onSubmit={formik.handleSubmit}>
-          <Card  mt="150px" ml='-225px' w="200%" padding="50px" mb="100px" display='flex' justifyContent='center'>
+        <form style={{display:'flex', width:'fit-content', height:'fit-content', flexDirection:'column'}} onSubmit={formik.handleSubmit}>
+          <Card  mt="150px" w="1000px" padding="50px" mb="100px" display='flex' justifyContent='center'>
             <Text
               textAlign="center"
               fontSize="48px"
               fontWeight="600"
               lineHeight="128.5%"
             >
-              Buat Event
+              Buat Eventmu
             </Text>
+            <Box w='full' display='flex' justifyContent='center' alignItems='center'>
             <UploadImage />
+            </Box>
+            
             <Box mt="90px" display="flex " gap="10" flexDirection="column">
               <FormControl>
                 <FormLabel>Nama Event</FormLabel>
@@ -248,9 +251,33 @@ export const CreateEvent = () => {
               </FormControl>
             </Box>
           </Card>
+          <Box display='flex' justifyContent='center' alignItems='center' marginBottom='200px'>
+      <Stack spacing={4} direction="row" align="center">
+            <Button
+              marginTop="1rem"
+              marginLeft="-1rem"
+              width="500px"
+              bgColor="home.primary"
+              color="white"
+              size="lg"
+              type="submit"
+            >
+              Buat Event
+            </Button>
+          </Stack>
+      </Box>
         </form>
       </Box>
-      <Box  mt="20px" mb="200px" display="flex" justifyContent="center">
+      <Text
+              textAlign="center"
+              fontSize="48px"
+              fontWeight="600"
+              lineHeight="128.5%"
+              mt='-100px'
+            >
+              Buat Tiketmu
+            </Text>
+      <Box  mt="100px" mb="200px" display="flex" justifyContent="center">
         <Box w="45%" display="flex" justifyContent="space-between">
           <PaidTicket />
           <FreeTicket />
@@ -261,7 +288,7 @@ export const CreateEvent = () => {
       <Box display='flex' justifyContent='center' alignItems='center' marginBottom='200px'>
       <Stack spacing={4} direction="row" align="center">
             <Button
-              marginTop="5rem"
+              marginTop="-25rem"
               marginLeft="-1rem"
               width="500px"
               bgColor="home.primary"
@@ -269,7 +296,7 @@ export const CreateEvent = () => {
               size="lg"
               type="submit"
             >
-              Buat Event
+              Buat Tiket
             </Button>
           </Stack>
       </Box>

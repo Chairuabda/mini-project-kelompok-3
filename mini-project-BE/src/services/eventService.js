@@ -41,29 +41,6 @@ const eventAttendeesService = async (
 	}
 };
 
-const eventAttendeesService = async (
-  name,
-  email,
-  phone_number,
-  date_of_birth,
-  gender,
-  referral_code
-) => {
-  try {
-    const res = await eventAttendeesQuery(
-      name,
-      email,
-      phone_number,
-      date_of_birth,
-      gender,
-      referral_code
-    );
-
-    return res;
-  } catch (err) {
-    throw err;
-  }
-};
 
 const eventLocationService = async (city) => {
 	try {

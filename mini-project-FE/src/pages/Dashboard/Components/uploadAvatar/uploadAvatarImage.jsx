@@ -15,41 +15,6 @@ import { AiOutlinePlus } from "react-icons/ai";
 
 export default function UploadImage() {
 	const [selectedImage, setSelectedImage] = useState(null);
-	// const user = useSelector((state) => state.AuthReducer.user);
-	// const [fieldImage, setFieldImage] = useState(null);
-	// const toast = useToast();
-
-	
-
-	// const updateAvatar = async () => {
-	// 	try {
-	// 		let formData = new FormData();
-	// 		formData.append("avatar", fieldImage);
-
-	// 		const { data } = await axios.patch(
-	// 			`http://localhost:8080/auth/update-profile/${user.id}`,
-	// 			{
-	// 				formData,
-	// 			}
-	// 		);
-	// 		toast({
-	// 			title: data.message,
-	// 			type: "success",
-	// 		});
-	// 	} catch (err) {
-	// 		console.log(err);
-	// 	}
-	// };
-
-	// const formik = useFormik({
-	// 	initialValues: {
-	// 		Image: null,
-	// 	},
-	// 	onSubmit: () => {
-	// 		updateAvatar();
-	// 		alert("submit");
-	// 	},
-	// });
 
 	return (
 		<Box>

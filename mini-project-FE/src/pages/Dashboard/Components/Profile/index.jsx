@@ -78,7 +78,7 @@ export const Profile = () => {
 						<Box w={"90%"}>
 							<form onSubmit={formik.handleSubmit}>
 								<Box
-									mb={"70px"}
+									mb={"40px"}
 									display={"flex"}
 									justifyContent={{ base: "center", md: "start" }}
 									alignItems={"start"}
@@ -220,7 +220,7 @@ export const Profile = () => {
 										</FormHelperText>
 									</FormControl>
 								</Box>
-								<Button type="submit">Submit</Button>
+								<Button type="submit" mt={"10px"}>Submit</Button>
 							</form>
 						</Box>
 					</Center>

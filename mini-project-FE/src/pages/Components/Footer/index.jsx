@@ -14,13 +14,13 @@ export const Footer = () => {
 			h={"300px"}
 			bgColor={"#EBEBEB"}
 			color="black"
-			px={"80px"}
+			px={{base: "20px",lg: "80px"}}
 		>
-			<Box w={"50%"} pt={"30px"}>
+			<Box w={{base: "30%",lg: "50%"}} pt={"30px"}>
 				<Box>
 					<Logo posisi="static" size="42px" color="home.primary" />
 
-					<Box w={"200px"} fontSize={"14px"}>
+					<Box w={"200px"} fontSize={{base: "12px",lg:"14px"}}>
 						<Text>Pacific Building</Text> 
 						Jl. Laksda Adisucipto
 						No.157, Demangan Baru, Caturtunggal, Kec. Depok, Kabupaten
@@ -71,23 +71,23 @@ export const Footer = () => {
 				</Box>
 			</Box>
 
-			<Box w={"50%"}>
+			<Box w={{base: "70%",lg: "50%"}}>
 				<Center h={"full"}>
 					<Flex
 						w={"full"}
 						h={"full"}
 						justifyContent={"space-around"}
-						p={"40px 50px"}
+						p={{base: "40px 20px",lg: "40px 50px"}}
 						alignItems={"center"}
 					>
 						<Flex
 							h={"100%"}
 							justify={"start"}
 							direction={"column"}
-							fontSize={"14px"}
-							gap={3}
+							fontSize={{base: "12px",lg: "14px"}}
+							gap={3}	
 						>
-							<Text fontWeight={500} fontSize={"16px"}>
+							<Text fontWeight={500} fontSize={{base: "14px",lg: "16px"}}>
 								Tengtang AdaEvent
 							</Text>
 							<Link>
@@ -104,10 +104,10 @@ export const Footer = () => {
 							h={"100%"}
 							justify={"start"}
 							direction={"column"}
-							fontSize={"14px"}
 							gap={3}
+							fontSize={{base: "12px",lg: "14px"}}
 						>
-							<Text fontWeight={500} fontSize={"16px"}>
+							<Text fontWeight={500} fontSize={{base: "14px",lg: "16px"}}>
 								Lokasi
 							</Text>
 							<Link>
@@ -133,10 +133,10 @@ export const Footer = () => {
 							h={"100%"}
 							justify={"start"}
 							direction={"column"}
-							fontSize={"14px"}
+							fontSize={{base: "12px",lg: "14px"}}
 							gap={3}
 						>
-							<Text fontWeight={500} fontSize={"16px"}>
+							<Text fontWeight={500} fontSize={{base: "14px",lg: "16px"}}>
 								Kategori
 							</Text>
 							<Link>

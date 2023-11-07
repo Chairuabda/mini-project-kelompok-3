@@ -29,7 +29,7 @@ export const Navbar = () => {
 				w={"55%"}
 				display={"flex"}
 				// justifyContent={"space-between"}
-				px={{ base: "10px", md: "80px" }}
+				px={{ base: "10px", xl: "80px" }}
 				alignItems={"center"}
 			>
 				<Link to="/">
@@ -42,7 +42,7 @@ export const Navbar = () => {
 						</Text>
 					</Box>
 				</Link>
-				<Box ml={"44px"} display={{ base: "none", md: "block" }}>
+				<Box ml={{base: "10px",lg: "44px"}} display={{ base: "none", md: "block" }}>
 						<SearchEvent />
 				</Box>
 			</Box>
@@ -57,24 +57,24 @@ export const Navbar = () => {
 				<Box
 					display={"flex"}
 					mr={"14px"}
-					gap={"50"}
+					gap={{base: 3,xl: "50"}}
 					alignItems={"center"}
 				>
 					<Link to="/event">
-						<Text>Create Event</Text>
+						<Text fontSize={{base: "12px",lg: "16px"}}>Create Event</Text>
 					</Link>
 					<Link to="/Discovery">
-						<Text>Discovery</Text>
+						<Text fontSize={{base: "12px",lg: "16px"}}>Discovery</Text>
 					</Link>
 					{token ? (
 						<PopoverProfile />
 					) : (
 						<Box display={"flex"} gap={"5"} alignItems={"center"}>
 							<Link to="/login">
-								<Text>Log in</Text>
+								<Text fontSize={{base: "12px",lg: "16px"}}>Log in</Text>
 							</Link>
 							<Link to="/register">
-								<Button h={"40px"} w={"108px"}>
+								<Button h={{base: "30px",lg: "40px"}} w={{base: "60px",lg: "108px"}} fontSize={{base: "12px",lg: "16px"}}>
 									Sign Up
 								</Button>
 							</Link>

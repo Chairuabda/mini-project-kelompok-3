@@ -36,28 +36,28 @@ const eventQuery = async (
 };
 
 const eventAttendeesQuery = async (
-	name = null,
-	email = null,
-	phone_number = null,
-	date_of_birth = null,
-	gender = null,
-	referral_code = null
+  name = null,
+  email = null,
+  phone_number = null,
+  date_of_birth = null,
+  gender = null,
+  referral_code = null
 ) => {
-	try {
-		await db.sequelize.transaction(async (t) => {
-			await attendees.create({
-				name,
-				email,
-				phone_number,
-				date_of_birth,
-				gender,
-				isCancelled: false,
-				referral_code,
-			});
-		});
-	} catch (err) {
-		throw err;
-	}
+  try {
+    await db.sequelize.transaction(async (t) => {
+      await attendees.create({
+        name,
+        email,
+        phone_number,
+        date_of_birth,
+        gender,
+        isCancelled: false,
+        referral_code,
+      });
+    });
+  } catch (err) {
+    throw err;
+  }
 };
 
 const eventLocationQuery = async (city = null) => {
@@ -73,25 +73,60 @@ const eventLocationQuery = async (city = null) => {
 			},
 		});
 
-		return res;
-	} catch (err) {
-		throw err;
-	}
+    return res;
+  } catch (err) {
+    throw err;
+  }
 };
 
 const eventCategoryQuery = async () => {
-	try {
-		const res = await category.findAll();
+  try {
+    const res = await category.findAll();
 
-		return res;
-	} catch (err) {
-		throw err;
-	}
+    return res;
+  } catch (err) {
+    throw err;
+  }
+};
+
+const createEventQuery = async (
+  title,
+  description,
+  cityId,
+  address,
+  start_date,
+  end_date,
+  start_time,
+  end_time,
+  isComplate,
+  userId,
+  categoryId
+) => {
+  try {
+    const res = await event.create({
+      title,
+      description,
+      cityId,
+      address,
+      start_date,
+      end_date,
+      start_time,
+      end_time,
+      isComplate,
+      userId,
+      categoryId,
+    });
+
+    return res;
+  } catch (err) {
+    throw err;
+  }
 };
 
 module.exports = {
-	eventAttendeesQuery,
-	eventQuery,
-	eventLocationQuery,
-	eventCategoryQuery,
+  eventAttendeesQuery,
+  eventQuery,
+  eventLocationQuery,
+  eventCategoryQuery,
+  createEventQuery,
 };

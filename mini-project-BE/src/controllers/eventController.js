@@ -1,8 +1,9 @@
 const {
-	eventAttendeesService,
-	eventService,
-	eventLocationService,
-	eventCategoryService
+  eventAttendeesService,
+  eventService,
+  eventLocationService,
+  eventCategoryService,
+  createEventService,
 } = require("../services/eventService");
 
 const eventController = async (req, res) => {
@@ -19,19 +20,26 @@ const eventController = async (req, res) => {
 }
 
 const eventAttendeesController = async (req, res) => {
-	try {
-		const { name, email, phone_number, date_of_birth, gender, referral_code } = req.body;
+  try {
+    const { name, email, phone_number, date_of_birth, gender, referral_code } =
+      req.body;
 
-    const result = await eventAttendeesService(name, email, phone_number, date_of_birth, gender, referral_code)
-		console.log(result)
+    const result = await eventAttendeesService(
+      name,
+      email,
+      phone_number,
+      date_of_birth,
+      gender,
+      referral_code
+    );
+    console.log(result);
     res.status(200).json({
       message: "Attendees ditambahkan",
       data: result,
-    })
-
-	} catch (err) {
-		res.status(500).send(err.message);
-	}
+    });
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
 };
 
 const eventLocationController = async (req, res) => {
@@ -39,27 +47,69 @@ const eventLocationController = async (req, res) => {
 		const { city } = req.query
 		const result = await eventLocationService(city)
 
-		res.status(200).json({
-			message: "Get Event by Location Success",
-			data: result
-		})
-	} catch (err) {
-		res.status(500).send(err.message)
-	}
-}
+    res.status(200).json({
+      message: "Get Event by Location Success",
+      data: result,
+    });
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
 const eventCategoryController = async (req, res) => {
-	try {
-		const result = await eventCategoryService()
+  try {
+    const result = await eventCategoryService();
 
-		res.status(200).json({
-			message: "Get Event by Location Success",
-			data: result
-		})
-	} catch (err) {
-		res.status(500).send(err.message)
-	}
-}
+    res.status(200).json({
+      message: "Get Event by Location Success",
+      data: result,
+    });
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
 
+const createEventController = async (req, res) => {
+  try {
+    const {
+      title,
+      description,
+      cityId,
+      address,
+      start_date,
+      end_date,
+      start_time,
+      end_time,
+	  isComplate,
+	  userId,
+      categoryId,
+    } = req.body;
+    const result = await createEventService(
+      title,
+      description,
+      cityId,
+      address,
+      start_date,
+      end_date,
+      start_time,
+      end_time,
+	  isComplate,
+	  userId,
+      categoryId
+    );
 
+    res.status(200).json({
+      message: "Create Event Success",
+      data: result,
+    });
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
 
-module.exports = { eventAttendeesController, eventController, eventLocationController, eventCategoryController }
+module.exports = {
+  eventAttendeesController,
+  eventController,
+  eventLocationController,
+  eventCategoryController,
+  createEventController,
+};

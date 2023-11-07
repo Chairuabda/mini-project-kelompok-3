@@ -1,8 +1,9 @@
 const {
-	eventAttendeesQuery,
-	eventQuery,
-	eventLocationQuery,
-	eventCategoryQuery
+  eventAttendeesQuery,
+  eventQuery,
+  eventLocationQuery,
+  eventCategoryQuery,
+  createEventQuery,
 } = require("../queries/eventQuery");
 
 
@@ -51,13 +52,51 @@ const eventLocationService = async (city) => {
 }
 
 const eventCategoryService = async () => {
-	try {
-		const res = await eventCategoryQuery()
-		return res
-	} catch (err) {
-		throw err;
-	}
-}
+  try {
+    const res = await eventCategoryQuery();
+    return res;
+  } catch (err) {
+    throw err;
+  }
+};
 
+const createEventService = async (
+  title,
+  description,
+  cityId,
+  address,
+  start_date,
+  end_date,
+  start_time,
+  end_time,
+  isComplate,
+  userId,
+  categoryId
+) => {
+  try {
+    const res = await createEventQuery(
+      title,
+      description,
+      cityId,
+      address,
+      start_date,
+      end_date,
+      start_time,
+      end_time,
+      isComplate,
+      userId,
+      categoryId
+    );
+    return res;
+  } catch (err) {
+    throw err;
+  }
+};
 
-module.exports = { eventAttendeesService, eventService, eventLocationService, eventCategoryService };
+module.exports = {
+  eventAttendeesService,
+  eventService,
+  eventLocationService,
+  eventCategoryService,
+  createEventService,
+};

@@ -2,8 +2,8 @@ import { Box, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { useEffect } from "react";
 
-export const Timer = () => {
-	const [timer, setTimer] = useState(10);
+export const Timers = () => {
+	const [timer, setTimer] = useState(900);
 	const [isRunning, setIsRunning] = useState(true);
 
 	useEffect(() => {
@@ -26,18 +26,6 @@ export const Timer = () => {
 		};
 	}, [isRunning]);
 
-	// const start = () => {
-	// 	setIsRunning(true);
-	// };
-
-	// const stop = () => {
-	// 	setIsRunning(false);
-	// };
-
-	// const reset = () => {
-	// 	setTimer(0);
-	// 	setIsRunning(false);
-	// };
 
 	const formatTime = (time) => {
 		// menghitung menit dan detik dari total detik

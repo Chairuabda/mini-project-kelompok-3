@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Box, Text, Flex, Button } from "@chakra-ui/react";
 import { HiOutlineTicket } from "react-icons/hi2";
 import { BiPlus, BiMinus } from "react-icons/bi";
@@ -5,14 +6,16 @@ import { Divider } from "@chakra-ui/react";
 
 import { useState } from "react";
 import toRupiah from "@develoka/angka-rupiah-js";
+import { useNavigate } from "react-router";
 
-export const Tiket = () => {
+export const Tiket = (props) => {
 	const [countVip, setCountVip] = useState(0);
 	const [countFree, setCountFree] = useState(0);
+	const navigate = useNavigate();
 
 	return (
 		<Box
-			w={{base: "full", md: "33%"}}
+			w={{ base: "full", md: "33%" }}
 			bgColor={"white"}
 			borderRadius={"10px"}
 			p={"30px 50px"}
@@ -139,7 +142,19 @@ export const Tiket = () => {
 				</Flex>
 
 				<Flex justify={"end"}>
-					<Button bgColor={"home.primary"} color={"white"} w={"150px"}>
+					<Button
+						bgColor={"home.primary"}
+						color={"white"}
+						w={"150px"}
+						onClick={() =>
+							navigate(`/personal-information/${props.eventId}`, {
+								state: {
+									price: countVip * 500000,
+									total: countVip + countFree,
+								},
+							})
+						}
+					>
 						Beli Tiket
 					</Button>
 				</Flex>

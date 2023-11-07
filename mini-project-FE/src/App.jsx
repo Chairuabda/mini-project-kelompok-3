@@ -30,7 +30,7 @@ function App() {
 						</Route>
 						<Route path="/discovery" element={<Discovery />} />
 						<Route
-							path="/personal-information"
+							path="/personal-information/:id"
 							element={<PersonalInformation />}
 						/>
 						<Route

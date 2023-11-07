@@ -1,46 +1,306 @@
-import { Box, 
-		Text,
-} from '@chakra-ui/react'
+/* eslint-disable react/no-unescaped-entities */
+import {
+  Box,
+  Text,
+  Input,
+  Card,
+  FormControl,
+  FormLabel,
+  Select,
+  Textarea,
+  Stack,
+  Button,
+} from "@chakra-ui/react";
 
-import { Navbar } from '../Components/Navbar'
-import { ThisCard } from './card'
-import { InputNamaEvent } from './inputnamaevent'
-import { InputKategoriEvent } from './inputkategorievent'
-import { InputDateTime } from './inputdatetime'
-import { InputDeskripsi } from './inputdeskripsi'
-import UploadImage from './inputuploadgambar'
-import { Footer } from '../Components/Footer'
+import { Navbar } from "../Components/Navbar";
 
+import { Footer } from "../Components/Footer";
+import UploadImage from "./inputuploadgambar";
+import { PaidTicket } from "./Components/paidticket";
+import { FreeTicket } from "./Components/freeticket";
+import { useFormik } from "formik";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useSelector } from "react-redux";
+import { BeTicket } from "./Components/beticket";
 
+export const CreateEvent = () => {
+  const [category, setCategory] = useState();
+  const [city, setCity] = useState();
+  const user = useSelector((state) => state.AuthReducer.user);
+  const createEvents = async (
+    title,
+    description,
+    cityId,
+    address,
+    start_date,
+    end_date,
+    start_time,
+    end_time,
+    categoryId
+  ) => {
+    try {
+      await axios.post("http://localhost:8080/event/createevent", {
+        userId: user.id,
+        title,
+        description,
+        cityId,
+        address,
+        start_date,
+        end_date,
+        start_time,
+        end_time,
+        isComplate: 0,
+        categoryId,
+      });
+      alert("create event succsess");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-export const CreateEvent  = () => {
+  const dataCategory = async () => {
+    try {
+      const response = await axios.get("http://localhost:8080/event/category");
+
+      setCategory(response.data.data);
+      console.log(category);
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
+  const dataCity = async () => {
+    try {
+      const response = await axios.get("http://localhost:8080/event/location");
+
+      setCity(response.data.data);
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
+  useEffect(() => {
+    dataCategory();
+    dataCity();
+  }, []);
+
+  const formik = useFormik({
+    initialValues: {
+      title: "",
+      description: "",
+      cityId: "",
+      address: "",
+      start_date: "",
+      end_date: "",
+      start_time: "",
+      end_time: "",
+      categoryId: "",
+    },
+    onSubmit: (values) => {
+      createEvents(
+        values.title,
+        values.description,
+        values.cityId,
+        values.address,
+        values.start_date,
+        values.end_date,
+        values.start_time,
+        values.end_time,
+        values.categoryId
+      );
+    },
+  });
+
   return (
-	<Box
-	minH='100vh'
-	>
-		<Navbar/>
-		<Text textAlign='center' 
-		position='absolute' 
-		top='9rem' 
-		left='50rem' 
-		fontSize='48px' 
-		fontWeight='600' 
-		lineHeight='128.5%'
-		>
-		Buat Event
-		</Text>
-		<ThisCard/>
-		<Text fontSize='20px' fontWeight='500' lineHeight='128.5%' position='absolute' top='22rem' left='26rem'>Nama Event</Text>
-		<InputNamaEvent/>
-		<Text fontSize='20px' fontWeight='500' lineHeight='128.5%' position='absolute' top='30rem' left='26rem'>Kategori</Text>
-		<InputKategoriEvent/>
-		<Text fontSize='20px' fontWeight='500' lineHeight='128.5%' position='absolute' top='38.50rem' left='26rem'>Tanggal dan Waktu Mulai</Text>
-		<InputDateTime/>
-		<Text fontSize='20px' fontWeight='500' lineHeight='128.5%' position='absolute' top='47rem' left='26rem'>Tanggal dan Waktu Berakhir</Text>
-		<Text fontSize='20px' fontWeight='500' lineHeight='128.5%' position='absolute' top='55rem' left='26rem'>Deskripsi</Text>
-		<InputDeskripsi/>
-		<UploadImage/>
-		<Footer/>
-	</Box>
-  )
-}
+    <Box minH="100vh" w="100vW">
+      <Navbar />
+
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        flexDirection="column"
+      >
+        <form style={{display:'flex', width:'fit-content', height:'fit-content', flexDirection:'column'}} onSubmit={formik.handleSubmit}>
+          <Card  mt="150px" w="1000px" padding="50px" mb="100px" display='flex' justifyContent='center'>
+            <Text
+              textAlign="center"
+              fontSize="48px"
+              fontWeight="600"
+              lineHeight="128.5%"
+            >
+              Buat Eventmu
+            </Text>
+            <Box w='full' display='flex' justifyContent='center' alignItems='center'>
+            <UploadImage />
+            </Box>
+            
+            <Box mt="90px" display="flex " gap="10" flexDirection="column">
+              <FormControl>
+                <FormLabel>Nama Event</FormLabel>
+                <Input
+                  type="text"
+                  placeholder="Tulis nama event..."
+                  name="title"
+                  value={formik.values.title}
+                  onChange={formik.handleChange}
+                />
+              </FormControl>
+              <FormControl>
+                <FormLabel>Kategori</FormLabel>
+                <Select
+                  placeholder="Select category"
+                  name="categoryId"
+                  value={formik.values.categoryId}
+                  onChange={formik.handleChange}
+                >
+                  {category?.map((data, index) => {
+                    return (
+                      <option key={index} value={data.id}>
+                        {data.category}
+                      </option>
+                    );
+                  })}
+                </Select>
+              </FormControl>
+
+              <Box display="flex" gap="10">
+                <FormControl>
+                  <FormLabel>Start Date</FormLabel>
+                  <Input
+                    type="date"
+                    placeholder="Select start date"
+                    name="start_date"
+                    value={formik.values.start_date}
+                    onChange={formik.handleChange}
+                  />
+                </FormControl>
+                <FormControl>
+                  <FormLabel>End Date</FormLabel>
+                  <Input
+                    type="date"
+                    placeholder="Select end date"
+                    name="end_date"
+                    value={formik.values.end_date}
+                    onChange={formik.handleChange}
+                  />
+                </FormControl>
+              </Box>
+
+              <Box display="flex" gap="10">
+                <FormControl>
+                  <FormLabel>Start Time</FormLabel>
+                  <Input
+                    type="time"
+                    placeholder="Select start time"
+                    name="start_time"
+                    value={formik.values.start_time}
+                    onChange={formik.handleChange}
+                  />
+                </FormControl>
+                <FormControl>
+                  <FormLabel>End Time</FormLabel>
+                  <Input
+                    type="time"
+                    placeholder="Select end time"
+                    name="end_time"
+                    value={formik.values.end_time}
+                    onChange={formik.handleChange}
+                  />
+                </FormControl>
+              </Box>
+
+              <FormControl>
+                <FormLabel>Deskripsi</FormLabel>
+                <Textarea
+                  borderRadius="9px"
+                  boxShadow="sm"
+                  placeholder="Tulis deskripsi"
+                  name="description"
+                  value={formik.values.description}
+                  onChange={formik.handleChange}
+                />
+              </FormControl>
+              <FormControl>
+                <FormLabel>Address</FormLabel>
+                <Input
+                  type="text"
+                  placeholder="Address"
+                  name="address"
+                  value={formik.values.address}
+                  onChange={formik.handleChange}
+                />
+              </FormControl>
+              <FormControl>
+                <FormLabel>City</FormLabel>
+                <Select
+                  placeholder="Select City"
+                  name="cityId"
+                  value={formik.values.cityId}
+                  onChange={formik.handleChange}
+                >
+                  {city?.map((data, index) => {
+                    return (
+                      <option key={index} value={data.id}>
+                        {data.city}
+                      </option>
+                    );
+                  })}
+                </Select>
+              </FormControl>
+            </Box>
+          </Card>
+          <Box display='flex' justifyContent='center' alignItems='center' marginBottom='200px'>
+      <Stack spacing={4} direction="row" align="center">
+            <Button
+              marginTop="1rem"
+              marginLeft="-1rem"
+              width="500px"
+              bgColor="home.primary"
+              color="white"
+              size="lg"
+              type="submit"
+            >
+              Buat Event
+            </Button>
+          </Stack>
+      </Box>
+        </form>
+      </Box>
+      <Text
+              textAlign="center"
+              fontSize="48px"
+              fontWeight="600"
+              lineHeight="128.5%"
+              mt='-100px'
+            >
+              Buat Tiketmu
+            </Text>
+      <Box  mt="100px" mb="200px" display="flex" justifyContent="center">
+        <Box w="45%" display="flex" justifyContent="space-between">
+          <PaidTicket />
+          <FreeTicket />
+          
+        </Box>
+      </Box>
+      <BeTicket/>
+      <Box display='flex' justifyContent='center' alignItems='center' marginBottom='200px'>
+      <Stack spacing={4} direction="row" align="center">
+            <Button
+              marginTop="-25rem"
+              marginLeft="-1rem"
+              width="500px"
+              bgColor="home.primary"
+              color="white"
+              size="lg"
+              type="submit"
+            >
+              Buat Tiket
+            </Button>
+          </Stack>
+      </Box>
+      <Footer />
+    </Box>
+  );
+};

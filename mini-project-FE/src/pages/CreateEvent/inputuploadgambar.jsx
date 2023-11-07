@@ -113,7 +113,7 @@ export default function UploadImage() {
 	const stopAnimation = () => controls.stop();
 	const [selectedImage, setSelectedImage] = useState(null);
 	return (
-		<Container>
+		<Container mt='3rem' w='50'>
 			<AspectRatio width="64" ratio={1}>
 				<Box
 					borderColor="gray.300"

@@ -34,7 +34,7 @@ module.exports = (sequelize, Sequelize) => {
 				type: Sequelize.TIME,
 				allowNull: false,
 			},
-			end_TIME: {
+			end_time: {
 				type: Sequelize.TIME,
 				allowNull: false,
 			},

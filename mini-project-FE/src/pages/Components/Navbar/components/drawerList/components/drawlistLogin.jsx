@@ -9,7 +9,6 @@ import {
 import { Link } from "react-router-dom";
 import { RiLogoutBoxLine } from "react-icons/ri";
 import { useSelector } from "react-redux";
-import { collapseToast } from "react-toastify";
 
 export const DrawlistLogin = () => {
 	const user = useSelector((state) => state.AuthReducer.user);

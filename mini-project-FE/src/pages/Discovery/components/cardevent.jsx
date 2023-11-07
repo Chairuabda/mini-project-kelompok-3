@@ -109,6 +109,7 @@ export const ThisCardEvent = (props) => {
 											size={"sm"}
 										/>
 									)}
+
 									<Box>{data.user.username}</Box>
 								</Box>
 							</Flex>

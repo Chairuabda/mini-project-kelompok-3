@@ -52,7 +52,7 @@ export const SearchEvent = () => {
 					type="text"
 					bgColor={"white"}
 					color={"black"}
-					w={"350px"}
+					w={{base: "250px",lg: "350px"}}
 					borderRadius={"40px"}
 					placeholder="Cari event..."
 					onClick={onOpen}

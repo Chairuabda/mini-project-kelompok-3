@@ -178,7 +178,7 @@ export const DetailEvent = () => {
 						<Text mt={"20px"}>{event?.description}</Text>
 					</Box>
 
-          <Tiket/>
+          <Tiket eventId={event?.id}/>
 				</Flex>
 			</Box>
 

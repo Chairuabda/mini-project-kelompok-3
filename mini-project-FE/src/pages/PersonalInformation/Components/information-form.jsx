@@ -22,11 +22,14 @@ import { useFormik } from "formik";
 import { Link } from "react-router-dom";
 import { DetailPemesanan } from "./detailPemesanan";
 import { useState } from "react";
-import { Timer } from "./timer";
+import { Timers } from "./timer";
+import { useParams } from "react-router-dom";
 
 export const InformationForm = () => {
 	const [refferal, setRefferal] = useState();
 	const toast = useToast();
+	const { id } = useParams();
+
 
 	const personalInfo = async (
 		name,
@@ -34,7 +37,7 @@ export const InformationForm = () => {
 		phone_number,
 		date_of_birth,
 		gender,
-		referral_code,
+		referral_code
 	) => {
 		try {
 			await axios.post("http://localhost:8080/event/attendees", {
@@ -106,7 +109,7 @@ export const InformationForm = () => {
 						alignItems={"center"}
 					>
 						<Box w={"80%"}>
-							<DetailPemesanan />
+							<DetailPemesanan id={id} />
 
 							<Card p={"30px"} gap={5}>
 								<FormControl isRequired>
@@ -185,8 +188,10 @@ export const InformationForm = () => {
 							mb={"20px"}
 							bgColor={"yellow.400"}
 							color={"black"}
+							display={"flex"}
 						>
-							Segera selesaikan pembyaranmu <Timer/>
+							<Text>Segera selesaikan pembyaranmu</Text>
+							<Timers />
 						</Card>
 						<Card h={"fit-content"} w={"fit-content"} p={"40px 50px"}>
 							<Center display={"flex"} flexDirection={"column"}>

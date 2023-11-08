@@ -5,6 +5,7 @@ const {
 	eventCategoryService,
 	createEventService,
 	eventDetailService,
+	eventUserService
 } = require("../services/eventService");
 
 const eventController = async (req, res) => {
@@ -24,6 +25,19 @@ const eventDetailController = async (req, res) => {
 	try {
 		const { id } = req.params;
 		const result = await eventDetailService(id);
+		res.status(200).json({
+			message: "Event success",
+			data: result,
+		});
+	} catch (err) {
+		res.status(500).send(err.message);
+	}
+};
+
+const eventUserController = async (req, res) => {
+	try {
+		const { userId } = req.params;
+		const result = await eventUserService(userId);
 		res.status(200).json({
 			message: "Event success",
 			data: result,
@@ -133,4 +147,5 @@ module.exports = {
 	eventCategoryController,
 	createEventController,
 	eventDetailController,
+	eventUserController
 };

@@ -47,6 +47,20 @@ const eventDetailQuery = async (id) =>{
   }
 }
 
+const eventUserQuery = async (userId) =>{
+  try {
+    const res = await event.findAll({
+      where : [
+        {userId : userId}
+      ]
+    })
+
+    return res
+  } catch (err) {
+    throw err
+  }
+}
+
 const eventAttendeesQuery = async (
   name = null,
   email = null,
@@ -141,5 +155,6 @@ module.exports = {
   eventLocationQuery,
   eventCategoryQuery,
   createEventQuery,
-  eventDetailQuery
+  eventDetailQuery,
+  eventUserQuery
 };

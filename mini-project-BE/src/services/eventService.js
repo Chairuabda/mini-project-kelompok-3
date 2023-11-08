@@ -5,6 +5,7 @@ const {
 	eventCategoryQuery,
 	createEventQuery,
 	eventDetailQuery,
+	eventUserQuery
 } = require("../queries/eventQuery");
 
 const eventService = async (title, categoryId, cityId) => {
@@ -18,6 +19,15 @@ const eventService = async (title, categoryId, cityId) => {
 const eventDetailService = async (id) => {
 	try {
 		const res = eventDetailQuery(id);
+		return res;
+	} catch (err) {
+		throw err;
+	}
+};
+
+const eventUserService = async (userId) => {
+	try {
+		const res = eventUserQuery(userId);
 		return res;
 	} catch (err) {
 		throw err;
@@ -106,4 +116,6 @@ module.exports = {
 	eventCategoryService,
 	createEventService,
 	eventDetailService,
+	eventUserService
+
 };

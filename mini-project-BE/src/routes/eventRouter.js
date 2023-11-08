@@ -8,6 +8,7 @@ const {
 	eventCategoryController,
 	createEventController,
 	eventDetailController,
+	eventUserController,
 } = require("../controllers/eventController");
 
 router.post("/attendees", eventAttendeesController);
@@ -16,5 +17,6 @@ router.get("/detail-event/:id", eventDetailController);
 router.get("/location", eventLocationController);
 router.get("/category", eventCategoryController);
 router.post("/createevent", createEventController);
+router.get("/user/:userId", eventUserController);
 
 module.exports = router;
